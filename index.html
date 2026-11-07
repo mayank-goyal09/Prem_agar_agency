@@ -26,10 +26,10 @@
     :root {
       --bg-charcoal: #14100C;
       --bg-card: #1C1510;
-      --text-cream: #F6EBD6;
-      --text-cream-dim: rgba(246, 235, 214, 0.72);
-      --text-cream-faint: rgba(246, 235, 214, 0.42);
-      --amber-flame: #F2A01F;
+      --text-cream: #FDF6E9;
+      --text-cream-dim: rgba(253, 246, 233, 0.88);
+      --text-cream-faint: rgba(253, 246, 233, 0.68);
+      --amber-flame: #F5A623;
       --marigold: #E8801A;
       --terracotta: #B5502B;
       --terracotta-dark: #6E2A14;
@@ -37,8 +37,8 @@
       --deep-teal-card: #0A2928;
       --midnight-indigo: #0F1424;
       --midnight-card: #151B2E;
-      --antique-gold: #D4AF37;
-      --antique-gold-dim: rgba(212, 175, 55, 0.4);
+      --antique-gold: #F0C24B;
+      --antique-gold-dim: rgba(240, 194, 75, 0.45);
       --deep-vermilion: #C0392B;
       --font-en: 'Cormorant Garamond', Georgia, serif;
       --font-hi: 'Tiro Devanagari Hindi', 'Noto Serif Devanagari', serif;
@@ -49,6 +49,38 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    /* Sleek Minimalist Custom Scrollbar */
+    html,
+    body,
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #d4af37 rgba(15, 23, 42, 0.6);
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.6);
+      border-radius: 9999px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #d4af37;
+      border-radius: 9999px;
+      transition: background-color 0.2s ease;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: #f1c40f;
+    }
+
+    ::-webkit-scrollbar-corner {
+      background: rgba(15, 23, 42, 0.6);
     }
 
     html {
@@ -144,11 +176,11 @@
       left: 0;
       right: 0;
       z-index: 30;
-      padding: 1.25rem 1.5rem;
+      padding: 1.5rem 2.25rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
     }
 
@@ -180,13 +212,16 @@
       gap: 0.75rem;
     }
 
-    /* Language Switcher */
+    /* Language Switcher - Sleek frosted glass pill */
     .lang-switcher {
       display: inline-flex;
-      background: rgba(28, 21, 16, 0.75);
-      border: 1px solid rgba(246, 235, 214, 0.15);
+      background: rgba(24, 18, 14, 0.75);
+      border: 1px solid rgba(246, 235, 214, 0.16);
       border-radius: 9999px;
-      padding: 0.2rem;
+      padding: 0.22rem 0.28rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
     }
 
     .lang-btn {
@@ -194,17 +229,23 @@
       border: none;
       color: var(--text-cream-dim);
       font-family: var(--font-ui);
-      font-size: 0.75rem;
-      padding: 0.25rem 0.65rem;
+      font-size: 0.76rem;
+      padding: 0.28rem 0.75rem;
       border-radius: 9999px;
       cursor: pointer;
-      transition: color 0.2s, background-color 0.2s;
+      transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+      touch-action: manipulation;
+    }
+
+    .lang-btn:hover {
+      color: var(--text-cream);
     }
 
     .lang-btn.active {
       background: var(--amber-flame);
       color: var(--bg-charcoal);
       font-weight: 600;
+      box-shadow: 0 2px 8px rgba(242, 160, 31, 0.35);
     }
 
     .firework-spark-btn {
@@ -435,19 +476,27 @@
       width: 100%;
       max-width: 290px;
       aspect-ratio: 9 / 16;
-      border-radius: 18px;
+      border-radius: 20px;
       overflow: hidden;
       background: var(--bg-card);
-      border: 1.5px solid rgba(242, 160, 31, 0.45);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75), 0 0 24px rgba(242, 160, 31, 0.16);
+      border: 1.5px solid rgba(242, 160, 31, 0.5);
+      box-shadow: 
+        0 20px 48px rgba(0, 0, 0, 0.85),
+        0 0 28px rgba(242, 160, 31, 0.22),
+        inset 0 1px 1px rgba(255, 230, 153, 0.25);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       touch-action: manipulation;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
     }
 
     .hero-video-card:hover {
       transform: translateY(-2px);
-      border-color: rgba(242, 160, 31, 0.75);
-      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.85), 0 0 32px rgba(242, 160, 31, 0.28);
+      border-color: rgba(242, 160, 31, 0.85);
+      box-shadow: 
+        0 24px 56px rgba(0, 0, 0, 0.9),
+        0 0 38px rgba(242, 160, 31, 0.35),
+        inset 0 1px 2px rgba(255, 230, 153, 0.4);
     }
 
     @media (max-width: 959px) {
@@ -465,9 +514,9 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      padding: 4px 10px;
+      padding: 5px 11px;
       border-radius: 20px;
-      background: rgba(20, 16, 12, 0.8);
+      background: rgba(18, 14, 10, 0.85);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       border: 1px solid rgba(246, 235, 214, 0.2);
@@ -500,21 +549,23 @@
       right: 12px;
       display: flex;
       align-items: center;
-      gap: 5px;
-      padding: 4px 10px;
+      gap: 6px;
+      min-height: 32px;
+      padding: 5px 12px;
       border-radius: 20px;
-      background: rgba(20, 16, 12, 0.82);
+      background: rgba(20, 16, 12, 0.88);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-      border: 1px solid rgba(242, 160, 31, 0.45);
+      border: 1px solid rgba(242, 160, 31, 0.5);
       font-size: 0.72rem;
       font-family: var(--font-ui);
       letter-spacing: 0.04em;
       color: var(--amber-flame);
       cursor: pointer;
-      z-index: 6;
-      transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+      z-index: 10;
+      transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
       touch-action: manipulation;
+      user-select: none;
     }
 
     .video-sound-pill:hover {
@@ -524,9 +575,89 @@
     }
 
     .video-sound-pill.is-muted {
-      color: var(--text-cream-dim);
-      border-color: rgba(246, 235, 214, 0.25);
-      background: rgba(20, 16, 12, 0.8);
+      color: var(--text-cream);
+      border-color: rgba(242, 160, 31, 0.55);
+      background: rgba(24, 18, 12, 0.88);
+      box-shadow: 0 0 12px rgba(242, 160, 31, 0.25);
+      animation: pillPulse 2.4s ease-in-out infinite alternate;
+    }
+
+    @keyframes pillPulse {
+      0% { transform: scale(1); box-shadow: 0 0 8px rgba(242, 160, 31, 0.2); }
+      50% { transform: scale(1.03); box-shadow: 0 0 16px rgba(242, 160, 31, 0.45); }
+      100% { transform: scale(1); box-shadow: 0 0 8px rgba(242, 160, 31, 0.2); }
+    }
+
+    .video-sound-pill:not(.is-muted) {
+      background: rgba(242, 160, 31, 0.25);
+      border-color: var(--amber-flame);
+      color: var(--amber-flame);
+      box-shadow: 0 0 14px rgba(242, 160, 31, 0.4);
+    }
+
+    /* B2B Relationship Gratitude Bar (Hero) */
+    .hero-b2b-gratitude-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      max-width: 920px;
+      margin: 1.75rem auto 0;
+      padding: 0.65rem 1.4rem;
+      background: rgba(28, 22, 16, 0.65);
+      border: 1px solid rgba(212, 175, 55, 0.28);
+      border-radius: 9999px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+      text-align: center;
+    }
+
+    .b2b-ornament {
+      color: var(--amber-flame);
+      font-size: 0.85rem;
+      opacity: 0.85;
+    }
+
+    .b2b-gratitude-text {
+      font-size: 0.85rem;
+      color: var(--text-cream);
+      letter-spacing: 0.02em;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    .b2b-gratitude-en {
+      font-weight: 500;
+      color: var(--text-cream);
+    }
+
+    .b2b-gratitude-divider {
+      margin: 0 0.5rem;
+      color: var(--amber-flame);
+      opacity: 0.6;
+    }
+
+    .b2b-gratitude-hi {
+      font-family: var(--font-hi);
+      color: var(--antique-gold);
+    }
+
+    @media (max-width: 768px) {
+      .hero-b2b-gratitude-bar {
+        margin: 1.25rem 0.75rem 0;
+        padding: 0.6rem 1rem;
+        border-radius: 12px;
+      }
+      .b2b-gratitude-text {
+        font-size: 0.78rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+      .b2b-gratitude-divider {
+        display: none;
+      }
     }
 
     .heritage-transition-divider {
@@ -953,15 +1084,6 @@
       border-color: rgba(212, 175, 55, 0.55);
     }
 
-    /* States: Past Festivals (Visible, reduced opacity, selectable) */
-    .garland-card.is-past {
-      opacity: 0.68;
-    }
-    .garland-card.is-past:hover,
-    .garland-card.is-past.is-selected {
-      opacity: 1;
-    }
-
     /* Status Badges */
     .garland-badge {
       position: absolute;
@@ -970,21 +1092,68 @@
       font-size: 0.7rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      padding: 0.22rem 0.65rem;
+      padding: 0.25rem 0.72rem;
       border-radius: 9999px;
       font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
     }
 
     .badge-today {
       background: var(--amber-flame);
       color: var(--bg-charcoal);
-      box-shadow: 0 2px 8px rgba(242, 160, 31, 0.4);
+      box-shadow: 0 2px 10px rgba(242, 160, 31, 0.45);
+    }
+
+    .badge-today .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--bg-charcoal);
+      animation: livePulse 1.5s infinite;
+    }
+
+    .badge-maha {
+      background: linear-gradient(135deg, #F2A01F 0%, #D4AF37 100%);
+      color: var(--bg-charcoal);
+      font-weight: 700;
+      box-shadow: 0 0 12px rgba(242, 160, 31, 0.45);
+    }
+
+    .badge-auspicious {
+      background: rgba(212, 175, 55, 0.16);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      color: var(--antique-gold);
     }
 
     .badge-next {
       background: rgba(212, 175, 55, 0.2);
       border: 1px solid var(--antique-gold);
       color: var(--antique-gold);
+    }
+
+    /* Garland Schedule & Tithi Box */
+    .garland-card-tithi-box {
+      margin: 0.65rem 0 0.45rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      align-items: center;
+    }
+
+    .garland-tithi-hi {
+      font-family: var(--font-hi);
+      font-size: 0.88rem;
+      color: var(--antique-gold);
+      letter-spacing: 0.02em;
+    }
+
+    .garland-tithi-en {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-cream-dim);
     }
 
     /* Card Illustration Container & Handcrafted SVG Linework */
@@ -1007,31 +1176,42 @@
       stroke-linejoin: round;
     }
 
-    /* Card Names & Dates */
-    .garland-card-name-en {
-      font-family: var(--font-en);
-      font-size: 1.55rem;
+    /* Card Names, Tithis & Blessings (High Contrast for Outdoor Display) */
+    .garland-card-header {
+      margin-top: 0.35rem;
+    }
+
+    .garland-card-title-hi {
+      font-family: var(--font-hi);
+      font-size: 1.35rem;
       font-weight: 600;
       color: var(--text-cream);
       letter-spacing: 0.02em;
-      line-height: 1.15;
+      text-shadow: 0 1px 12px rgba(245, 166, 35, 0.4);
     }
 
-    .garland-card-name-hi {
-      font-family: var(--font-hi);
-      font-size: 1.3rem;
+    .garland-card-title-en {
+      font-family: var(--font-en);
+      font-size: 1.15rem;
+      font-weight: 600;
       color: var(--antique-gold);
-      margin-top: 0.25rem;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.04em;
+      margin-top: 0.15rem;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
     }
 
-    .garland-card-date {
-      display: inline-block;
-      margin-top: 0.85rem;
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+    .garland-card-tagline {
+      font-size: 0.82rem;
       color: var(--text-cream-dim);
+      margin-top: 0.35rem;
+      line-height: 1.4;
+    }
+
+    .garland-card-blessing {
+      font-size: 0.84rem;
+      color: var(--text-cream);
+      margin-top: 0.55rem;
+      line-height: 1.45;
     }
 
     /* ==============================================================
@@ -1583,30 +1763,27 @@
 
     .input-row {
       display: flex;
-      gap: 0.75rem;
-    }
-
-    @media (max-width: 540px) {
-      .input-row {
-        flex-direction: column;
-      }
+      gap: 0.65rem;
+      align-items: stretch;
     }
 
     .sender-input {
       flex: 1;
-      background: rgba(20, 16, 12, 0.8);
-      border: 1px solid rgba(246, 235, 214, 0.2);
+      min-width: 0;
+      background: rgba(20, 16, 12, 0.85);
+      border: 1px solid rgba(246, 235, 214, 0.25);
       border-radius: 8px;
       padding: 0.75rem 1rem;
       color: var(--text-cream);
       font-family: var(--font-ui);
       font-size: 0.92rem;
       outline: none;
-      transition: border-color 0.2s ease;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
     .sender-input:focus {
       border-color: var(--amber-flame);
+      box-shadow: 0 0 10px rgba(245, 166, 35, 0.25);
     }
 
     .sender-input::placeholder {
@@ -1618,7 +1795,7 @@
       color: var(--bg-charcoal);
       border: none;
       border-radius: 8px;
-      padding: 0.75rem 1.4rem;
+      padding: 0.75rem 1.35rem;
       font-family: var(--font-ui);
       font-size: 0.9rem;
       font-weight: 600;
@@ -1627,6 +1804,8 @@
       align-items: center;
       justify-content: center;
       gap: 0.4rem;
+      white-space: nowrap;
+      flex-shrink: 0;
       transition: transform 0.18s ease, background 0.18s ease;
     }
 
@@ -1733,25 +1912,89 @@
       margin-right: auto;
     }
 
-    .card-sender-badge {
-      margin-top: 1.4rem;
-      padding-top: 1.25rem;
-      border-top: 1px dashed rgba(246, 235, 214, 0.15);
-      font-size: 0.88rem;
+    /* Recipient recognition pill */
+    .card-recipient-row {
+      margin-bottom: 0.85rem;
+      padding: 0.35rem 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(242, 160, 31, 0.12);
+      border: 1px solid rgba(242, 160, 31, 0.35);
+      border-radius: 9999px;
+      font-size: 0.82rem;
       color: var(--text-cream);
     }
 
-    .card-sender-name {
-      color: var(--amber-flame);
-      font-weight: 600;
+    .card-recipient-label {
+      color: var(--text-cream-dim);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
-    .card-agency-footer {
-      margin-top: 0.35rem;
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
+    .card-recipient-name {
+      color: var(--amber-flame);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    /* B2B Relationship Gratitude Line */
+    .card-b2b-note {
+      margin: 1.25rem auto 0;
+      padding: 0.75rem 1.15rem;
+      background: rgba(20, 16, 12, 0.65);
+      border: 1px solid rgba(212, 175, 55, 0.22);
+      border-radius: 8px;
+      max-width: 520px;
+      box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-b2b-en {
+      font-size: 0.84rem;
+      color: var(--text-cream);
+      font-style: italic;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    .card-b2b-hi {
+      font-family: var(--font-hi);
+      font-size: 0.88rem;
+      color: var(--antique-gold);
+      line-height: 1.4;
+      margin: 0.3rem 0 0;
+    }
+
+    .card-sender-badge {
+      margin-top: 1.4rem;
+      padding-top: 1.15rem;
+      border-top: 1px dashed rgba(246, 235, 214, 0.16);
+      text-align: center;
+    }
+
+    .card-sender-intro {
+      display: block;
+      font-size: 0.78rem;
       text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-cream-dim);
+      margin-bottom: 0.25rem;
+    }
+
+    .card-sender-signature {
+      font-family: var(--font-en);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--amber-flame);
+      letter-spacing: 0.02em;
+    }
+
+    .card-agency-signature {
+      font-size: 0.78rem;
       color: var(--text-cream-faint);
+      letter-spacing: 0.06em;
+      margin-top: 0.25rem;
     }
 
     /* Actions: WhatsApp Share & Copy Message */
@@ -2149,44 +2392,48 @@
         letter-spacing: 0.16em !important;
       }
 
-      /* 1. Hero Section & Header - Zero Overlap */
+      /* 1. Hero Section & Header - Zero Overlap & Compact Vertical Flow */
       .hero-section {
         min-height: auto !important;
-        padding: 1.25rem 0.75rem 2rem !important;
+        padding: 0.85rem 0.65rem 1.4rem !important;
       }
       .hero-container {
-        gap: 1.25rem !important;
+        gap: 0.85rem !important;
       }
       .hero-greeting-en {
-        font-size: clamp(1.75rem, 8vw, 2.4rem) !important;
-        line-height: 1.1 !important;
+        font-size: clamp(1.65rem, 7vw, 2.2rem) !important;
+        line-height: 1.05 !important;
       }
       .hero-greeting-hi {
-        font-size: clamp(1.6rem, 7vw, 2.2rem) !important;
-        line-height: 1.2 !important;
+        font-size: clamp(1.5rem, 6.5vw, 1.95rem) !important;
+        line-height: 1.15 !important;
       }
       .hero-tagline-en,
       .hero-tagline-hi {
-        font-size: 0.75rem !important;
-        margin-top: 0.35rem !important;
+        font-size: 0.74rem !important;
+        margin-top: 0.25rem !important;
+        letter-spacing: 0.1em !important;
       }
       .hero-hint {
-        margin-top: 1rem !important;
+        margin-top: 0.65rem !important;
         font-size: 0.72rem !important;
       }
-      .hero-seasonal-wish-wrap {
-        margin-top: 1rem !important;
-        padding: 0.35rem 0.8rem !important;
-        font-size: 0.8rem !important;
-        max-width: 95% !important;
+      .hero-col-right {
+        gap: 0.65rem !important;
+        margin-top: 0 !important;
       }
       .hero-video-card {
-        max-width: min(280px, 92vw) !important;
+        max-width: min(220px, 68vw) !important;
+        max-height: min(390px, 50vh) !important;
+        aspect-ratio: 9 / 16 !important;
         width: 100% !important;
+        margin: 0.25rem auto 0 !important;
+        border-radius: 16px !important;
       }
       .diya-stage {
-        width: min(210px, 86vw) !important;
-        height: min(190px, 76vw) !important;
+        width: min(170px, 68vw) !important;
+        height: min(140px, 52vw) !important;
+        margin: 0 auto !important;
       }
       .bg-diya {
         display: none !important;
@@ -2265,25 +2512,102 @@
         font-size: 0.92rem !important;
       }
 
-      /* 8. Send a Blessing Generator */
+      /* 8. Send a Blessing Generator - Compact Mobile Flow (No Vertical Stretching) */
       .blessing-generator-section {
-        padding: 2.25rem 0.75rem 2rem !important;
+        padding: 1.75rem 0.65rem 1.5rem !important;
       }
       .blessing-form {
-        padding: 1rem !important;
-        margin-top: 1rem !important;
+        padding: 0.85rem 0.75rem !important;
+        margin-top: 0.75rem !important;
+        gap: 0.75rem !important;
+      }
+      .festival-chips-container {
+        gap: 0.35rem !important;
+        margin-bottom: 0.55rem !important;
+      }
+      .festival-chip {
+        padding: 0.25rem 0.65rem !important;
+        font-size: 0.75rem !important;
+      }
+      .input-row {
+        gap: 0.45rem !important;
+      }
+      .sender-input {
+        padding: 0.6rem 0.75rem !important;
+        font-size: 0.84rem !important;
+      }
+      .btn-create-card {
+        padding: 0.6rem 0.95rem !important;
+        font-size: 0.82rem !important;
       }
       .greeting-card-preview {
-        padding: 1.5rem 1rem !important;
-        margin-top: 1rem !important;
+        padding: 1.15rem 0.75rem !important;
+        margin-top: 0.75rem !important;
+      }
+      .card-diya-motif {
+        width: 36px !important;
+        height: 36px !important;
+        margin: 0 auto 0.5rem !important;
+      }
+      .card-recipient-row {
+        margin-bottom: 0.5rem !important;
+        padding: 0.25rem 0.75rem !important;
+        font-size: 0.75rem !important;
+      }
+      .card-title-en {
+        font-size: 1.45rem !important;
+        line-height: 1.15 !important;
+      }
+      .card-title-hi {
+        font-size: 1.35rem !important;
+        margin-top: 0.15rem !important;
+        line-height: 1.15 !important;
+      }
+      .card-blessing-message {
+        font-size: 0.82rem !important;
+        line-height: 1.45 !important;
+        margin-top: 0.55rem !important;
+      }
+      .card-blessing-message-hi {
+        font-size: 0.85rem !important;
+        line-height: 1.4 !important;
+        margin-top: 0.35rem !important;
+      }
+      .card-b2b-note {
+        margin: 0.75rem auto 0 !important;
+        padding: 0.5rem 0.75rem !important;
+      }
+      .card-b2b-en {
+        font-size: 0.76rem !important;
+        line-height: 1.35 !important;
+      }
+      .card-b2b-hi {
+        font-size: 0.8rem !important;
+        line-height: 1.35 !important;
+        margin-top: 0.2rem !important;
+      }
+      .card-sender-badge {
+        margin-top: 0.85rem !important;
+        padding-top: 0.75rem !important;
+      }
+      .card-sender-signature {
+        font-size: 1.05rem !important;
+      }
+      .card-agency-signature {
+        font-size: 0.74rem !important;
+        margin-top: 0.15rem !important;
       }
       .card-actions {
-        flex-direction: column !important;
-        gap: 0.5rem !important;
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 0.45rem !important;
+        margin-top: 0.75rem !important;
       }
       .btn-share-wa,
       .btn-copy-card {
-        width: 100% !important;
+        flex: 1 1 50% !important;
+        padding: 0.65rem 0.5rem !important;
+        font-size: 0.8rem !important;
         justify-content: center !important;
       }
 
@@ -2375,16 +2699,8 @@
       <div class="lang-switcher" role="group" aria-label="Language display toggle">
         <button type="button" class="lang-btn active" id="btn-lang-all">Both</button>
         <button type="button" class="lang-btn" id="btn-lang-en">EN</button>
-        <button type="button" class="lang-btn" id="btn-lang-hi">हिं</button>
+        <button type="button" class="lang-btn" id="btn-lang-hi">हिन्दी</button>
       </div>
-
-      <!-- Ambient Fireworks Trigger -->
-      <button type="button" class="firework-spark-btn" id="btn-sparkle" title="Tap for festive fireworks">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>
-        </svg>
-        <span>Fireworks</span>
-      </button>
     </div>
   </header>
 
@@ -2668,6 +2984,17 @@
       </div>
     </div>
 
+    <!-- B2B Relationship Gratitude Banner -->
+    <div class="hero-b2b-gratitude-bar" aria-label="Business partner gratitude">
+      <span class="b2b-ornament" aria-hidden="true">✧</span>
+      <p class="b2b-gratitude-text">
+        <span class="b2b-gratitude-en">Thank you for your continued trust and partnership throughout the year.</span>
+        <span class="b2b-gratitude-divider" aria-hidden="true">•</span>
+        <span class="b2b-gratitude-hi">वर्ष भर आपके विश्वास एवं व्यावसायिक साझेदारी के लिए हृदय से आभार।</span>
+      </p>
+      <span class="b2b-ornament" aria-hidden="true">✧</span>
+    </div>
+
     <!-- Seasonal Rotating Wish Line (Directly underneath hero) -->
     <div class="hero-seasonal-wish-wrap" aria-live="polite">
       <span class="hero-seasonal-ornament" aria-hidden="true">✦</span>
@@ -2733,16 +3060,16 @@
   </section>
 
   <!-- ==============================================================
-       FESTIVAL GARLAND (Main New Section)
+       FESTIVAL GARLAND (Diwali Week Auspicious Schedule)
        Immediately after Three Tiny Blessings
        Mobile: Horizontal scroll with CSS scroll-snap
        Desktop: 3-column grid (2 rows of 3)
        ============================================================== -->
-  <section class="garland-section" id="festival-garland" aria-label="Festival Garland">
+  <section class="garland-section" id="festival-garland" aria-label="Diwali Week Auspicious Schedule">
     <div class="garland-header">
-      <span class="section-eyebrow">Auspicious Season • पावन पर्व माला</span>
-      <h3 class="section-heading">Festival Garland</h3>
-      <p class="garland-intro">From Dhanteras to Chhath Puja — six sacred lights of celebration</p>
+      <span class="section-eyebrow">Auspicious Festival Sequence • पावन दीपोत्सव पर्व शृंखला</span>
+      <h3 class="section-heading">Diwali Week Auspicious Schedule</h3>
+      <p class="garland-intro">From Dhanteras to Chhath Puja — six sacred lights of celebration, devotion & prosperity</p>
     </div>
 
     <div class="garland-wrapper">
@@ -2958,7 +3285,7 @@
        - "Copy message" button
        ============================================================== -->
   <section class="blessing-generator-section" aria-label="Share Diwali Blessings">
-    <p class="section-eyebrow">Warm Greetings</p>
+    <p class="section-eyebrow">Warm Greetings & Gratitude</p>
     <h3 class="section-heading">Send a Blessing</h3>
 
     <div class="blessing-form">
@@ -2972,9 +3299,9 @@
           type="text"
           id="sender-name-input"
           class="sender-input"
-          placeholder="Enter your name (e.g. Ramesh, Sunita)"
-          maxlength="50"
-          aria-label="Your name for the greeting card"
+          placeholder="Enter client / partner / your name (e.g. Gupta Traders / Ramesh ji)"
+          maxlength="60"
+          aria-label="Your name or client name for the greeting card"
         />
         <button type="button" class="btn-create-card" id="btn-generate-card">
           <span>Create Blessing</span>
@@ -2990,21 +3317,33 @@
           </svg>
         </div>
 
+        <!-- Recipient Recognition Row -->
+        <div class="card-recipient-row" id="card-recipient-row" style="display: none;">
+          <span class="card-recipient-label">Specially for:</span>
+          <span class="card-recipient-name" id="card-recipient-display"></span>
+        </div>
+
         <h4 class="card-title-en" id="card-festival-title-en">Happy Diwali</h4>
         <h5 class="card-title-hi" id="card-festival-title-hi">शुभ दीपावली</h5>
 
         <p class="card-blessing-message" id="card-festival-message-en">
-          May the sacred glow of diyas illuminate your life with infinite bliss, health, harmony, and fortune.
+          May the sacred glow of diyas illuminate your life and enterprise with infinite bliss, health, harmony, and fortune.
         </p>
         <p class="card-blessing-message-hi" id="card-festival-message-hi">
-          दीपावली का पावन प्रकाश आपके घर-आंगन को सुख, शांति, समृद्धि और आरोग्य से आलोकित करे।
+          दीपावली का पावन प्रकाश आपके घर-आंगन व व्यापारिक प्रतिष्ठान को सुख, शांति, समृद्धि और आरोग्य से आलोकित करे।
         </p>
 
-        <div class="card-sender-badge">
-          <span>With heartfelt wishes from </span>
-          <span class="card-sender-name" id="card-sender-display">Tarun Goyal & Family</span>
+        <!-- B2B Relationship Gratitude Line -->
+        <div class="card-b2b-note">
+          <p class="card-b2b-en">“Thank you for your continued trust and partnership throughout the year.”</p>
+          <p class="card-b2b-hi">“वर्ष भर आपके विश्वास एवं व्यावसायिक साझेदारी के लिए हृदय से आभार।”</p>
         </div>
-        <p class="card-agency-footer">Prem Agarbatti Agency • Khari Baoli, Delhi</p>
+
+        <div class="card-sender-badge">
+          <span class="card-sender-intro">With warm regards & heartfelt blessings,</span>
+          <div class="card-sender-signature" id="card-sender-display">Tarun Goyal & Family</div>
+          <div class="card-agency-signature">Prem Agarbatti Agency • Khari Baoli, Delhi • Est. 1992</div>
+        </div>
       </div>
 
       <!-- Actions: WhatsApp & Copy -->
@@ -3234,13 +3573,16 @@
           id: 'dhanteras',
           nameEn: 'Dhanteras',
           nameHi: 'धनतेरस',
+          dayLabel: 'Day 1',
+          tithiEn: 'Trayodashi',
+          tithiHi: 'कार्तिक कृष्ण त्रयोदशी',
           taglineEn: 'Festival of Wealth & Auspicious Beginnings',
           taglineHi: 'समृद्धि एवं आरोग्य का पावन पर्व',
           date: '2026-11-06',
           wishHi: 'शुभ धनतेरस',
           wishEn: 'Happy Dhanteras',
-          shortBlessingEn: 'May Lord Dhanvantari bless your home with divine health, peace, and boundless prosperity.',
-          shortBlessingHi: 'भगवान धन्वंतरि और मां लक्ष्मी आपके घर-आंगन में सुख, स्वास्थ्य एवं अपार समृद्धि का वास करें।',
+          shortBlessingEn: 'May Lord Dhanvantari bless your home and business with divine health, peace, and boundless prosperity.',
+          shortBlessingHi: 'भगवान धन्वंतरि और मां लक्ष्मी आपके घर-आंगन व व्यापार में सुख, स्वास्थ्य एवं अपार समृद्धि का वास करें।',
           illustration: `<svg class="garland-card-svg" viewBox="0 0 120 120" fill="none" aria-hidden="true">
             <defs>
               <radialGradient id="kalashGlow" cx="50%" cy="50%" r="50%">
@@ -3280,16 +3622,19 @@
           </svg>`
         },
         {
-          id: 'choti-diwali', // Some calendars show November 8. Confirm the correct date.
+          id: 'choti-diwali',
           nameEn: 'Choti Diwali',
           nameHi: 'छोटी दिवाली',
+          dayLabel: 'Day 2',
+          tithiEn: 'Roop Chaturdashi',
+          tithiHi: 'कार्तिक कृष्ण चतुर्दशी',
           taglineEn: 'Naraka Chaturdashi • Triumph of Light',
           taglineHi: 'नरक चतुर्दशी • प्रकाश की विजय',
           date: '2026-11-07',
           wishHi: 'शुभ छोटी दिवाली',
           wishEn: 'Happy Choti Diwali',
-          shortBlessingEn: 'May this eve of holy lamps cleanse every shadow and illuminate your path ahead.',
-          shortBlessingHi: 'दीपक की यह पावन पूर्व संध्या आपके जीवन के समस्त तमस को हर कर ज्ञान व शांति का आलोक फैलाए।',
+          shortBlessingEn: 'May this eve of holy lamps cleanse every shadow and illuminate your path and enterprise ahead.',
+          shortBlessingHi: 'दीपक की यह पावन पूर्व संध्या आपके जीवन व कार्यक्षेत्र के समस्त तमस को हर कर ज्ञान, समृद्धि व शांति का आलोक फैलाए।',
           illustration: `<svg class="garland-card-svg" viewBox="0 0 120 120" fill="none" aria-hidden="true">
             <defs>
               <radialGradient id="chotiDiyaGlow" cx="50%" cy="50%" r="50%">
@@ -3323,13 +3668,16 @@
           id: 'diwali',
           nameEn: 'Diwali',
           nameHi: 'दीपावली',
+          dayLabel: 'Day 3',
+          tithiEn: 'Maha Lakshmi Pujan',
+          tithiHi: 'कार्तिक कृष्ण अमावस्या • मुख्य महापर्व',
           taglineEn: 'Maha Lakshmi Pujan • The Festival of Lights',
           taglineHi: 'महालक्ष्मी पूजन • दीपों का महापर्व',
           date: '2026-11-08',
           wishHi: 'शुभ दीपावली',
           wishEn: 'Happy Diwali',
-          shortBlessingEn: 'May the sacred light of Maha Lakshmi illuminate your home with peace, joy, and endless prosperity.',
-          shortBlessingHi: 'महालक्ष्मी का पावन आशीर्वाद आपके जीवन में सुख, शांति, आनंद और अटूट ऐश्वर्य का प्रकाश भरे।',
+          shortBlessingEn: 'May the sacred light of Maha Lakshmi illuminate your home and business with peace, joy, and endless prosperity.',
+          shortBlessingHi: 'महालक्ष्मी का पावन आशीर्वाद आपके जीवन एवं व्यावसायिक प्रतिष्ठान में सुख, शांति, आनंद और अटूट ऐश्वर्य का प्रकाश भरे।',
           illustration: `<svg class="garland-card-svg" viewBox="0 0 120 120" fill="none" aria-hidden="true">
             <defs>
               <radialGradient id="diwaliGlow" cx="50%" cy="50%" r="50%">
@@ -3362,16 +3710,19 @@
           </svg>`
         },
         {
-          id: 'govardhan-puja', // Some calendars show November 9. Confirm the correct date.
+          id: 'govardhan-puja',
           nameEn: 'Govardhan Puja',
           nameHi: 'गोवर्धन पूजा',
+          dayLabel: 'Day 4',
+          tithiEn: 'Annakut Mahotsav',
+          tithiHi: 'कार्तिक शुक्ल प्रतिपदा',
           taglineEn: 'Annakut • Reverence for Nature & Provider',
           taglineHi: 'अन्नकूट • प्रकृति एवं गिरिराज वंदना',
           date: '2026-11-10',
           wishHi: 'गोवर्धन पूजा की शुभकामनाएं',
           wishEn: 'Happy Govardhan Puja',
-          shortBlessingEn: 'May Lord Krishna and Giriraj Govardhan protect and nourish your family with divine abundance.',
-          shortBlessingHi: 'भगवान श्री कृष्ण और गिरिराज महाराज की कृपा से आपके परिवार में सदा संपन्नता, सुरक्षा एवं शांति बनी रहे।',
+          shortBlessingEn: 'May Lord Krishna and Giriraj Govardhan protect and nourish your family and endeavors with divine abundance.',
+          shortBlessingHi: 'भगवान श्री कृष्ण और गिरिराज महाराज की कृपा से आपके परिवार व कारोबार में सदा संपन्नता, सुरक्षा एवं शांति बनी रहे।',
           illustration: `<svg class="garland-card-svg" viewBox="0 0 120 120" fill="none" aria-hidden="true">
             <defs>
               <radialGradient id="govardhanGlow" cx="50%" cy="50%" r="50%">
@@ -3403,15 +3754,18 @@
           </svg>`
         },
         {
-          id: 'bhai-dooj', // Some calendars show November 10. Confirm the correct date.
+          id: 'bhai-dooj',
           nameEn: 'Bhai Dooj',
           nameHi: 'भाई दूज',
+          dayLabel: 'Day 5',
+          tithiEn: 'Yama Dwitiya',
+          tithiHi: 'कार्तिक शुक्ल द्वितीया',
           taglineEn: 'Yama Dwitiya • Eternal Bond of Siblings',
           taglineHi: 'यम द्वितीया • भाई-बहन के प्रेम का पावन पर्व',
           date: '2026-11-11',
           wishHi: 'भाई दूज की शुभकामनाएं',
           wishEn: 'Happy Bhai Dooj',
-          shortBlessingEn: 'Celebrating the timeless sacred bond of love, care, and protection between brothers and sisters.',
+          shortBlessingEn: 'Celebrating the timeless sacred bond of love, care, trust, and prosperity.',
           shortBlessingHi: 'भाई-बहन के अटूट स्नेह, विश्वास और मंगलकामनाओं का यह पावन पर्व सदैव खुशियां और समृद्धि लाए।',
           illustration: `<svg class="garland-card-svg" viewBox="0 0 120 120" fill="none" aria-hidden="true">
             <defs>
@@ -3447,15 +3801,18 @@
           </svg>`
         },
         {
-          id: 'chhath-puja', // Confirm the date.
+          id: 'chhath-puja',
           nameEn: 'Chhath Puja',
           nameHi: 'छठ पूजा',
+          dayLabel: 'Day 6',
+          tithiEn: 'Surya Shashthi',
+          tithiHi: 'कार्तिक शुक्ल षष्ठी',
           taglineEn: 'Surya Shashthi • Homage to the Sun & Nature',
           taglineHi: 'सूर्य षष्ठी • छठी मइया व भगवान भास्कर की उपासना',
           date: '2026-11-15',
           wishHi: 'छठ पूजा की शुभकामनाएं',
           wishEn: 'Happy Chhath Puja',
-          shortBlessingEn: 'May Lord Surya and Chhathi Maiya bestow radiant health, purity, vitality, and boundless joy.',
+          shortBlessingEn: 'May Lord Surya and Chhathi Maiya bestow radiant health, purity, vitality, and boundless commercial success.',
           shortBlessingHi: 'भगवान भास्कर एवं षष्ठी मइया आपके जीवन को तेज, निरोगी काया, आत्मिक शांति और अटूट श्रद्धा से आलोकित करें।',
           illustration: `<svg class="garland-card-svg" viewBox="0 0 120 120" fill="none" aria-hidden="true">
             <defs>
@@ -3519,35 +3876,39 @@
         let todayFestId = null;
         let nextFestId = null;
         let minFutureDiff = Infinity;
+        const todayMonthDay = todayStr ? todayStr.substring(5) : '';
 
-        // Check if there is an exact match for today
+        // Check if there is an exact or month-day match for today
         festivals.forEach(function (f) {
-          if (f.date === todayStr) {
+          const festMonthDay = f.date ? f.date.substring(5) : '';
+          if (f.date === todayStr || festMonthDay === todayMonthDay) {
             todayFestId = f.id;
           }
         });
 
-        // Find the closest future date if today is not the last festival
-        festivals.forEach(function (f) {
-          if (f.date > todayStr) {
-            const diff = new Date(f.date).getTime() - new Date(todayStr).getTime();
-            if (diff > 0 && diff < minFutureDiff) {
-              minFutureDiff = diff;
-              nextFestId = f.id;
+        // Find the closest future date if today is not matched
+        if (!todayFestId) {
+          festivals.forEach(function (f) {
+            if (f.date > todayStr) {
+              const diff = new Date(f.date).getTime() - new Date(todayStr).getTime();
+              if (diff > 0 && diff < minFutureDiff) {
+                minFutureDiff = diff;
+                nextFestId = f.id;
+              }
             }
-          }
-        });
+          });
+        }
 
         const statuses = {};
         festivals.forEach(function (f) {
-          if (f.date === todayStr) {
+          if (f.id === todayFestId) {
             statuses[f.id] = 'today';
+          } else if (f.id === 'diwali') {
+            statuses[f.id] = 'maha';
           } else if (f.id === nextFestId) {
             statuses[f.id] = 'next';
-          } else if (f.date < todayStr) {
-            statuses[f.id] = 'past';
           } else {
-            statuses[f.id] = 'future';
+            statuses[f.id] = 'auspicious';
           }
         });
 
@@ -3569,9 +3930,9 @@
       }
 
       /* ==============================================================
-         4. FESTIVAL GARLAND RENDERING
+         4. FESTIVAL GARLAND RENDERING (Auspicious Schedule)
          Renders 6 cards into #garland-cards-container with inline SVGs,
-         status badges, and synchronizes selection.
+         sacred Tithis, dynamic statuses, and synchronized selection.
          ============================================================== */
       const garlandContainer = document.getElementById('garland-cards-container');
 
@@ -3580,26 +3941,26 @@
         garlandContainer.innerHTML = '';
 
         FESTIVALS.forEach(function (fest) {
-          const status = festivalStatuses[fest.id] || 'future';
+          const status = festivalStatuses[fest.id] || 'auspicious';
           const isSelected = fest.id === currentSelectedFestivalId;
 
           const card = document.createElement('div');
-          card.className = `garland-card ${status === 'today' ? 'is-today' : ''} ${status === 'past' ? 'is-past' : ''} ${isSelected ? 'active' : ''}`;
+          card.className = `garland-card ${status === 'today' ? 'is-today' : ''} ${status === 'maha' ? 'is-maha' : ''} ${isSelected ? 'active' : ''}`;
           card.id = `garland-card-${fest.id}`;
           card.setAttribute('role', 'tab');
           card.setAttribute('tabindex', '0');
           card.setAttribute('aria-selected', isSelected ? 'true' : 'false');
-          card.setAttribute('aria-label', `${fest.nameEn} (${fest.nameHi}) - ${fest.taglineEn}`);
+          card.setAttribute('aria-label', `${fest.nameEn} (${fest.nameHi}) - ${fest.tithiHi} - ${fest.taglineEn}`);
 
           let badgeHtml = '';
           if (status === 'today') {
-            badgeHtml = `<span class="garland-badge badge-today"><span class="badge-dot"></span>Today</span>`;
+            badgeHtml = `<span class="garland-badge badge-today"><span class="badge-dot"></span>Today's Light</span>`;
+          } else if (status === 'maha') {
+            badgeHtml = `<span class="garland-badge badge-maha">Maha Parv</span>`;
           } else if (status === 'next') {
-            badgeHtml = `<span class="garland-badge badge-next">Next</span>`;
-          } else if (status === 'past') {
-            badgeHtml = `<span class="garland-badge badge-past">Past</span>`;
+            badgeHtml = `<span class="garland-badge badge-next">${fest.dayLabel} • Next</span>`;
           } else {
-            badgeHtml = `<span class="garland-badge badge-upcoming">Upcoming</span>`;
+            badgeHtml = `<span class="garland-badge badge-auspicious">${fest.dayLabel}</span>`;
           }
 
           card.innerHTML = `
@@ -3609,7 +3970,10 @@
               <h4 class="garland-card-title-hi">${fest.nameHi}</h4>
               <h5 class="garland-card-title-en">${fest.nameEn}</h5>
             </div>
-            <p class="garland-card-date">${formatFestivalDate(fest.date)}</p>
+            <div class="garland-card-tithi-box">
+              <span class="garland-tithi-hi">${fest.tithiHi}</span>
+              <span class="garland-tithi-en">${fest.dayLabel} • ${fest.tithiEn}</span>
+            </div>
             <p class="garland-card-tagline">${fest.taglineHi}</p>
             <p class="garland-card-blessing">${fest.shortBlessingEn}</p>
           `;
@@ -3692,6 +4056,8 @@
       const nameInput = document.getElementById('sender-name-input');
       const createCardBtn = document.getElementById('btn-generate-card');
       const senderDisplay = document.getElementById('card-sender-display');
+      const recipientRow = document.getElementById('card-recipient-row');
+      const recipientDisplay = document.getElementById('card-recipient-display');
       const shareWaBtn = document.getElementById('btn-share-whatsapp');
       const copyBtn = document.getElementById('btn-copy-text');
       const toastEl = document.getElementById('toast-pill');
@@ -3734,25 +4100,40 @@
 
       function updateBlessingCardPreview() {
         const fest = getSelectedFestival();
-        const nameVal = (nameInput && nameInput.value.trim()) || 'Tarun Goyal & Family';
+        const rawInput = nameInput ? nameInput.value.trim() : '';
 
         if (cardTitleEn) cardTitleEn.textContent = fest.wishEn;
         if (cardTitleHi) cardTitleHi.textContent = fest.wishHi;
         if (cardMsgEn) cardMsgEn.textContent = fest.shortBlessingEn;
         if (cardMsgHi) cardMsgHi.textContent = fest.shortBlessingHi;
-        if (senderDisplay) senderDisplay.textContent = nameVal;
 
-        // WhatsApp sharing text with EXACT signature "Prem Agarbatti Agency family"
+        // If a specific client/business name was entered:
+        if (rawInput) {
+          if (recipientRow) recipientRow.style.display = 'inline-flex';
+          if (recipientDisplay) recipientDisplay.textContent = rawInput;
+        } else {
+          if (recipientRow) recipientRow.style.display = 'none';
+        }
+
+        if (senderDisplay) senderDisplay.textContent = 'Tarun Goyal & Family';
+
+        // Tight, polite, professional B2B WhatsApp sharing text
+        const greetingTarget = rawInput ? `*${rawInput}*` : 'you and your respected family';
         const blessingMsg =
-          `🪔 *${fest.wishEn} | ${fest.wishHi}*\n\n` +
+          `🪔 *${fest.wishEn} | ${fest.wishHi}* 🪔\n\n` +
+          `Wishing ${greetingTarget} a blissful, healthy, and prosperous festive season!\n\n` +
           `${fest.shortBlessingEn}\n\n` +
           `${fest.shortBlessingHi}\n\n` +
-          `With heartfelt wishes from *${nameVal}*\n` +
-          `Prem Agarbatti Agency family\n` +
-          `Khari Baoli, Delhi (Wholesale Agarbatti & Dhoop since 1992)`;
+          `_“Thank you for your continued trust and partnership throughout the year.”_\n` +
+          `_“वर्ष भर आपके विश्वास एवं व्यावसायिक साझेदारी के लिए हृदय से आभार।”_\n\n` +
+          `With warm regards & heartfelt blessings,\n` +
+          `*Tarun Goyal & Family*\n` +
+          `*Prem Agarbatti Agency*\n` +
+          `Khari Baoli, Delhi • Est. 1992\n` +
+          `🌐 https://premagarbattiagency-git-main-mayanks-projects-e55a5c06.vercel.app/`;
 
         if (shareWaBtn) {
-          shareWaBtn.href = 'https://wa.me/919818296081?text=' + encodeURIComponent(blessingMsg);
+          shareWaBtn.href = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(blessingMsg);
         }
       }
 
@@ -3791,15 +4172,23 @@
       if (createCardBtn) {
         createCardBtn.addEventListener('click', function () {
           updateBlessingCardPreview();
-          showToast('Blessing card updated with your name');
+          showToast('Blessing card updated');
         });
       }
 
       if (nameInput) {
+        // Real-time instant preview as client/partner name is typed
+        nameInput.addEventListener('input', function () {
+          updateBlessingCardPreview();
+        });
+        nameInput.addEventListener('change', function () {
+          updateBlessingCardPreview();
+        });
         nameInput.addEventListener('keydown', function (e) {
           if (e.key === 'Enter') {
+            e.preventDefault();
             updateBlessingCardPreview();
-            showToast('Blessing card updated with your name');
+            showToast('Blessing card updated');
           }
         });
       }
@@ -3807,23 +4196,29 @@
       if (copyBtn) {
         copyBtn.addEventListener('click', function () {
           const fest = getSelectedFestival();
-          const nameVal = (nameInput && nameInput.value.trim()) || 'Tarun Goyal & Family';
+          const rawInput = nameInput ? nameInput.value.trim() : '';
+          const greetingTarget = rawInput ? `*${rawInput}*` : 'you and your respected family';
           const blessingMsg =
-            `🪔 ${fest.wishEn} | ${fest.wishHi}\n\n` +
+            `🪔 *${fest.wishEn} | ${fest.wishHi}* 🪔\n\n` +
+            `Wishing ${greetingTarget} a blissful, healthy, and prosperous festive season!\n\n` +
             `${fest.shortBlessingEn}\n\n` +
             `${fest.shortBlessingHi}\n\n` +
-            `With heartfelt wishes from ${nameVal}\n` +
-            `Prem Agarbatti Agency family\n` +
-            `Khari Baoli, Delhi (Wholesale Agarbatti & Dhoop since 1992)`;
+            `_“Thank you for your continued trust and partnership throughout the year.”_\n` +
+            `_“वर्ष भर आपके विश्वास एवं व्यावसायिक साझेदारी के लिए हृदय से आभार।”_\n\n` +
+            `With warm regards & heartfelt blessings,\n` +
+            `*Tarun Goyal & Family*\n` +
+            `*Prem Agarbatti Agency*\n` +
+            `Khari Baoli, Delhi • Est. 1992\n` +
+            `🌐 https://premagarbattiagency-git-main-mayanks-projects-e55a5c06.vercel.app/`;
 
           if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(blessingMsg).then(function () {
-              showToast('Blessing copied to clipboard');
+              showToast('Greeting message copied to clipboard!');
             }).catch(function () {
-              showToast('Blessing copied');
+              showToast('Greeting message copied!');
             });
           } else {
-            showToast('Blessing copied');
+            showToast('Greeting message copied!');
           }
         });
       }
@@ -4214,7 +4609,7 @@
               soundPill.classList.remove('is-muted');
               soundPill.setAttribute('aria-label', 'Mute minimal sound');
             }
-            if (pillSoundLabel) pillSoundLabel.textContent = 'Minimal Sound • Playing';
+            if (pillSoundLabel) pillSoundLabel.textContent = 'Sound Active 🔊';
             if (pillIconSound) pillIconSound.style.display = 'inline-block';
             if (pillIconMuted) pillIconMuted.style.display = 'none';
           }
@@ -4336,13 +4731,22 @@
           });
         }
 
-        // Minimal Sound Pill: Clean click handling that toggles and plays audio
+        // Minimal Sound Pill: Foolproof mobile and desktop tap handler
         if (soundPill) {
-          soundPill.addEventListener('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
+          let lastSoundPillTap = 0;
+          function handleSoundPillTrigger(e) {
+            const now = Date.now();
+            if (now - lastSoundPillTap < 300) return; // Debounce double trigger on touch devices
+            lastSoundPillTap = now;
+            if (e) {
+              e.preventDefault();
+              e.stopPropagation();
+            }
             toggleSound();
-          });
+          }
+
+          soundPill.addEventListener('click', handleSoundPillTrigger);
+          soundPill.addEventListener('touchend', handleSoundPillTrigger, { passive: false });
         }
 
         // Corner Mute Button
