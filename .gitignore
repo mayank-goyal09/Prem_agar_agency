@@ -6,3 +6,5 @@ coverage/
 *.log
 .env*
 !.env.example
+watermark-removed-shop-video.mp4
+README copy.md

@@ -9,6 +9,8 @@
   <meta property="og:description" content="Handcrafted, calm Diwali greeting website for Prem Agarbatti Agency (Khari Baoli, Delhi, since 1992)." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 4C16 4 11 11 11 16C11 19.3 13.2 22 16 22C18.8 22 21 19.3 21 16C21 11 16 4 16 4Z' fill='%23F2A01F'/%3E%3Cpath d='M6 18C6 24 10.5 28 16 28C21.5 28 26 24 26 18C26 17 24 16 16 16C8 16 6 17 6 18Z' fill='%23B5502B'/%3E%3C/svg%3E" />
 
   <!-- Fonts: Cormorant Garamond, Tiro Devanagari Hindi, Inter (font-display: swap) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -226,6 +228,66 @@
       transform: translateY(-1px);
     }
 
+    @media (max-width: 768px) {
+      .site-header {
+        position: relative;
+        padding: 0.85rem 0.65rem 0.5rem;
+        flex-direction: column;
+        gap: 0.55rem;
+        align-items: center;
+        text-align: center;
+      }
+      .brand-mark {
+        align-items: center;
+        text-align: center;
+      }
+      .brand-title {
+        font-size: 1.18rem;
+        line-height: 1.2;
+      }
+      .brand-sub {
+        font-size: 0.65rem;
+        letter-spacing: 0.08em;
+      }
+      .header-actions {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+      }
+      .lang-switcher {
+        padding: 0.15rem;
+      }
+      .lang-btn {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.7rem;
+      }
+      .firework-spark-btn {
+        padding: 0.25rem 0.55rem;
+        font-size: 0.7rem;
+      }
+    }
+
+    @media (max-width: 320px) {
+      .brand-title {
+        font-size: 1.05rem;
+      }
+      .brand-sub {
+        font-size: 0.6rem;
+      }
+      .header-actions {
+        gap: 0.25rem;
+      }
+      .lang-btn {
+        padding: 0.18rem 0.38rem;
+        font-size: 0.66rem;
+      }
+      .firework-spark-btn {
+        padding: 0.2rem 0.42rem;
+        font-size: 0.66rem;
+      }
+    }
+
     /* ==============================================================
        1. HERO SECTION
        Desktop: 3 columns (Happy Diwali | Diya | शुभ दीपावली)
@@ -309,7 +371,7 @@
       position: relative;
       z-index: 5;
       width: 100%;
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr;
@@ -318,11 +380,11 @@
       text-align: center;
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 960px) {
       .hero-container {
-        grid-template-columns: 1fr auto 1fr;
+        grid-template-columns: 1fr auto 1.15fr;
         text-align: left;
-        gap: 3rem;
+        gap: 2.5rem;
       }
     }
 
@@ -333,7 +395,7 @@
       justify-content: center;
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 960px) {
       .hero-col-left {
         align-items: flex-end;
         text-align: right;
@@ -345,13 +407,145 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 1.15rem;
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 960px) {
       .hero-col-right {
         align-items: flex-start;
         text-align: left;
       }
+    }
+
+    .hero-greeting-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @media (min-width: 960px) {
+      .hero-greeting-box {
+        align-items: flex-start;
+      }
+    }
+
+    /* Video on the Right Side of the Home Page */
+    .hero-video-card {
+      position: relative;
+      width: 100%;
+      max-width: 290px;
+      aspect-ratio: 9 / 16;
+      border-radius: 18px;
+      overflow: hidden;
+      background: var(--bg-card);
+      border: 1.5px solid rgba(242, 160, 31, 0.45);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75), 0 0 24px rgba(242, 160, 31, 0.16);
+      touch-action: manipulation;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .hero-video-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(242, 160, 31, 0.75);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.85), 0 0 32px rgba(242, 160, 31, 0.28);
+    }
+
+    @media (max-width: 959px) {
+      .hero-video-card {
+        max-width: 280px;
+        margin-top: 0.5rem;
+      }
+    }
+
+    /* Live Badge in top left of video */
+    .hero-video-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: rgba(20, 16, 12, 0.8);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(246, 235, 214, 0.2);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--text-cream);
+      z-index: 6;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .live-pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+      animation: livePulse 2s infinite;
+    }
+
+    @keyframes livePulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* Minimal Sound Pill in top right of video */
+    .video-sound-pill {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: rgba(20, 16, 12, 0.82);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(242, 160, 31, 0.45);
+      font-size: 0.72rem;
+      font-family: var(--font-ui);
+      letter-spacing: 0.04em;
+      color: var(--amber-flame);
+      cursor: pointer;
+      z-index: 6;
+      transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+      touch-action: manipulation;
+    }
+
+    .video-sound-pill:hover {
+      background: rgba(242, 160, 31, 0.25);
+      transform: scale(1.04);
+      border-color: var(--amber-flame);
+    }
+
+    .video-sound-pill.is-muted {
+      color: var(--text-cream-dim);
+      border-color: rgba(246, 235, 214, 0.25);
+      background: rgba(20, 16, 12, 0.8);
+    }
+
+    .heritage-transition-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 3.5rem 1.5rem;
+      color: var(--antique-gold);
+      opacity: 0.7;
+      font-family: var(--font-hi);
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      user-select: none;
+    }
+
+    .heritage-transition-divider .divider-gem {
+      color: var(--amber-flame);
+      font-size: 0.85rem;
     }
 
     .hero-col-center {
@@ -382,7 +576,7 @@
 
     .hero-greeting-hi {
       font-family: var(--font-hi);
-      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-size: clamp(2rem, 3.5vw, 3.4rem);
       font-weight: 600;
       line-height: 1.15;
       color: var(--text-cream);
@@ -391,9 +585,9 @@
     }
 
     .hero-tagline-hi {
-      margin-top: 0.75rem;
+      margin-top: 0.5rem;
       font-family: var(--font-hi);
-      font-size: 1.05rem;
+      font-size: 0.95rem;
       color: var(--text-cream-dim);
       letter-spacing: 0.04em;
     }
@@ -555,14 +749,14 @@
       flex-direction: column;
       align-items: center;
       gap: 0.85rem;
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      opacity: 1;
+      transform: none;
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
     .blessing-item.revealed {
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
     }
 
     .blessing-icon-wrap {
@@ -1099,6 +1293,8 @@
     .shop-video-container.is-playing .video-center-play-btn {
       opacity: 0;
       pointer-events: none;
+      visibility: hidden;
+      transform: translate(-50%, -50%) scale(0.85);
     }
 
     /* Minimal Corner Controls (Pause/Play & Mute/Sound) */
@@ -1176,11 +1372,7 @@
       text-align: center;
     }
 
-    /* Battery saver: pause hero embers and incense smoke while video is playing */
-    body.video-active-playing .ember,
-    body.video-active-playing .smoke-line {
-      animation-play-state: paused !important;
-    }
+    /* Keep calm ambient hero motion smooth while video is playing */
 
     /* ==============================================================
        4. THEN AND NOW (The heart of the page)
@@ -1348,14 +1540,14 @@
       aspect-ratio: 16 / 9;
       max-height: 520px;
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
+      opacity: 1;
+      transform: none;
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
     .inside-card.revealed {
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
     }
 
     .inside-caption {
@@ -1944,6 +2136,206 @@
     }
 
     /* ==============================================================
+       RESPONSIVE MOBILE & COMPACT DEVICE OPTIMIZATIONS
+       Flawless rendering for narrow screens down to 260px (including 267.20 × 749.60 px)
+       ============================================================== */
+    @media (max-width: 768px) {
+      /* Typography & Global Headings */
+      .section-heading {
+        font-size: clamp(1.45rem, 5.5vw, 1.85rem) !important;
+      }
+      .section-eyebrow {
+        font-size: 0.68rem !important;
+        letter-spacing: 0.16em !important;
+      }
+
+      /* 1. Hero Section & Header - Zero Overlap */
+      .hero-section {
+        min-height: auto !important;
+        padding: 1.25rem 0.75rem 2rem !important;
+      }
+      .hero-container {
+        gap: 1.25rem !important;
+      }
+      .hero-greeting-en {
+        font-size: clamp(1.75rem, 8vw, 2.4rem) !important;
+        line-height: 1.1 !important;
+      }
+      .hero-greeting-hi {
+        font-size: clamp(1.6rem, 7vw, 2.2rem) !important;
+        line-height: 1.2 !important;
+      }
+      .hero-tagline-en,
+      .hero-tagline-hi {
+        font-size: 0.75rem !important;
+        margin-top: 0.35rem !important;
+      }
+      .hero-hint {
+        margin-top: 1rem !important;
+        font-size: 0.72rem !important;
+      }
+      .hero-seasonal-wish-wrap {
+        margin-top: 1rem !important;
+        padding: 0.35rem 0.8rem !important;
+        font-size: 0.8rem !important;
+        max-width: 95% !important;
+      }
+      .hero-video-card {
+        max-width: min(280px, 92vw) !important;
+        width: 100% !important;
+      }
+      .diya-stage {
+        width: min(210px, 86vw) !important;
+        height: min(190px, 76vw) !important;
+      }
+      .bg-diya {
+        display: none !important;
+      }
+
+      /* 2. Blessings Section */
+      .blessings-section {
+        padding: 2rem 0.75rem !important;
+      }
+      .blessings-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.25rem !important;
+      }
+      .blessing-text {
+        font-size: 1.15rem !important;
+      }
+
+      /* 3. Festival Garland */
+      .garland-section {
+        padding: 2.25rem 0.75rem 2rem !important;
+      }
+      .garland-header {
+        margin-bottom: 1.5rem !important;
+      }
+      .garland-intro {
+        font-size: 0.82rem !important;
+      }
+      .garland-card {
+        flex: 0 0 85% !important;
+        max-width: 250px !important;
+        padding: 1.5rem 1rem 1.25rem !important;
+      }
+
+      /* 4. Fragrance of Faith */
+      .fragrance-section {
+        padding: 2.25rem 0.75rem 1.75rem !important;
+      }
+      .products-list-wrap {
+        margin-top: 1.25rem !important;
+        gap: 0.65rem 0.85rem !important;
+        padding: 0 0.25rem !important;
+      }
+      .product-tag-btn {
+        font-size: 0.84rem !important;
+      }
+
+      /* 5. Shop Video Section */
+      .shop-video-section {
+        padding: 2rem 0.75rem 1.75rem !important;
+      }
+
+      /* 6. Then and Now */
+      .then-now-section {
+        padding: 2.25rem 0.75rem 1.75rem !important;
+      }
+      .then-now-caption {
+        margin-top: 1rem !important;
+      }
+      .then-now-main-line {
+        font-size: 1.05rem !important;
+      }
+      .then-now-sub-line {
+        font-size: 0.78rem !important;
+      }
+
+      /* 7. Inside Shop - Always Visible, Zero Blank Voids */
+      .inside-section {
+        padding: 2rem 0.75rem 1.75rem !important;
+      }
+      .inside-card {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .inside-caption {
+        margin-top: 0.75rem !important;
+        font-size: 0.92rem !important;
+      }
+
+      /* 8. Send a Blessing Generator */
+      .blessing-generator-section {
+        padding: 2.25rem 0.75rem 2rem !important;
+      }
+      .blessing-form {
+        padding: 1rem !important;
+        margin-top: 1rem !important;
+      }
+      .greeting-card-preview {
+        padding: 1.5rem 1rem !important;
+        margin-top: 1rem !important;
+      }
+      .card-actions {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+      }
+      .btn-share-wa,
+      .btn-copy-card {
+        width: 100% !important;
+        justify-content: center !important;
+      }
+
+      /* 9. Visit Us & Branches */
+      .visit-section {
+        padding: 2.5rem 0.75rem 2rem !important;
+      }
+      .visit-sub {
+        margin-bottom: 1.5rem !important;
+        font-size: 0.8rem !important;
+      }
+      .branch-card {
+        padding: 1.25rem 0.85rem !important;
+      }
+      .branch-header {
+        gap: 0.5rem !important;
+      }
+      .branch-name {
+        font-size: 1.3rem !important;
+      }
+      .branch-thumb {
+        width: 60px !important;
+        height: 60px !important;
+      }
+      .branch-call-row {
+        grid-template-columns: 1fr !important;
+        gap: 0.5rem !important;
+      }
+      .btn-branch-call,
+      .btn-branch-directions {
+        padding: 0.6rem 0.75rem !important;
+        font-size: 0.82rem !important;
+      }
+    }
+
+    /* Extra safety for extremely narrow widths (<= 320px) */
+    @media (max-width: 320px) {
+      .garland-card {
+        flex: 0 0 92% !important;
+        max-width: 230px !important;
+        padding: 1.25rem 0.75rem !important;
+      }
+      .section-heading {
+        font-size: 1.35rem !important;
+      }
+      .diya-stage {
+        width: min(190px, 90vw) !important;
+        height: min(170px, 80vw) !important;
+      }
+    }
+
+    /* ==============================================================
        REDUCED MOTION & PERFORMANCE GUARDS
        ============================================================== */
     @media (prefers-reduced-motion: reduce) {
@@ -2164,10 +2556,115 @@
         </div>
       </div>
 
-      <!-- Right Column: Hindi Greeting -->
-      <div class="hero-col-right" id="hero-col-hi">
-        <h2 class="hero-greeting-hi">शुभ<br />दीपावली</h2>
-        <p class="hero-tagline-hi">प्रेम अगरबत्ती एजेंसी • पुरानी दिल्ली</p>
+      <!-- Right Column: Hindi Greeting & Video on the Right Side of the Home Page -->
+      <div class="hero-col-right" id="hero-col-right-wrap">
+        <div class="hero-greeting-box" id="hero-col-hi">
+          <h2 class="hero-greeting-hi">शुभ दीपावली</h2>
+          <p class="hero-tagline-hi">प्रेम अगरबत्ती एजेंसी • पुरानी दिल्ली</p>
+        </div>
+
+        <!-- Video on the Right Side of the Home Page -->
+        <div class="hero-video-card shop-video-container portrait-9-16" id="shop-video-container">
+          <video
+            id="shop-video"
+            class="shop-video-element"
+            preload="auto"
+            autoplay
+            muted
+            playsinline
+            webkit-playsinline
+            loop
+            poster="/assets/shop-video-poster.webp"
+            aria-label="A moment from Prem Agarbatti Agency shop"
+          >
+            <source src="/assets/shop-video-720p.mp4" type="video/mp4" />
+            <source src="/assets/shop-video.mp4" type="video/mp4" />
+          </video>
+
+          <!-- Warm vignette overlay -->
+          <div class="shop-video-vignette" aria-hidden="true"></div>
+
+          <!-- Ambient Video Header / Badge -->
+          <div class="hero-video-badge" aria-hidden="true">
+            <span class="live-pulse-dot"></span>
+            <span>Khari Baoli Shop</span>
+          </div>
+
+          <!-- Interactive Minimal Sound Pill Badge (opens with minimal sound) -->
+          <button
+            type="button"
+            class="video-sound-pill is-muted"
+            id="video-sound-pill"
+            aria-label="Toggle sound"
+            title="Click to listen with sound"
+          >
+            <svg id="pill-icon-sound" class="pill-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none" />
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+            </svg>
+            <svg id="pill-icon-muted" class="pill-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none" />
+              <line x1="23" y1="9" x2="17" y2="15" />
+              <line x1="17" y1="9" x2="23" y2="15" />
+            </svg>
+            <span id="pill-sound-label">Minimal Sound • Tap to Listen</span>
+          </button>
+
+          <!-- Center Calm Round Amber Play Button (hidden while playing) -->
+          <button
+            type="button"
+            class="video-center-play-btn"
+            id="video-play-btn"
+            aria-label="Play video"
+            title="Play video"
+          >
+            <svg viewBox="0 0 24 24">
+              <polygon points="6,3 20,12 6,21" />
+            </svg>
+          </button>
+
+          <!-- Bottom Corner Minimal Controls (Pause/Play & Mute/Sound) -->
+          <div class="video-corner-controls" id="video-corner-controls">
+            <button
+              type="button"
+              class="video-control-btn"
+              id="video-pause-btn"
+              aria-label="Pause or resume video"
+              title="Pause / Resume"
+            >
+              <svg id="icon-pause" viewBox="0 0 24 24">
+                <line x1="10" y1="4" x2="10" y2="20" />
+                <line x1="14" y1="4" x2="14" y2="20" />
+              </svg>
+              <svg id="icon-play-mini" viewBox="0 0 24 24" style="display:none; fill:currentColor; stroke:none;">
+                <polygon points="7,4 19,12 7,20" />
+              </svg>
+            </button>
+
+            <button
+              type="button"
+              class="video-control-btn"
+              id="video-mute-btn"
+              aria-label="Mute or unmute audio"
+              title="Mute / Unmute"
+            >
+              <svg id="icon-volume-on" viewBox="0 0 24 24">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+              </svg>
+              <svg id="icon-volume-muted" viewBox="0 0 24 24" style="display:none;">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <line x1="23" y1="9" x2="17" y2="15" />
+                <line x1="17" y1="9" x2="23" y2="15" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Thin Amber Progress Line -->
+          <div class="video-progress-bar" id="video-progress-bar" aria-hidden="true"></div>
+        </div>
       </div>
     </div>
 
@@ -2359,89 +2856,14 @@
   </section>
 
   <!-- ==============================================================
-       SHOP VIDEO (A moment from our shop)
-       Placed between Fragrance of Faith and Then and Now
+       TRANSITION DIVIDER
+       Harmonious bridge between Fragrance of Faith and Then and Now
        ============================================================== -->
-  <section class="shop-video-section" id="shop-video-section" aria-label="A Moment From Our Shop">
-    <div class="shop-video-container" id="shop-video-container">
-      <!-- REPLACE VIDEO HERE -->
-      <!-- Video files: /assets/shop-video.webm (lighter), /assets/shop-video.mp4 (main H.264 720p) -->
-      <!-- Poster file: /assets/shop-video-poster.webp (fallback to /assets/shop-inside.webp) -->
-      <video
-        id="shop-video"
-        class="shop-video-element"
-        preload="metadata"
-        playsinline
-        width="960"
-        height="540"
-        poster="/assets/shop-video-poster.webp"
-        aria-label="A moment from Prem Agarbatti Agency shop"
-      >
-        <source src="/assets/shop-video.webm" type="video/webm" />
-        <source src="/assets/shop-video.mp4" type="video/mp4" />
-      </video>
-
-      <!-- Warm vignette overlay -->
-      <div class="shop-video-vignette" aria-hidden="true"></div>
-
-      <!-- Center Calm Round Amber Play Button -->
-      <button
-        type="button"
-        class="video-center-play-btn"
-        id="video-play-btn"
-        aria-label="Play video with sound"
-        title="Play video"
-      >
-        <svg viewBox="0 0 24 24">
-          <polygon points="6,3 20,12 6,21" />
-        </svg>
-      </button>
-
-      <!-- Bottom Corner Minimal Controls (Pause/Play & Mute/Sound) -->
-      <div class="video-corner-controls" id="video-corner-controls">
-        <button
-          type="button"
-          class="video-control-btn"
-          id="video-pause-btn"
-          aria-label="Pause or resume video"
-          title="Pause / Resume"
-        >
-          <svg id="icon-pause" viewBox="0 0 24 24">
-            <line x1="10" y1="4" x2="10" y2="20" />
-            <line x1="14" y1="4" x2="14" y2="20" />
-          </svg>
-          <svg id="icon-play-mini" viewBox="0 0 24 24" style="display:none; fill:currentColor; stroke:none;">
-            <polygon points="7,4 19,12 7,20" />
-          </svg>
-        </button>
-
-        <button
-          type="button"
-          class="video-control-btn"
-          id="video-mute-btn"
-          aria-label="Mute or unmute audio"
-          title="Mute / Unmute"
-        >
-          <svg id="icon-volume-on" viewBox="0 0 24 24">
-            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
-            <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
-          </svg>
-          <svg id="icon-volume-muted" viewBox="0 0 24 24" style="display:none;">
-            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-            <line x1="23" y1="9" x2="17" y2="15" />
-            <line x1="17" y1="9" x2="23" y2="15" />
-          </svg>
-        </button>
-      </div>
-
-      <!-- Thin Amber Progress Line (updated via transform: scaleX only) -->
-      <div class="video-progress-bar" id="video-progress-bar" aria-hidden="true"></div>
-    </div>
-
-    <!-- REPLACE CAPTION HERE -->
-    <p class="video-caption-line">A moment from our shop.</p>
-  </section>
+  <div class="heritage-transition-divider" aria-hidden="true">
+    <span class="divider-gem">✦</span>
+    <span class="divider-text">पारंपरिक सुगंध एवं अटूट विश्वास • खारी बावली, दिल्ली • 1992 से</span>
+    <span class="divider-gem">✦</span>
+  </div>
 
   <!-- ==============================================================
        4. THEN AND NOW (The heart of the page)
@@ -3689,9 +4111,13 @@
         });
       });
 
-      // Scroll Reveal Observer
+      // Scroll Reveal Observer (with instant fallback to prevent blank voids)
+      document.querySelectorAll('.blessing-item, #inside-card, .garland-card').forEach(function (el) {
+        el.classList.add('revealed');
+      });
+
       if ('IntersectionObserver' in window) {
-        const observerOptions = { threshold: 0.15 };
+        const observerOptions = { threshold: 0.02, rootMargin: '120px 0px 120px 0px' };
         const revealObserver = new IntersectionObserver(function (entries) {
           entries.forEach(function (entry) {
             if (entry.isIntersecting) {
@@ -3702,10 +4128,6 @@
 
         document.querySelectorAll('.blessing-item, #inside-card, .garland-card').forEach(function (el) {
           revealObserver.observe(el);
-        });
-      } else {
-        document.querySelectorAll('.blessing-item, #inside-card, .garland-card').forEach(function (el) {
-          el.classList.add('revealed');
         });
       }
 
@@ -3727,23 +4149,33 @@
       });
 
       /* ==============================================================
-         8. SHOP VIDEO PLAYER
-         Tap to play with sound, custom minimal controls,
-         IntersectionObserver pause, battery saver
+         8. HERO SHOP VIDEO PLAYER (Right side of home page)
+         Autoplays immediately on load with minimal sound (volume: 0.15),
+         browser autoplay policy fallback, instant interaction unmute,
+         custom minimal controls, and IntersectionObserver
          ============================================================== */
-      const videoSection = document.getElementById('shop-video-section');
       const videoContainer = document.getElementById('shop-video-container');
       const video = document.getElementById('shop-video');
       const centerPlayBtn = document.getElementById('video-play-btn');
       const pauseBtn = document.getElementById('video-pause-btn');
       const muteBtn = document.getElementById('video-mute-btn');
+      const soundPill = document.getElementById('video-sound-pill');
+      const pillSoundLabel = document.getElementById('pill-sound-label');
+      const pillIconSound = document.getElementById('pill-icon-sound');
+      const pillIconMuted = document.getElementById('pill-icon-muted');
       const progressBar = document.getElementById('video-progress-bar');
       const iconPause = document.getElementById('icon-pause');
       const iconPlayMini = document.getElementById('icon-play-mini');
       const iconVolumeOn = document.getElementById('icon-volume-on');
       const iconVolumeMuted = document.getElementById('icon-volume-muted');
 
+      const SOUND_VOLUME = 0.55; // Gentle, clearly audible ambient sound
+
       if (video && videoContainer) {
+        video.volume = SOUND_VOLUME;
+        video.loop = true;
+
+        // Poster image verification with fallback
         const posterTest = new Image();
         posterTest.src = '/assets/shop-video-poster.webp';
         posterTest.onerror = function () {
@@ -3757,83 +4189,187 @@
           };
         };
 
+        // Aspect ratio check for portrait video
         video.addEventListener('loadedmetadata', function () {
           if (video.videoHeight > video.videoWidth) {
             videoContainer.classList.add('portrait-9-16');
           }
         });
 
-        function startVideoPlay() {
-          video.muted = false;
-          const playPromise = video.play();
-          if (playPromise !== undefined) {
-            playPromise.then(function () {
-              videoContainer.classList.add('is-playing');
-              document.body.classList.add('video-active-playing');
-              if (iconPause) iconPause.style.display = 'block';
-              if (iconPlayMini) iconPlayMini.style.display = 'none';
-            }).catch(function () {
-              video.muted = true;
-              video.play().then(function () {
-                videoContainer.classList.add('is-playing');
-                document.body.classList.add('video-active-playing');
-                updateVolumeUI();
-              });
-            });
+        function updateVolumeUI(isMuted) {
+          if (isMuted) {
+            if (iconVolumeOn) iconVolumeOn.style.display = 'none';
+            if (iconVolumeMuted) iconVolumeMuted.style.display = 'block';
+            if (soundPill) {
+              soundPill.classList.add('is-muted');
+              soundPill.setAttribute('aria-label', 'Listen to minimal sound');
+            }
+            if (pillSoundLabel) pillSoundLabel.textContent = 'Minimal Sound • Tap to Listen';
+            if (pillIconSound) pillIconSound.style.display = 'none';
+            if (pillIconMuted) pillIconMuted.style.display = 'inline-block';
+          } else {
+            if (iconVolumeOn) iconVolumeOn.style.display = 'block';
+            if (iconVolumeMuted) iconVolumeMuted.style.display = 'none';
+            if (soundPill) {
+              soundPill.classList.remove('is-muted');
+              soundPill.setAttribute('aria-label', 'Mute minimal sound');
+            }
+            if (pillSoundLabel) pillSoundLabel.textContent = 'Minimal Sound • Playing';
+            if (pillIconSound) pillIconSound.style.display = 'inline-block';
+            if (pillIconMuted) pillIconMuted.style.display = 'none';
           }
         }
 
-        function toggleVideoPause() {
-          if (video.paused) {
-            video.play();
+        function updatePlayPauseUI(isPlaying) {
+          if (isPlaying) {
             videoContainer.classList.add('is-playing');
-            document.body.classList.add('video-active-playing');
             if (iconPause) iconPause.style.display = 'block';
             if (iconPlayMini) iconPlayMini.style.display = 'none';
           } else {
-            video.pause();
-            document.body.classList.remove('video-active-playing');
+            videoContainer.classList.remove('is-playing');
             if (iconPause) iconPause.style.display = 'none';
             if (iconPlayMini) iconPlayMini.style.display = 'block';
           }
         }
 
-        function updateVolumeUI() {
-          if (video.muted) {
-            if (iconVolumeOn) iconVolumeOn.style.display = 'none';
-            if (iconVolumeMuted) iconVolumeMuted.style.display = 'block';
+        function enableSound() {
+          if (!video) return;
+          video.muted = false;
+          video.volume = SOUND_VOLUME;
+          if (video.paused) {
+            video.play().catch(function () {});
+          }
+          updateVolumeUI(false);
+        }
+
+        function disableSound() {
+          if (!video) return;
+          video.muted = true;
+          updateVolumeUI(true);
+        }
+
+        function toggleSound() {
+          if (!video) return;
+          if (video.muted || video.volume === 0) {
+            enableSound();
           } else {
-            if (iconVolumeOn) iconVolumeOn.style.display = 'block';
-            if (iconVolumeMuted) iconVolumeMuted.style.display = 'none';
+            disableSound();
           }
         }
 
-        function toggleVideoMute() {
-          video.muted = !video.muted;
-          updateVolumeUI();
+        function playVideo(withSound) {
+          if (!video) return;
+          if (withSound) {
+            video.muted = false;
+            video.volume = SOUND_VOLUME;
+          }
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise.then(function () {
+              updatePlayPauseUI(true);
+              if (withSound) updateVolumeUI(false);
+            }).catch(function () {
+              // Browser policy fallback: play muted first
+              video.muted = true;
+              video.play().then(function () {
+                updatePlayPauseUI(true);
+                updateVolumeUI(true);
+              }).catch(function () {});
+            });
+          }
         }
 
+        function pauseVideo() {
+          if (!video) return;
+          video.pause();
+          updatePlayPauseUI(false);
+        }
+
+        function togglePlay() {
+          if (!video) return;
+          if (video.paused) {
+            playVideo(false);
+          } else {
+            pauseVideo();
+          }
+        }
+
+        // Keep UI synchronized with native video playback events
+        video.addEventListener('play', function () {
+          updatePlayPauseUI(true);
+        });
+        video.addEventListener('pause', function () {
+          updatePlayPauseUI(false);
+        });
+        video.addEventListener('volumechange', function () {
+          updateVolumeUI(video.muted || video.volume === 0);
+        });
+
+        // Autoplay policy compliant initialization: start muted autoplay
+        function initAutoplay() {
+          video.muted = true;
+          video.volume = SOUND_VOLUME;
+          video.play().then(function () {
+            updatePlayPauseUI(true);
+            updateVolumeUI(true);
+          }).catch(function () {
+            // If autoplay is blocked by browser, leave center play button visible
+            updatePlayPauseUI(false);
+            updateVolumeUI(true);
+          });
+        }
+
+        if (video.readyState >= 2) {
+          initAutoplay();
+        } else {
+          video.addEventListener('loadeddata', initAutoplay, { once: true });
+          video.addEventListener('canplay', initAutoplay, { once: true });
+          setTimeout(initAutoplay, 300);
+        }
+
+        // Center Play Button: Clean click handling that plays video AND unmutes sound
         if (centerPlayBtn) {
-          centerPlayBtn.addEventListener('pointerdown', function (e) {
+          centerPlayBtn.addEventListener('click', function (e) {
+            e.preventDefault();
             e.stopPropagation();
-            startVideoPlay();
+            playVideo(true);
           });
         }
 
-        if (pauseBtn) {
-          pauseBtn.addEventListener('pointerdown', function (e) {
+        // Minimal Sound Pill: Clean click handling that toggles and plays audio
+        if (soundPill) {
+          soundPill.addEventListener('click', function (e) {
+            e.preventDefault();
             e.stopPropagation();
-            toggleVideoPause();
+            toggleSound();
           });
         }
 
+        // Corner Mute Button
         if (muteBtn) {
-          muteBtn.addEventListener('pointerdown', function (e) {
+          muteBtn.addEventListener('click', function (e) {
+            e.preventDefault();
             e.stopPropagation();
-            toggleVideoMute();
+            toggleSound();
           });
         }
 
+        // Corner Pause/Resume Button
+        if (pauseBtn) {
+          pauseBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            togglePlay();
+          });
+        }
+
+        // Click on the video element directly toggles play/pause
+        video.addEventListener('click', function (e) {
+          e.preventDefault();
+          togglePlay();
+        });
+
+        // Time and progress tracking
         video.addEventListener('timeupdate', function () {
           if (video.duration && progressBar) {
             const progress = video.currentTime / video.duration;
@@ -3843,33 +4379,43 @@
 
         video.addEventListener('ended', function () {
           video.currentTime = 0;
-          videoContainer.classList.remove('is-playing');
-          document.body.classList.remove('video-active-playing');
-          if (progressBar) progressBar.style.transform = 'scaleX(0)';
-          if (iconPause) iconPause.style.display = 'block';
-          if (iconPlayMini) iconPlayMini.style.display = 'none';
+          video.play().catch(function () {});
         });
 
+        // Smart IntersectionObserver: pause if scrolled out of view, resume when back in view
         if ('IntersectionObserver' in window) {
           const videoObserver = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
               if (!entry.isIntersecting && !video.paused) {
                 video.pause();
-                document.body.classList.remove('video-active-playing');
                 if (iconPause) iconPause.style.display = 'none';
                 if (iconPlayMini) iconPlayMini.style.display = 'block';
+              } else if (entry.isIntersecting && video.paused && videoContainer.classList.contains('is-playing')) {
+                video.play().then(function () {
+                  if (iconPause) iconPause.style.display = 'block';
+                  if (iconPlayMini) iconPlayMini.style.display = 'none';
+                }).catch(function () {});
               }
             });
-          }, { threshold: 0.25 });
+          }, { threshold: 0.2 });
           videoObserver.observe(videoContainer);
         }
 
+        // Smart VisibilityChange: pause when tab hidden, resume when tab visible
         document.addEventListener('visibilitychange', function () {
-          if (document.hidden && !video.paused) {
-            video.pause();
-            document.body.classList.remove('video-active-playing');
-            if (iconPause) iconPause.style.display = 'none';
-            if (iconPlayMini) iconPlayMini.style.display = 'block';
+          if (document.hidden) {
+            if (!video.paused) {
+              video.pause();
+              if (iconPause) iconPause.style.display = 'none';
+              if (iconPlayMini) iconPlayMini.style.display = 'block';
+            }
+          } else {
+            if (video.paused && videoContainer.classList.contains('is-playing')) {
+              video.play().then(function () {
+                if (iconPause) iconPause.style.display = 'block';
+                if (iconPlayMini) iconPlayMini.style.display = 'none';
+              }).catch(function () {});
+            }
           }
         });
       }
