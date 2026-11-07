@@ -1,0 +1,3880 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Prem Agarbatti Agency — Diwali Greetings | Khari Baoli, Delhi</title>
+  <meta name="description" content="Handcrafted, calm Diwali greeting website for Prem Agarbatti Agency (Khari Baoli, Delhi, since 1992)." />
+  <meta property="og:title" content="Prem Agarbatti Agency — Diwali Greetings | Khari Baoli, Delhi" />
+  <meta property="og:description" content="Handcrafted, calm Diwali greeting website for Prem Agarbatti Agency (Khari Baoli, Delhi, since 1992)." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts: Cormorant Garamond, Tiro Devanagari Hindi, Inter (font-display: swap) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==============================================================
+       DESIGN SYSTEM & COLOR TOKENS
+       Warm charcoal-brown #14100C | Cream #F6EBD6 | Amber #F2A01F
+       Marigold #E8801A | Terracotta #B5502B | Deep Teal #0F3B3A
+       ============================================================== */
+    :root {
+      --bg-charcoal: #14100C;
+      --bg-card: #1C1510;
+      --text-cream: #F6EBD6;
+      --text-cream-dim: rgba(246, 235, 214, 0.72);
+      --text-cream-faint: rgba(246, 235, 214, 0.42);
+      --amber-flame: #F2A01F;
+      --marigold: #E8801A;
+      --terracotta: #B5502B;
+      --terracotta-dark: #6E2A14;
+      --deep-teal: #0F3B3A;
+      --deep-teal-card: #0A2928;
+      --midnight-indigo: #0F1424;
+      --midnight-card: #151B2E;
+      --antique-gold: #D4AF37;
+      --antique-gold-dim: rgba(212, 175, 55, 0.4);
+      --deep-vermilion: #C0392B;
+      --font-en: 'Cormorant Garamond', Georgia, serif;
+      --font-hi: 'Tiro Devanagari Hindi', 'Noto Serif Devanagari', serif;
+      --font-ui: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-charcoal);
+      color: var(--text-cream);
+      font-family: var(--font-ui);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: var(--bg-charcoal);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    /* Subtle inline paper grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.038;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Full-screen interactive fireworks canvas */
+    #fireworks-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 50;
+    }
+
+    /* Typography helpers */
+    .font-cormorant { font-family: var(--font-en); }
+    .font-hindi { font-family: var(--font-hi); }
+    .font-ui { font-family: var(--font-ui); }
+
+    /* Unified Warm Image Grade with Vignette */
+    .photo-frame {
+      position: relative;
+      overflow: hidden;
+      background-color: var(--bg-card);
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: sepia(0.18) contrast(1.05) brightness(0.96);
+      transition: opacity 0.5s ease;
+    }
+
+    .photo-frame.vintage img {
+      filter: sepia(0.26) contrast(1.03) brightness(0.95);
+    }
+
+    .photo-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at center, rgba(242, 160, 31, 0.03) 0%, rgba(20, 16, 12, 0.45) 100%);
+      box-shadow: inset 0 0 40px rgba(20, 16, 12, 0.6);
+    }
+
+    /* Graceful image error placeholder fallback */
+    .img-fallback {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      background-color: #1a140f !important;
+      background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 26C10 33.732 16.268 40 24 40C31.732 40 38 33.732 38 26C38 25 36 24 24 24C12 24 10 25 10 26Z' fill='%236E2A14' fill-opacity='0.4'/%3E%3Cpath d='M24 8C24 8 20 14 20 18C20 20.2091 21.7909 22 24 22C26.2091 22 28 20.2091 28 18C28 14 24 8 24 8Z' fill='%23F2A01F' fill-opacity='0.45'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      min-height: 140px;
+    }
+
+    /* Header Nav & Language Toggle */
+    .site-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 30;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .brand-mark {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .brand-title {
+      font-family: var(--font-en);
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--text-cream);
+      text-decoration: none;
+    }
+
+    .brand-sub {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-cream-faint);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* Language Switcher */
+    .lang-switcher {
+      display: inline-flex;
+      background: rgba(28, 21, 16, 0.75);
+      border: 1px solid rgba(246, 235, 214, 0.15);
+      border-radius: 9999px;
+      padding: 0.2rem;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-cream-dim);
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: color 0.2s, background-color 0.2s;
+    }
+
+    .lang-btn.active {
+      background: var(--amber-flame);
+      color: var(--bg-charcoal);
+      font-weight: 600;
+    }
+
+    .firework-spark-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(28, 21, 16, 0.75);
+      border: 1px solid rgba(242, 160, 31, 0.3);
+      color: var(--amber-flame);
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: transform 0.2s, border-color 0.2s;
+      touch-action: manipulation;
+    }
+
+    .firework-spark-btn:hover {
+      border-color: var(--amber-flame);
+      transform: translateY(-1px);
+    }
+
+    /* ==============================================================
+       1. HERO SECTION
+       Desktop: 3 columns (Happy Diwali | Diya | शुभ दीपावली)
+       Mobile: Happy Diwali top, Diya center, शुभ दीपावली bottom
+       Background: faint 1992 photo texture (opacity 0.08)
+       ============================================================== */
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 6rem 1.5rem 3.5rem;
+      overflow: hidden;
+      touch-action: manipulation;
+      cursor: crosshair;
+    }
+
+    /* Faint 1992 shop photo as ambient background texture */
+    .hero-bg-texture {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.08;
+      filter: sepia(0.3) grayscale(0.4);
+      background-image: url('/assets/shop-1992.webp');
+      background-size: cover;
+      background-position: center 35%;
+      background-repeat: no-repeat;
+    }
+
+    .hero-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(20, 16, 12, 0.4) 0%, rgba(20, 16, 12, 0.95) 85%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Floating Rising Embers (Max 12 particles, transform & opacity only) */
+    .embers-container {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 4;
+      overflow: hidden;
+    }
+
+    .ember {
+      position: absolute;
+      bottom: -10px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #FFF7D6 0%, #F2A01F 60%, transparent 100%);
+      opacity: 0;
+      will-change: transform, opacity;
+      animation: floatEmber linear infinite;
+    }
+
+    @keyframes floatEmber {
+      0% {
+        transform: translateY(0) translateX(0) scale(0.6);
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.75;
+      }
+      75% {
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-105vh) translateX(var(--drift, 30px)) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    .hero-container {
+      position: relative;
+      z-index: 5;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: center;
+      gap: 2rem;
+      text-align: center;
+    }
+
+    @media (min-width: 900px) {
+      .hero-container {
+        grid-template-columns: 1fr auto 1fr;
+        text-align: left;
+        gap: 3rem;
+      }
+    }
+
+    .hero-col-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (min-width: 900px) {
+      .hero-col-left {
+        align-items: flex-end;
+        text-align: right;
+      }
+    }
+
+    .hero-col-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (min-width: 900px) {
+      .hero-col-right {
+        align-items: flex-start;
+        text-align: left;
+      }
+    }
+
+    .hero-col-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero-greeting-en {
+      font-family: var(--font-en);
+      font-size: clamp(2.4rem, 6vw, 4.4rem);
+      font-weight: 600;
+      line-height: 1.05;
+      color: var(--text-cream);
+      text-shadow: 0 0 25px rgba(242, 160, 31, 0.28);
+      letter-spacing: 0.02em;
+    }
+
+    .hero-tagline-en {
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-cream-dim);
+    }
+
+    .hero-greeting-hi {
+      font-family: var(--font-hi);
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--text-cream);
+      text-shadow: 0 0 25px rgba(242, 160, 31, 0.28);
+      letter-spacing: 0.01em;
+    }
+
+    .hero-tagline-hi {
+      margin-top: 0.75rem;
+      font-family: var(--font-hi);
+      font-size: 1.05rem;
+      color: var(--text-cream-dim);
+      letter-spacing: 0.04em;
+    }
+
+    /* Small prompt to touch hero */
+    .hero-hint {
+      margin-top: 2rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      color: var(--text-cream-faint);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      user-select: none;
+    }
+
+    /* ==============================================================
+       LAYERED SVG REALISTIC CLAY DIYA
+       Uneven terracotta body, rim highlight, cotton wick, oil pool,
+       flickering 3-layer teardrop flame, blue base, rising smoke wisp
+       ============================================================== */
+    .diya-stage {
+      position: relative;
+      width: clamp(240px, 34vw, 360px);
+      height: clamp(260px, 36vw, 380px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Background Softly-Blurred Diyas (static pre-blurred depths) */
+    .bg-diya {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.38;
+      transition: opacity 0.5s ease;
+    }
+    .bg-diya-1 { top: 12%; left: -14%; width: 70px; height: 70px; opacity: 0.25; }
+    .bg-diya-2 { top: 22%; right: -16%; width: 85px; height: 85px; opacity: 0.32; }
+    .bg-diya-3 { bottom: 18%; left: -20%; width: 90px; height: 90px; opacity: 0.28; }
+    .bg-diya-4 { bottom: 25%; right: -18%; width: 65px; height: 65px; opacity: 0.22; }
+
+    /* The Main Diya SVG */
+    .main-diya-svg {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      z-index: 3;
+      filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.75));
+    }
+
+    /* Pulsing Radial Light Pool underneath Diya (Opacity only) */
+    .light-pool {
+      transform-origin: center center;
+      animation: lightPulse 2.2s ease-in-out infinite alternate;
+      will-change: opacity;
+    }
+
+    @keyframes lightPulse {
+      0% { opacity: 0.65; }
+      50% { opacity: 0.88; }
+      100% { opacity: 0.72; }
+    }
+
+    /* Flame Flickers: 3 layered teardrops with different irregular timings */
+    .flame-layer-outer {
+      transform-origin: 150px 175px;
+      animation: flameSwayOuter 2.4s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    .flame-layer-mid {
+      transform-origin: 150px 175px;
+      animation: flameSwayMid 1.8s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+
+    .flame-layer-core {
+      transform-origin: 150px 175px;
+      animation: flameSwayCore 1.3s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    @keyframes flameSwayOuter {
+      0% { transform: scale(1) skewX(0deg) rotate(0deg); }
+      22% { transform: scale(1.03, 0.98) skewX(-1.5deg) rotate(-1deg); }
+      48% { transform: scale(0.97, 1.04) skewX(1.8deg) rotate(1.2deg); }
+      71% { transform: scale(1.02, 0.97) skewX(-0.8deg) rotate(-0.5deg); }
+      100% { transform: scale(1) skewX(0deg) rotate(0deg); }
+    }
+
+    @keyframes flameSwayMid {
+      0% { transform: scale(1) skewX(0.5deg); }
+      35% { transform: scale(0.96, 1.05) skewX(-1.8deg); }
+      68% { transform: scale(1.04, 0.97) skewX(1.4deg); }
+      100% { transform: scale(1) skewX(0.5deg); }
+    }
+
+    @keyframes flameSwayCore {
+      0% { transform: scale(1); }
+      30% { transform: scale(1.06, 0.94) translateY(-1px); }
+      65% { transform: scale(0.95, 1.05) translateY(1px); }
+      100% { transform: scale(1); }
+    }
+
+    /* Smoke wisp rising gently from the wick (transform & opacity only) */
+    .smoke-wisp {
+      transform-origin: 150px 140px;
+      animation: smokeRise 4.2s ease-out infinite;
+      will-change: transform, opacity;
+    }
+
+    @keyframes smokeRise {
+      0% {
+        transform: translateY(0) scaleX(0.8) skewX(0deg);
+        opacity: 0.35;
+      }
+      50% {
+        opacity: 0.22;
+        transform: translateY(-35px) scaleX(1.4) skewX(6deg);
+      }
+      100% {
+        transform: translateY(-80px) scaleX(2.2) skewX(-10deg);
+        opacity: 0;
+      }
+    }
+
+    /* ==============================================================
+       2. THREE TINY BLESSINGS
+       Three short lines with handcrafted line icons:
+       शुभ लाभ (diya), सुख समृद्धि (lotus), शांति (swastik)
+       ============================================================== */
+    .blessings-section {
+      padding: 3.5rem 1.5rem;
+      border-top: 1px solid rgba(246, 235, 214, 0.08);
+      border-bottom: 1px solid rgba(246, 235, 214, 0.08);
+      background: rgba(20, 16, 12, 0.4);
+    }
+
+    .blessings-grid {
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .blessings-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .blessing-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.85rem;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .blessing-item.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .blessing-icon-wrap {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--amber-flame);
+    }
+
+    .blessing-icon-svg {
+      width: 38px;
+      height: 38px;
+      stroke: var(--amber-flame);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .blessing-text {
+      font-family: var(--font-hi);
+      font-size: 1.35rem;
+      color: var(--text-cream);
+      letter-spacing: 0.06em;
+    }
+
+    /* ==============================================================
+       HERO SEASONAL WISH LINE
+       Small cream line directly underneath the existing hero,
+       cross-fading through six Hindi festival wishes
+       ============================================================== */
+    .hero-seasonal-wish-wrap {
+      margin-top: 2rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      position: relative;
+      z-index: 6;
+      padding: 0.45rem 1.4rem;
+      background: rgba(20, 16, 12, 0.75);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 9999px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-seasonal-ornament {
+      color: var(--antique-gold);
+      font-size: 0.75rem;
+      opacity: 0.8;
+      user-select: none;
+    }
+
+    .hero-seasonal-wish-text {
+      font-family: var(--font-hi);
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      color: var(--text-cream);
+      opacity: 1;
+      transition: opacity 0.6s ease;
+      white-space: nowrap;
+    }
+
+    /* ==============================================================
+       FESTIVAL GARLAND (Main New Section)
+       Atmospheric Midnight-Indigo and Charcoal surfaces with
+       antique gold borders, warm ivory linework, and restrained amber
+       ============================================================== */
+    .garland-section {
+      padding: 5rem 1.5rem 4.5rem;
+      position: relative;
+      background: radial-gradient(circle at 50% 0%, rgba(21, 27, 46, 0.5) 0%, rgba(20, 16, 12, 0.96) 100%);
+      border-top: 1px solid rgba(212, 175, 55, 0.18);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+      overflow: hidden;
+    }
+
+    .garland-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 2.75rem;
+    }
+
+    .garland-intro {
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      color: var(--text-cream-dim);
+      margin-top: 0.45rem;
+    }
+
+    .garland-wrapper {
+      width: 100%;
+      position: relative;
+    }
+
+    /* Mobile: Horizontal scroll row with CSS scroll-snap */
+    .garland-cards-scroll {
+      display: flex;
+      gap: 1.25rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 1rem 0.5rem 2rem;
+      scrollbar-width: none;
+    }
+
+    .garland-cards-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Desktop: 3-column grid (2 rows of 3) */
+    @media (min-width: 860px) {
+      .garland-cards-scroll {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.75rem;
+        overflow-x: visible;
+        padding: 0;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+    }
+
+    /* Festival Card Design */
+    .garland-card {
+      position: relative;
+      flex: 0 0 80%;
+      max-width: 295px;
+      scroll-snap-align: center;
+      background: linear-gradient(180deg, #181E2C 0%, #141117 100%);
+      border: 1px solid rgba(212, 175, 55, 0.22);
+      border-radius: 14px;
+      padding: 2.25rem 1.4rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      touch-action: manipulation;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, opacity 0.3s ease;
+      outline: none;
+    }
+
+    @media (min-width: 860px) {
+      .garland-card {
+        flex: none;
+        max-width: none;
+      }
+    }
+
+    .garland-card:hover {
+      border-color: var(--antique-gold);
+      transform: translateY(-2px);
+    }
+
+    /* States: Selected */
+    .garland-card.is-selected {
+      border-color: var(--antique-gold);
+      box-shadow: 0 0 24px rgba(212, 175, 55, 0.28), 0 12px 28px rgba(0, 0, 0, 0.65);
+      background: linear-gradient(180deg, #22293C 0%, #18151D 100%);
+    }
+
+    /* States: Today's Festival */
+    .garland-card.is-today {
+      border-color: var(--amber-flame);
+      box-shadow: 0 0 28px rgba(242, 160, 31, 0.35);
+      animation: todayCardGlow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes todayCardGlow {
+      0% { opacity: 0.95; border-color: rgba(242, 160, 31, 0.7); }
+      100% { opacity: 1; border-color: rgba(242, 160, 31, 1); }
+    }
+
+    .garland-card.is-today::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 18%;
+      right: 18%;
+      height: 2.5px;
+      background: var(--amber-flame);
+      border-radius: 2px;
+      box-shadow: 0 0 8px var(--amber-flame);
+    }
+
+    /* States: Next Upcoming Festival */
+    .garland-card.is-next {
+      border-color: rgba(212, 175, 55, 0.55);
+    }
+
+    /* States: Past Festivals (Visible, reduced opacity, selectable) */
+    .garland-card.is-past {
+      opacity: 0.68;
+    }
+    .garland-card.is-past:hover,
+    .garland-card.is-past.is-selected {
+      opacity: 1;
+    }
+
+    /* Status Badges */
+    .garland-badge {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.22rem 0.65rem;
+      border-radius: 9999px;
+      font-weight: 600;
+    }
+
+    .badge-today {
+      background: var(--amber-flame);
+      color: var(--bg-charcoal);
+      box-shadow: 0 2px 8px rgba(242, 160, 31, 0.4);
+    }
+
+    .badge-next {
+      background: rgba(212, 175, 55, 0.2);
+      border: 1px solid var(--antique-gold);
+      color: var(--antique-gold);
+    }
+
+    /* Card Illustration Container & Handcrafted SVG Linework */
+    .garland-illustration-wrap {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .garland-svg {
+      width: 100%;
+      height: 100%;
+      stroke: var(--antique-gold);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Card Names & Dates */
+    .garland-card-name-en {
+      font-family: var(--font-en);
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: var(--text-cream);
+      letter-spacing: 0.02em;
+      line-height: 1.15;
+    }
+
+    .garland-card-name-hi {
+      font-family: var(--font-hi);
+      font-size: 1.3rem;
+      color: var(--antique-gold);
+      margin-top: 0.25rem;
+      letter-spacing: 0.03em;
+    }
+
+    .garland-card-date {
+      display: inline-block;
+      margin-top: 0.85rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-cream-dim);
+    }
+
+    /* ==============================================================
+       3. FRAGRANCE OF FAITH
+       Full-bleed wide shop products image with slow subtle zoom (20s)
+       and thin rising incense smoke lines.
+       Row of tappable names with hand-drawn icons.
+       ============================================================== */
+    .fragrance-section {
+      padding: 4.5rem 0 3.5rem;
+      position: relative;
+    }
+
+    .section-eyebrow {
+      text-align: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--amber-flame);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-heading {
+      text-align: center;
+      font-family: var(--font-en);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 600;
+      color: var(--text-cream);
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+    }
+
+    .fragrance-banner-wrap {
+      position: relative;
+      width: 100%;
+      height: clamp(280px, 45vh, 480px);
+      overflow: hidden;
+      background: var(--bg-card);
+    }
+
+    .fragrance-banner-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: sepia(0.18) contrast(1.05) brightness(0.93);
+      animation: subtleImageZoom 20s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+
+    @keyframes subtleImageZoom {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.05); }
+    }
+
+    .fragrance-banner-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at center, rgba(20, 16, 12, 0.15) 0%, rgba(20, 16, 12, 0.8) 100%);
+      box-shadow: inset 0 0 60px rgba(20, 16, 12, 0.7);
+    }
+
+    /* Incense smoke overlay in front of product banner */
+    .incense-smoke-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .smoke-line {
+      position: absolute;
+      bottom: 0;
+      width: 160px;
+      height: 100%;
+      stroke: rgba(246, 235, 214, 0.35);
+      fill: none;
+      stroke-width: 1.2;
+      stroke-linecap: round;
+      will-change: transform, opacity;
+      animation: driftSmokeLine 7s ease-in-out infinite;
+    }
+
+    .smoke-line-1 { left: 20%; animation-delay: 0s; }
+    .smoke-line-2 { left: 52%; animation-delay: 2.5s; animation-duration: 8.5s; }
+    .smoke-line-3 { left: 78%; animation-delay: 4s; animation-duration: 6.5s; }
+
+    @keyframes driftSmokeLine {
+      0% {
+        transform: translateY(15px) scaleX(0.9);
+        opacity: 0.1;
+      }
+      50% {
+        transform: translateY(-20px) scaleX(1.15) skewX(4deg);
+        opacity: 0.38;
+      }
+      100% {
+        transform: translateY(-50px) scaleX(1.3) skewX(-5deg);
+        opacity: 0;
+      }
+    }
+
+    /* Tappable Products List */
+    .products-list-wrap {
+      max-width: 1050px;
+      margin: 2.2rem auto 0;
+      padding: 0 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.25rem 2rem;
+    }
+
+    .product-tag-btn {
+      background: transparent;
+      border: none;
+      padding: 0.4rem 0.2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--text-cream-dim);
+      font-family: var(--font-ui);
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s ease;
+    }
+
+    .product-tag-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke 0.2s ease;
+    }
+
+    .product-tag-btn::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1.5px;
+      background-color: var(--amber-flame);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.25s ease;
+    }
+
+    .product-tag-btn:hover,
+    .product-tag-btn.active {
+      color: var(--text-cream);
+    }
+
+    .product-tag-btn:hover svg,
+    .product-tag-btn.active svg {
+      stroke: var(--amber-flame);
+    }
+
+    .product-tag-btn.active::after {
+      transform: scaleX(1);
+    }
+
+    /* ==============================================================
+       SHOP VIDEO SECTION STYLES
+       Placed between Fragrance of Faith and Then and Now
+       Warm CSS grading, soft vignette, rounded corners, custom controls
+       ============================================================== */
+    .shop-video-section {
+      padding: 3.5rem 1.5rem 2.5rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .shop-video-container {
+      position: relative;
+      width: 100%;
+      /* ===================================================================
+         ASPECT RATIO / ORIENTATION SETTING:
+         Default: 16:9 widescreen (max-width: 960px; aspect-ratio: 16 / 9)
+         FOR VERTICAL (9:16) VIDEO:
+         Change the one line below to 'aspect-ratio: 9 / 16; max-width: 420px;'
+         =================================================================== */
+      max-width: 960px;
+      aspect-ratio: 16 / 9;
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--bg-card);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
+      touch-action: manipulation;
+    }
+
+    /* Class for switching to 9:16 portrait mode (also auto-applied if vertical video is detected) */
+    .shop-video-container.portrait-9-16 {
+      max-width: 420px !important;
+      aspect-ratio: 9 / 16 !important;
+    }
+
+    .shop-video-element {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: sepia(0.18) contrast(1.05) brightness(0.96);
+      background-color: var(--bg-card);
+    }
+
+    /* Warm vignette overlay */
+    .shop-video-vignette {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at center, rgba(242, 160, 31, 0.02) 0%, rgba(20, 16, 12, 0.45) 100%);
+      box-shadow: inset 0 0 40px rgba(20, 16, 12, 0.6);
+      z-index: 2;
+    }
+
+    /* Calm round amber play button in center */
+    .video-center-play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(20, 16, 12, 0.85);
+      border: 2px solid var(--amber-flame);
+      color: var(--amber-flame);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(242, 160, 31, 0.35);
+      transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.3s ease;
+      touch-action: manipulation;
+      z-index: 5;
+    }
+
+    .video-center-play-btn:hover {
+      background: rgba(242, 160, 31, 0.2);
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+
+    .video-center-play-btn svg {
+      width: 26px;
+      height: 26px;
+      fill: var(--amber-flame);
+      margin-left: 3px;
+    }
+
+    .shop-video-container.is-playing .video-center-play-btn {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Minimal Corner Controls (Pause/Play & Mute/Sound) */
+    .video-corner-controls {
+      position: absolute;
+      bottom: 12px;
+      right: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 6;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .shop-video-container.is-playing .video-corner-controls,
+    .shop-video-container:hover .video-corner-controls {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .video-control-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(20, 16, 12, 0.8);
+      border: 1px solid rgba(246, 235, 214, 0.25);
+      color: var(--text-cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+    }
+
+    .video-control-btn:hover,
+    .video-control-btn:active {
+      color: var(--amber-flame);
+      border-color: var(--amber-flame);
+      background: rgba(28, 21, 16, 0.95);
+    }
+
+    .video-control-btn svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    /* Thin Amber Progress Bar (updated via transform: scaleX only) */
+    .video-progress-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--amber-flame);
+      transform-origin: left center;
+      transform: scaleX(0);
+      will-change: transform;
+      z-index: 6;
+      pointer-events: none;
+    }
+
+    /* Tiny cream caption line underneath */
+    .video-caption-line {
+      margin-top: 1.1rem;
+      font-family: var(--font-en);
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      color: var(--text-cream-dim);
+      text-align: center;
+    }
+
+    /* Battery saver: pause hero embers and incense smoke while video is playing */
+    body.video-active-playing .ember,
+    body.video-active-playing .smoke-line {
+      animation-play-state: paused !important;
+    }
+
+    /* ==============================================================
+       4. THEN AND NOW (The heart of the page)
+       Interactive Before / After Reveal Slider
+       Old: /assets/shop-1992.webp | New: /assets/shop-front.webp
+       Pointer events, clip-path, touch-action: pan-y
+       ============================================================== */
+    .then-now-section {
+      padding: 4.5rem 1.5rem 3.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .slider-stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      max-height: 540px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
+      user-select: none;
+      touch-action: pan-y;
+      cursor: ew-resize;
+      background: #18130e;
+    }
+
+    /* Base Layer: Today / Shop Front */
+    .slider-image-base,
+    .slider-image-overlay {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slider-image-base img,
+    .slider-image-overlay img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+
+    .slider-image-base img {
+      filter: sepia(0.18) contrast(1.05) brightness(0.96);
+    }
+
+    .slider-image-overlay img {
+      filter: sepia(0.24) contrast(1.02) brightness(0.94);
+    }
+
+    /* Top Layer (1992 Old Photo) clipped with clip-path */
+    .slider-image-overlay {
+      clip-path: inset(0 50% 0 0);
+      will-change: clip-path;
+    }
+
+    /* Draggable Divider Handle */
+    .slider-handle-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: rgba(246, 235, 214, 0.7);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+      pointer-events: none;
+      transform: translateX(-50%);
+      will-change: left;
+      z-index: 10;
+    }
+
+    .slider-handle-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--bg-charcoal);
+      border: 2px solid var(--amber-flame);
+      color: var(--text-cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.8), 0 0 12px rgba(242, 160, 31, 0.35);
+      pointer-events: auto;
+      cursor: grab;
+      touch-action: pan-y;
+      z-index: 12;
+    }
+
+    .slider-handle-button:active {
+      cursor: grabbing;
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+
+    .slider-handle-button svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--amber-flame);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Small Cream Corner Badges */
+    .slider-badge {
+      position: absolute;
+      bottom: 1rem;
+      padding: 0.35rem 0.8rem;
+      background: rgba(20, 16, 12, 0.75);
+      border: 1px solid rgba(246, 235, 214, 0.15);
+      border-radius: 6px;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: var(--text-cream);
+      pointer-events: none;
+      z-index: 11;
+      backdrop-filter: blur(4px);
+    }
+
+    .slider-badge-1992 { left: 1rem; }
+    .slider-badge-today { right: 1rem; }
+
+    /* Single caption lines below */
+    .then-now-caption {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    .then-now-main-line {
+      font-family: var(--font-en);
+      font-size: 1.25rem;
+      color: var(--text-cream);
+      letter-spacing: 0.03em;
+    }
+
+    .then-now-sub-line {
+      margin-top: 0.3rem;
+      font-size: 0.85rem;
+      color: var(--text-cream-dim);
+      letter-spacing: 0.06em;
+    }
+
+    /* ==============================================================
+       5. INSIDE THE SHOP
+       /assets/shop-inside.webp as calm full-width image with rounded corners,
+       soft warm vignette, tiny fade-in on scroll.
+       One short line: "Come, step inside."
+       ============================================================== */
+    .inside-section {
+      padding: 4.5rem 1.5rem 3.5rem;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .inside-card {
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      max-height: 520px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .inside-card.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .inside-caption {
+      margin-top: 1.25rem;
+      text-align: center;
+      font-family: var(--font-en);
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      color: var(--text-cream-dim);
+    }
+
+    /* ==============================================================
+       6. SEND A BLESSING
+       Card generator: Sender name input, "Create Blessing Card",
+       WhatsApp share button (prefilled wa.me) and Copy message
+       ============================================================== */
+    .blessing-generator-section {
+      padding: 4.5rem 1.5rem 3.5rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .blessing-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background: var(--bg-card);
+      border: 1px solid rgba(246, 235, 214, 0.12);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    @media (max-width: 540px) {
+      .input-row {
+        flex-direction: column;
+      }
+    }
+
+    .sender-input {
+      flex: 1;
+      background: rgba(20, 16, 12, 0.8);
+      border: 1px solid rgba(246, 235, 214, 0.2);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      color: var(--text-cream);
+      font-family: var(--font-ui);
+      font-size: 0.92rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .sender-input:focus {
+      border-color: var(--amber-flame);
+    }
+
+    .sender-input::placeholder {
+      color: var(--text-cream-faint);
+    }
+
+    .btn-create-card {
+      background: var(--amber-flame);
+      color: var(--bg-charcoal);
+      border: none;
+      border-radius: 8px;
+      padding: 0.75rem 1.4rem;
+      font-family: var(--font-ui);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      transition: transform 0.18s ease, background 0.18s ease;
+    }
+
+    .btn-create-card:hover {
+      background: var(--marigold);
+      transform: translateY(-1px);
+    }
+
+    /* Live Preview Card */
+    .greeting-card-preview {
+      margin-top: 1.5rem;
+      background: radial-gradient(circle at center, #241A13 0%, #17110C 100%);
+      border: 1px solid rgba(242, 160, 31, 0.35);
+      border-radius: 12px;
+      padding: 2.25rem 1.75rem;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+
+    .card-diya-motif {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 1rem;
+      color: var(--amber-flame);
+    }
+
+    .card-diya-motif svg {
+      width: 100%;
+      height: 100%;
+      stroke: var(--amber-flame);
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    .card-title-en {
+      font-family: var(--font-en);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--text-cream);
+      letter-spacing: 0.04em;
+    }
+
+    .card-title-hi {
+      font-family: var(--font-hi);
+      font-size: 1.85rem;
+      color: var(--amber-flame);
+      margin-top: 0.25rem;
+    }
+
+    /* Festival Selection Chips */
+    .festival-chips-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-bottom: 1.25rem;
+      justify-content: center;
+    }
+
+    .festival-chip {
+      background: rgba(20, 16, 12, 0.8);
+      border: 1px solid rgba(212, 175, 55, 0.28);
+      border-radius: 9999px;
+      color: var(--text-cream-dim);
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      padding: 0.35rem 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      touch-action: manipulation;
+    }
+
+    .festival-chip:hover {
+      border-color: var(--antique-gold);
+      color: var(--text-cream);
+    }
+
+    .festival-chip.active {
+      background: var(--amber-flame);
+      color: var(--bg-charcoal);
+      border-color: var(--amber-flame);
+      font-weight: 600;
+      box-shadow: 0 2px 10px rgba(242, 160, 31, 0.35);
+    }
+
+    .card-blessing-message {
+      margin-top: 1rem;
+      font-size: 0.94rem;
+      line-height: 1.6;
+      color: var(--text-cream-dim);
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .card-blessing-message-hi {
+      margin-top: 0.65rem;
+      font-family: var(--font-hi);
+      font-size: 1.05rem;
+      line-height: 1.5;
+      color: var(--antique-gold);
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .card-sender-badge {
+      margin-top: 1.4rem;
+      padding-top: 1.25rem;
+      border-top: 1px dashed rgba(246, 235, 214, 0.15);
+      font-size: 0.88rem;
+      color: var(--text-cream);
+    }
+
+    .card-sender-name {
+      color: var(--amber-flame);
+      font-weight: 600;
+    }
+
+    .card-agency-footer {
+      margin-top: 0.35rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-cream-faint);
+    }
+
+    /* Actions: WhatsApp Share & Copy Message */
+    .card-actions {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-share-wa {
+      background: #1B5E20;
+      color: var(--text-cream);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      padding: 0.7rem 1.25rem;
+      font-family: var(--font-ui);
+      font-size: 0.88rem;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.18s ease;
+    }
+
+    .btn-share-wa:hover {
+      background: #2E7D32;
+      transform: translateY(-1px);
+    }
+
+    .btn-copy-card {
+      background: rgba(246, 235, 214, 0.08);
+      color: var(--text-cream);
+      border: 1px solid rgba(246, 235, 214, 0.2);
+      border-radius: 8px;
+      padding: 0.7rem 1.25rem;
+      font-family: var(--font-ui);
+      font-size: 0.88rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.18s ease;
+    }
+
+    .btn-copy-card:hover {
+      background: rgba(246, 235, 214, 0.15);
+      transform: translateY(-1px);
+    }
+
+    /* Subtle Toast for copied feedback */
+    .toast-pill {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--bg-card);
+      border: 1px solid var(--amber-flame);
+      color: var(--text-cream);
+      padding: 0.6rem 1.2rem;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 1000;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    }
+
+    .toast-pill.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ==============================================================
+       7. VISIT US (Deep Teal #0F3B3A Atmosphere)
+       Two clean branch cards: Khari Baoli & Seelampur (Prem Agency)
+       Call buttons for 9818296081 & 9810153813
+       Google Maps directions link
+       Small rounded thumbnail of /assets/shop-front.webp on Khari Baoli card
+       ============================================================== */
+    .visit-section {
+      background-color: var(--deep-teal);
+      padding: 5rem 1.5rem 4rem;
+      position: relative;
+    }
+
+    .visit-container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .visit-heading {
+      text-align: center;
+      font-family: var(--font-en);
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 600;
+      color: var(--text-cream);
+      margin-bottom: 0.5rem;
+    }
+
+    .visit-sub {
+      text-align: center;
+      font-size: 0.88rem;
+      color: rgba(246, 235, 214, 0.75);
+      letter-spacing: 0.05em;
+      margin-bottom: 3rem;
+    }
+
+    .branches-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .branches-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .branch-card {
+      background: var(--deep-teal-card);
+      border: 1px solid rgba(246, 235, 214, 0.15);
+      border-radius: 14px;
+      padding: 1.85rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .branch-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .branch-title-group {
+      flex: 1;
+    }
+
+    .branch-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber-flame);
+      margin-bottom: 0.35rem;
+    }
+
+    .branch-name {
+      font-family: var(--font-en);
+      font-size: 1.65rem;
+      font-weight: 600;
+      color: var(--text-cream);
+      line-height: 1.15;
+    }
+
+    /* Thumbnail on Khari Baoli card */
+    .branch-thumb {
+      width: 74px;
+      height: 74px;
+      border-radius: 10px;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 1px solid rgba(246, 235, 214, 0.2);
+    }
+
+    .branch-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .branch-address {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: rgba(246, 235, 214, 0.85);
+      margin-bottom: 1rem;
+    }
+
+    .branch-timing {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: rgba(246, 235, 214, 0.7);
+      margin-bottom: 1.5rem;
+    }
+
+    .branch-timing svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--amber-flame);
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    .branch-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-top: auto;
+    }
+
+    .branch-call-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem;
+    }
+
+    .btn-branch-call {
+      background: rgba(246, 235, 214, 0.08);
+      color: var(--text-cream);
+      border: 1px solid rgba(246, 235, 214, 0.2);
+      border-radius: 8px;
+      padding: 0.65rem 0.6rem;
+      font-size: 0.82rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      transition: background-color 0.2s, border-color 0.2s;
+    }
+
+    .btn-branch-call:hover {
+      background: rgba(246, 235, 214, 0.16);
+      border-color: var(--amber-flame);
+    }
+
+    .btn-branch-call svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--amber-flame);
+      fill: none;
+    }
+
+    .btn-branch-directions {
+      background: var(--amber-flame);
+      color: var(--bg-charcoal);
+      border: none;
+      border-radius: 8px;
+      padding: 0.72rem 1rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      transition: background-color 0.18s ease, transform 0.18s ease;
+    }
+
+    .btn-branch-directions:hover {
+      background: var(--marigold);
+      transform: translateY(-1px);
+    }
+
+    .btn-branch-directions svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--bg-charcoal);
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .visit-note {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: rgba(246, 235, 214, 0.6);
+      font-style: italic;
+    }
+
+    /* ==============================================================
+       8. FOOTER
+       "Happy Diwali from the Prem Agarbatti Agency family"
+       "© 1992 Prem Agarbatti Agency"
+       ============================================================== */
+    .site-footer {
+      background: #0d0a08;
+      border-top: 1px solid rgba(246, 235, 214, 0.08);
+      padding: 3.5rem 1.5rem 6.5rem; /* bottom padding accounts for mobile sticky call */
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .site-footer {
+        padding-bottom: 3.5rem;
+      }
+    }
+
+    .footer-blessing-line {
+      font-family: var(--font-en);
+      font-size: 1.45rem;
+      color: var(--text-cream);
+      letter-spacing: 0.02em;
+    }
+
+    .footer-copyright {
+      margin-top: 0.75rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      color: var(--text-cream-faint);
+    }
+
+    /* ==============================================================
+       STICKY MOBILE CALL & WHATSAPP BAR
+       Always accessible for instant Khari Baoli customer calls
+       ============================================================== */
+    .mobile-sticky-bar {
+      position: fixed;
+      bottom: 1.1rem;
+      left: 1.1rem;
+      right: 1.1rem;
+      z-index: 40;
+      display: flex;
+      gap: 0.65rem;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .mobile-sticky-bar {
+        display: none;
+      }
+    }
+
+    .sticky-call-btn {
+      flex: 1;
+      background: var(--amber-flame);
+      color: var(--bg-charcoal);
+      border: none;
+      border-radius: 9999px;
+      padding: 0.85rem 1.25rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .sticky-call-btn svg {
+      width: 17px;
+      height: 17px;
+      stroke: var(--bg-charcoal);
+      fill: none;
+      stroke-width: 2.2;
+    }
+
+    .sticky-wa-btn {
+      width: 48px;
+      height: 48px;
+      background: #1B5E20;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      flex-shrink: 0;
+    }
+
+    .sticky-wa-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: #F6EBD6;
+    }
+
+    /* ==============================================================
+       REDUCED MOTION & PERFORMANCE GUARDS
+       ============================================================== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .flame-layer-outer,
+      .flame-layer-mid,
+      .flame-layer-core,
+      .light-pool,
+      .smoke-wisp,
+      .fragrance-banner-img,
+      .smoke-line,
+      .ember {
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Full-screen interactive fireworks canvas -->
+  <canvas id="fireworks-canvas"></canvas>
+
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="brand-mark">
+      <span class="brand-title">Prem Agarbatti Agency</span>
+      <span class="brand-sub">Khari Baoli, Delhi • Est. 1992</span>
+    </div>
+
+    <div class="header-actions">
+      <!-- Language Emphasis Switcher (Hero only) -->
+      <div class="lang-switcher" role="group" aria-label="Language display toggle">
+        <button type="button" class="lang-btn active" id="btn-lang-all">Both</button>
+        <button type="button" class="lang-btn" id="btn-lang-en">EN</button>
+        <button type="button" class="lang-btn" id="btn-lang-hi">हिं</button>
+      </div>
+
+      <!-- Ambient Fireworks Trigger -->
+      <button type="button" class="firework-spark-btn" id="btn-sparkle" title="Tap for festive fireworks">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>
+        </svg>
+        <span>Fireworks</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==============================================================
+       1. HERO SECTION
+       Desktop: Three columns ("Happy Diwali" | Large Diya | "शुभ दीपावली")
+       Mobile: "Happy Diwali" above Diya, "शुभ दीपावली" below Diya
+       Faint 1992 background photo texture (opacity: 0.08)
+       ============================================================== -->
+  <section class="hero-section" id="hero" aria-label="Diwali Blessing Hero">
+    <!-- REPLACE IMAGE HERE: Ambient texture from 1992 shop photo -->
+    <div class="hero-bg-texture" aria-hidden="true"></div>
+    <div class="hero-bg-overlay" aria-hidden="true"></div>
+
+    <!-- 12 slow rising embers (transform and opacity only) -->
+    <div class="embers-container" id="embers-container" aria-hidden="true"></div>
+
+    <div class="hero-container">
+      <!-- Left Column: English Greeting -->
+      <div class="hero-col-left" id="hero-col-en">
+        <h1 class="hero-greeting-en">Happy<br />Diwali</h1>
+        <p class="hero-tagline-en">Khari Baoli, Delhi • Since 1992</p>
+      </div>
+
+      <!-- Center Column: Realistic Handcrafted Clay Diya (Layered SVG) -->
+      <div class="hero-col-center">
+        <div class="diya-stage">
+          <!-- 4 Smaller background diyas at varying depths (soft static blurred shapes) -->
+          <svg class="bg-diya bg-diya-1" viewBox="0 0 100 100" aria-hidden="true">
+            <ellipse cx="50" cy="72" rx="42" ry="14" fill="#B5502B" />
+            <ellipse cx="50" cy="68" rx="35" ry="9" fill="#5C2411" />
+            <path d="M50 20 Q44 48 50 58 Q56 48 50 20Z" fill="#F2A01F" opacity="0.85" />
+            <circle cx="50" cy="40" r="16" fill="#FFF7D6" opacity="0.5" />
+          </svg>
+
+          <svg class="bg-diya bg-diya-2" viewBox="0 0 100 100" aria-hidden="true">
+            <ellipse cx="50" cy="72" rx="42" ry="14" fill="#B5502B" />
+            <ellipse cx="50" cy="68" rx="35" ry="9" fill="#5C2411" />
+            <path d="M50 22 Q43 46 50 58 Q57 46 50 22Z" fill="#E8801A" opacity="0.8" />
+            <circle cx="50" cy="40" r="14" fill="#FFF7D6" opacity="0.45" />
+          </svg>
+
+          <svg class="bg-diya bg-diya-3" viewBox="0 0 100 100" aria-hidden="true">
+            <ellipse cx="50" cy="72" rx="42" ry="14" fill="#8C3A1D" />
+            <ellipse cx="50" cy="68" rx="35" ry="9" fill="#451608" />
+            <path d="M50 25 Q45 48 50 60 Q55 48 50 25Z" fill="#F2A01F" opacity="0.75" />
+          </svg>
+
+          <svg class="bg-diya bg-diya-4" viewBox="0 0 100 100" aria-hidden="true">
+            <ellipse cx="50" cy="72" rx="42" ry="14" fill="#8C3A1D" />
+            <ellipse cx="50" cy="68" rx="35" ry="9" fill="#451608" />
+            <path d="M50 26 Q45 48 50 60 Q55 48 50 26Z" fill="#E8801A" opacity="0.7" />
+          </svg>
+
+          <!-- Main Realistic Layered Clay Diya -->
+          <svg class="main-diya-svg" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <!-- Light Pool Radial Gradient -->
+              <radialGradient id="lightPoolGrad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#F2A01F" stop-opacity="0.55" />
+                <stop offset="45%" stop-color="#E8801A" stop-opacity="0.25" />
+                <stop offset="80%" stop-color="#B5502B" stop-opacity="0.08" />
+                <stop offset="100%" stop-color="#14100C" stop-opacity="0" />
+              </radialGradient>
+
+              <!-- Clay Terracotta Gradient -->
+              <linearGradient id="terracottaClayGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#C96336" />
+                <stop offset="28%" stop-color="#B5502B" />
+                <stop offset="70%" stop-color="#7B2C14" />
+                <stop offset="100%" stop-color="#401407" />
+              </linearGradient>
+
+              <!-- Clay Rim Highlight -->
+              <linearGradient id="clayRimHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#8C3317" />
+                <stop offset="25%" stop-color="#DE7A4B" />
+                <stop offset="50%" stop-color="#F6B27A" />
+                <stop offset="75%" stop-color="#D96F40" />
+                <stop offset="100%" stop-color="#8C3317" />
+              </linearGradient>
+
+              <!-- Deep Oil Reservoir -->
+              <radialGradient id="oilPoolGrad" cx="50%" cy="40%" r="55%">
+                <stop offset="0%" stop-color="#8A5119" stop-opacity="0.9" />
+                <stop offset="65%" stop-color="#422108" stop-opacity="0.95" />
+                <stop offset="100%" stop-color="#1A0C03" stop-opacity="1" />
+              </radialGradient>
+
+              <!-- Outer Flame Gradient -->
+              <linearGradient id="flameOuterGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" stop-color="#C94910" stop-opacity="0.8" />
+                <stop offset="35%" stop-color="#E8801A" />
+                <stop offset="80%" stop-color="#F2A01F" />
+                <stop offset="100%" stop-color="#FFE185" stop-opacity="0.9" />
+              </linearGradient>
+
+              <!-- Mid Flame Gradient -->
+              <linearGradient id="flameMidGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" stop-color="#F2A01F" />
+                <stop offset="50%" stop-color="#FBBF24" />
+                <stop offset="90%" stop-color="#FFF3C4" />
+                <stop offset="100%" stop-color="#FFFFFF" />
+              </linearGradient>
+
+              <!-- Core Flame Gradient -->
+              <linearGradient id="flameCoreGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" stop-color="#FFE082" />
+                <stop offset="60%" stop-color="#FFFBEB" />
+                <stop offset="100%" stop-color="#FFFFFF" />
+              </linearGradient>
+
+              <!-- Flame Base Blue Glow -->
+              <radialGradient id="flameBlueBase" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.75" />
+                <stop offset="60%" stop-color="#3B82F6" stop-opacity="0.3" />
+                <stop offset="100%" stop-color="#1D4ED8" stop-opacity="0" />
+              </radialGradient>
+            </defs>
+
+            <!-- Pulsing Light Pool Underneath -->
+            <ellipse class="light-pool" cx="150" cy="235" rx="130" ry="45" fill="url(#lightPoolGrad)" />
+
+            <!-- Single Thin Wisp of Smoke from Wick -->
+            <path class="smoke-wisp" d="M150 148 C148 132 154 118 150 102 C146 86 156 70 152 52" stroke="rgba(246, 235, 214, 0.4)" stroke-width="1.4" stroke-linecap="round" fill="none" />
+
+            <!-- Diya Body: Handcrafted Uneven Clay Bowl -->
+            <g id="clay-diya-body">
+              <!-- Clay bowl outer base with soft organic asymmetry -->
+              <path d="M48 214 C56 250 105 272 150 272 C196 272 245 250 252 214 C256 195 240 188 232 188 C198 194 150 196 102 194 C68 188 44 195 48 214Z" fill="url(#terracottaClayGrad)" />
+
+              <!-- Clay texture & rim lip lines -->
+              <path d="M52 208 C86 216 150 219 214 216 C238 214 248 206 248 202 C248 196 230 190 206 186 C170 182 130 182 94 186 C70 190 52 196 52 202 C52 206 58 210 74 214" stroke="url(#clayRimHighlight)" stroke-width="2.6" fill="none" />
+
+              <!-- Diya Oil Pool (dark glistening oil surface) -->
+              <ellipse cx="150" cy="198" rx="86" ry="17" fill="url(#oilPoolGrad)" />
+
+              <!-- Subtle golden oil rim reflection -->
+              <ellipse cx="150" cy="200" rx="82" ry="13" stroke="#F2A01F" stroke-opacity="0.32" stroke-width="1.2" fill="none" />
+
+              <!-- Cotton Wick (protruding slightly forward & upward) -->
+              <path d="M150 204 C150 192 149 178 150 162" stroke="#F6EBD6" stroke-width="3.6" stroke-linecap="round" />
+              <!-- Charred Wick Tip -->
+              <circle cx="150" cy="162" r="2.2" fill="#24140C" />
+            </g>
+
+            <!-- 3 Layered Teardrop Flames with Blue Base -->
+            <g id="diya-flame">
+              <!-- Faint Blue Base at Wick Root -->
+              <ellipse cx="150" cy="164" rx="9" ry="5.5" fill="url(#flameBlueBase)" />
+
+              <!-- Layer 1: Orange Outer Flame -->
+              <path class="flame-layer-outer" d="M150 82 C135 116 122 138 126 158 C130 174 140 178 150 178 C160 178 170 174 174 158 C178 138 165 116 150 82Z" fill="url(#flameOuterGrad)" />
+
+              <!-- Layer 2: Amber Middle Flame -->
+              <path class="flame-layer-mid" d="M150 96 C138 124 130 142 133 158 C136 170 143 174 150 174 C157 174 164 170 167 158 C170 142 162 124 150 96Z" fill="url(#flameMidGrad)" />
+
+              <!-- Layer 3: White-Yellow Core Flame -->
+              <path class="flame-layer-core" d="M150 118 C143 136 138 148 140 160 C142 168 146 170 150 170 C154 170 158 168 160 160 C162 148 157 136 150 118Z" fill="url(#flameCoreGrad)" />
+            </g>
+          </svg>
+        </div>
+
+        <div class="hero-hint" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+          </svg>
+          <span>Tap anywhere for festive fireworks</span>
+        </div>
+      </div>
+
+      <!-- Right Column: Hindi Greeting -->
+      <div class="hero-col-right" id="hero-col-hi">
+        <h2 class="hero-greeting-hi">शुभ<br />दीपावली</h2>
+        <p class="hero-tagline-hi">प्रेम अगरबत्ती एजेंसी • पुरानी दिल्ली</p>
+      </div>
+    </div>
+
+    <!-- Seasonal Rotating Wish Line (Directly underneath hero) -->
+    <div class="hero-seasonal-wish-wrap" aria-live="polite">
+      <span class="hero-seasonal-ornament" aria-hidden="true">✦</span>
+      <span class="hero-seasonal-wish-text" id="hero-seasonal-wish">शुभ धनतेरस</span>
+      <span class="hero-seasonal-ornament" aria-hidden="true">✦</span>
+    </div>
+  </section>
+
+  <!-- ==============================================================
+       2. THREE TINY BLESSINGS
+       Three short lines with handcrafted line art:
+       शुभ लाभ (diya), सुख समृद्धि (lotus), शांति (swastik)
+       Fade in on scroll. No paragraphs.
+       ============================================================== */ -->
+  <section class="blessings-section" aria-label="Auspicious Blessings">
+    <div class="blessings-grid">
+      <!-- 1. Shubh Labh -->
+      <div class="blessing-item">
+        <div class="blessing-icon-wrap" aria-hidden="true">
+          <svg class="blessing-icon-svg" viewBox="0 0 48 48">
+            <!-- Hand-drawn Diya line art -->
+            <path d="M12 28 C12 36 18 40 24 40 C30 40 36 36 36 28 C36 26 33 25 24 25 C15 25 12 26 12 28 Z" />
+            <path d="M24 10 C24 10 19 16 19 20 C19 22.8 21.2 25 24 25 C26.8 25 29 22.8 29 20 C29 16 24 10 24 10 Z" />
+          </svg>
+        </div>
+        <span class="blessing-text">शुभ लाभ</span>
+      </div>
+
+      <!-- 2. Sukh Samriddhi -->
+      <div class="blessing-item">
+        <div class="blessing-icon-wrap" aria-hidden="true">
+          <svg class="blessing-icon-svg" viewBox="0 0 48 48">
+            <!-- Hand-drawn Sacred Lotus line art -->
+            <path d="M24 10 C24 18 20 28 14 34 C20 33 28 33 34 34 C28 28 24 18 24 10 Z" />
+            <path d="M24 22 C21 27 15 32 8 32 C12 30 18 28 22 24" />
+            <path d="M24 22 C27 27 33 32 40 32 C36 30 30 28 26 24" />
+            <path d="M16 36 C21 38 27 38 32 36" />
+          </svg>
+        </div>
+        <span class="blessing-text">सुख समृद्धि</span>
+      </div>
+
+      <!-- 3. Shanti -->
+      <div class="blessing-item">
+        <div class="blessing-icon-wrap" aria-hidden="true">
+          <svg class="blessing-icon-svg" viewBox="0 0 48 48">
+            <!-- Hand-drawn Auspicious Swastik line art -->
+            <path d="M24 10 L24 38" />
+            <path d="M10 24 L38 24" />
+            <path d="M24 10 L34 10" />
+            <path d="M38 24 L38 34" />
+            <path d="M24 38 L14 38" />
+            <path d="M10 24 L10 14" />
+            <circle cx="17" cy="17" r="1.5" fill="var(--amber-flame)" stroke="none" />
+            <circle cx="31" cy="17" r="1.5" fill="var(--amber-flame)" stroke="none" />
+            <circle cx="17" cy="31" r="1.5" fill="var(--amber-flame)" stroke="none" />
+            <circle cx="31" cy="31" r="1.5" fill="var(--amber-flame)" stroke="none" />
+          </svg>
+        </div>
+        <span class="blessing-text">शांति</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================================
+       FESTIVAL GARLAND (Main New Section)
+       Immediately after Three Tiny Blessings
+       Mobile: Horizontal scroll with CSS scroll-snap
+       Desktop: 3-column grid (2 rows of 3)
+       ============================================================== -->
+  <section class="garland-section" id="festival-garland" aria-label="Festival Garland">
+    <div class="garland-header">
+      <span class="section-eyebrow">Auspicious Season • पावन पर्व माला</span>
+      <h3 class="section-heading">Festival Garland</h3>
+      <p class="garland-intro">From Dhanteras to Chhath Puja — six sacred lights of celebration</p>
+    </div>
+
+    <div class="garland-wrapper">
+      <div class="garland-cards-scroll" id="garland-cards-container" role="tablist" aria-label="Festive Celebrations">
+        <!-- Six handcrafted festival cards rendered dynamically from FESTIVALS array -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================================
+       3. FRAGRANCE OF FAITH
+       Wide full-bleed image of /assets/shop-products.webp
+       Slow subtle zoom (20s, alternate) + thin rising incense smoke lines
+       Horizontal row of small tappable names with hand-drawn line icons
+       ============================================================== -->
+  <section class="fragrance-section" aria-label="Fragrance of Faith">
+    <p class="section-eyebrow">Pure Aromas • Khari Baoli</p>
+    <h3 class="section-heading">Fragrance of Faith</h3>
+
+    <div class="fragrance-banner-wrap photo-frame">
+      <!-- REPLACE IMAGE HERE -->
+      <img
+        src="/assets/shop-products.webp"
+        alt="Shelves of traditional incense, agarbatti and dhoop at Prem Agarbatti Agency"
+        width="1920"
+        height="1080"
+        loading="lazy"
+        decoding="async"
+        class="fragrance-banner-img"
+        onerror="this.onerror=null; this.classList.add('img-fallback');"
+      />
+
+      <!-- Thin curling incense smoke lines rising in front of the image -->
+      <div class="incense-smoke-layer" aria-hidden="true">
+        <svg class="smoke-line smoke-line-1" viewBox="0 0 100 300" preserveAspectRatio="none">
+          <path d="M50 300 Q40 220 55 160 T48 70 Q42 20 60 0" />
+        </svg>
+        <svg class="smoke-line smoke-line-2" viewBox="0 0 100 300" preserveAspectRatio="none">
+          <path d="M50 300 Q58 230 42 170 T54 80 Q58 30 45 0" />
+        </svg>
+        <svg class="smoke-line smoke-line-3" viewBox="0 0 100 300" preserveAspectRatio="none">
+          <path d="M50 300 Q44 210 56 150 T46 60 Q52 15 48 0" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Tappable product list: Agarbatti, Dhoop Sticks, Dhoop Cones, Havan Samagri, Loban, Kapoor -->
+    <div class="products-list-wrap" role="tablist" aria-label="Traditional Fragrance Products">
+      <!-- Agarbatti -->
+      <button type="button" class="product-tag-btn active" role="tab" aria-selected="true">
+        <svg viewBox="0 0 24 24">
+          <!-- Incense stick motif -->
+          <line x1="5" y1="21" x2="19" y2="7" />
+          <path d="M19 7 C18 5 20 3 22 2" />
+        </svg>
+        <span>Agarbatti</span>
+      </button>
+
+      <!-- Dhoop Sticks -->
+      <button type="button" class="product-tag-btn" role="tab" aria-selected="false">
+        <svg viewBox="0 0 24 24">
+          <!-- Dhoop sticks motif -->
+          <line x1="8" y1="20" x2="8" y2="6" stroke-width="2.5" />
+          <line x1="14" y1="20" x2="14" y2="8" stroke-width="2.5" />
+          <path d="M8 5 C7 3 9 2 8 1" />
+        </svg>
+        <span>Dhoop Sticks</span>
+      </button>
+
+      <!-- Dhoop Cones -->
+      <button type="button" class="product-tag-btn" role="tab" aria-selected="false">
+        <svg viewBox="0 0 24 24">
+          <!-- Cone motif -->
+          <polygon points="12,4 5,20 19,20" />
+          <path d="M12 4 C11 2 13 1 12 0" />
+        </svg>
+        <span>Dhoop Cones</span>
+      </button>
+
+      <!-- Havan Samagri -->
+      <button type="button" class="product-tag-btn" role="tab" aria-selected="false">
+        <svg viewBox="0 0 24 24">
+          <!-- Sacred Havan Kund motif -->
+          <path d="M4 14 L20 14 L17 21 L7 21 Z" />
+          <path d="M12 6 C12 6 9 10 12 12 C15 10 12 6 12 6 Z" />
+        </svg>
+        <span>Havan Samagri</span>
+      </button>
+
+      <!-- Loban -->
+      <button type="button" class="product-tag-btn" role="tab" aria-selected="false">
+        <svg viewBox="0 0 24 24">
+          <!-- Sacred resin incense burner -->
+          <path d="M6 18 C6 18 7 14 12 14 C17 14 18 18 18 18" />
+          <line x1="4" y1="18" x2="20" y2="18" />
+          <path d="M12 7 C11 10 13 11 12 14" />
+        </svg>
+        <span>Loban</span>
+      </button>
+
+      <!-- Kapoor -->
+      <button type="button" class="product-tag-btn" role="tab" aria-selected="false">
+        <svg viewBox="0 0 24 24">
+          <!-- Pure camphor tablet flame -->
+          <rect x="6" y="16" width="12" height="5" rx="1" />
+          <path d="M12 5 C10 9 14 11 12 16" />
+        </svg>
+        <span>Kapoor</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ==============================================================
+       SHOP VIDEO (A moment from our shop)
+       Placed between Fragrance of Faith and Then and Now
+       ============================================================== -->
+  <section class="shop-video-section" id="shop-video-section" aria-label="A Moment From Our Shop">
+    <div class="shop-video-container" id="shop-video-container">
+      <!-- REPLACE VIDEO HERE -->
+      <!-- Video files: /assets/shop-video.webm (lighter), /assets/shop-video.mp4 (main H.264 720p) -->
+      <!-- Poster file: /assets/shop-video-poster.webp (fallback to /assets/shop-inside.webp) -->
+      <video
+        id="shop-video"
+        class="shop-video-element"
+        preload="metadata"
+        playsinline
+        width="960"
+        height="540"
+        poster="/assets/shop-video-poster.webp"
+        aria-label="A moment from Prem Agarbatti Agency shop"
+      >
+        <source src="/assets/shop-video.webm" type="video/webm" />
+        <source src="/assets/shop-video.mp4" type="video/mp4" />
+      </video>
+
+      <!-- Warm vignette overlay -->
+      <div class="shop-video-vignette" aria-hidden="true"></div>
+
+      <!-- Center Calm Round Amber Play Button -->
+      <button
+        type="button"
+        class="video-center-play-btn"
+        id="video-play-btn"
+        aria-label="Play video with sound"
+        title="Play video"
+      >
+        <svg viewBox="0 0 24 24">
+          <polygon points="6,3 20,12 6,21" />
+        </svg>
+      </button>
+
+      <!-- Bottom Corner Minimal Controls (Pause/Play & Mute/Sound) -->
+      <div class="video-corner-controls" id="video-corner-controls">
+        <button
+          type="button"
+          class="video-control-btn"
+          id="video-pause-btn"
+          aria-label="Pause or resume video"
+          title="Pause / Resume"
+        >
+          <svg id="icon-pause" viewBox="0 0 24 24">
+            <line x1="10" y1="4" x2="10" y2="20" />
+            <line x1="14" y1="4" x2="14" y2="20" />
+          </svg>
+          <svg id="icon-play-mini" viewBox="0 0 24 24" style="display:none; fill:currentColor; stroke:none;">
+            <polygon points="7,4 19,12 7,20" />
+          </svg>
+        </button>
+
+        <button
+          type="button"
+          class="video-control-btn"
+          id="video-mute-btn"
+          aria-label="Mute or unmute audio"
+          title="Mute / Unmute"
+        >
+          <svg id="icon-volume-on" viewBox="0 0 24 24">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+          </svg>
+          <svg id="icon-volume-muted" viewBox="0 0 24 24" style="display:none;">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+            <line x1="23" y1="9" x2="17" y2="15" />
+            <line x1="17" y1="9" x2="23" y2="15" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Thin Amber Progress Line (updated via transform: scaleX only) -->
+      <div class="video-progress-bar" id="video-progress-bar" aria-hidden="true"></div>
+    </div>
+
+    <!-- REPLACE CAPTION HERE -->
+    <p class="video-caption-line">A moment from our shop.</p>
+  </section>
+
+  <!-- ==============================================================
+       4. THEN AND NOW (The heart of the page)
+       Before/after reveal slider:
+       Left: /assets/shop-1992.webp
+       Right: /assets/shop-front.webp
+       Labels "1992" and "Today"
+       Caption: "Since 1992, Khari Baoli, Delhi." & "Also at Seelampur (Prem Agency)."
+       ============================================================== -->
+  <section class="then-now-section" aria-label="Shop Heritage Through Decades">
+    <p class="section-eyebrow">Generations of Service</p>
+    <h3 class="section-heading">Then and Now</h3>
+
+    <div class="slider-stage" id="comparison-slider" role="region" aria-label="Comparison slider between 1992 and Today">
+      <!-- Base Layer (Right/Today): Shop Exterior -->
+      <div class="slider-image-base photo-frame">
+        <!-- REPLACE IMAGE HERE -->
+        <img
+          src="/assets/shop-front.webp"
+          alt="Prem Agarbatti Agency current shop front in Khari Baoli"
+          width="1200"
+          height="900"
+          loading="lazy"
+          decoding="async"
+          onerror="this.onerror=null; this.classList.add('img-fallback');"
+        />
+      </div>
+
+      <!-- Overlay Layer (Left/1992): Historic 1992 Old Photo with clip-path -->
+      <div class="slider-image-overlay photo-frame vintage" id="slider-overlay">
+        <!-- REPLACE IMAGE HERE -->
+        <img
+          src="/assets/shop-1992.webp"
+          alt="Original photograph of Prem Agarbatti Agency shop in 1992"
+          width="1200"
+          height="900"
+          loading="lazy"
+          decoding="async"
+          onerror="this.onerror=null; this.classList.add('img-fallback');"
+        />
+      </div>
+
+      <!-- Divider line & draggable handle -->
+      <div class="slider-handle-line" id="slider-handle-line"></div>
+      <div class="slider-handle-button" id="slider-handle-button" tabindex="0" role="slider" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Slide to compare 1992 and Today">
+        <svg viewBox="0 0 24 24">
+          <polyline points="15 18 9 12 15 6" />
+          <polyline points="9 18 3 12 9 6" opacity="0.3" />
+        </svg>
+      </div>
+
+      <!-- Small corner badges -->
+      <span class="slider-badge slider-badge-1992">1992</span>
+      <span class="slider-badge slider-badge-today">Today</span>
+    </div>
+
+    <div class="then-now-caption">
+      <p class="then-now-main-line">Since 1992, Khari Baoli, Delhi.</p>
+      <p class="then-now-sub-line">Also at Seelampur (Prem Agency).</p>
+    </div>
+  </section>
+
+  <!-- ==============================================================
+       5. INSIDE THE SHOP
+       /assets/shop-inside.webp as calm full-width image with rounded corners,
+       soft warm vignette, tiny fade-in on scroll.
+       One short line: "Come, step inside." No other text.
+       ============================================================== -->
+  <section class="inside-section" aria-label="Inside the Shop">
+    <div class="inside-card photo-frame" id="inside-card">
+      <!-- REPLACE IMAGE HERE -->
+      <img
+        src="/assets/shop-inside.webp"
+        alt="Interior shelves and sacred prayer corner inside Prem Agarbatti Agency"
+        width="1440"
+        height="810"
+        loading="lazy"
+        decoding="async"
+        onerror="this.onerror=null; this.classList.add('img-fallback');"
+      />
+    </div>
+    <p class="inside-caption">Come, step inside.</p>
+  </section>
+
+  <!-- ==============================================================
+       6. SEND A BLESSING
+       Personalized Diwali Greeting Card Generator:
+       - Name input
+       - "Create Blessing Card"
+       - Card preview (diya, Happy Diwali, शुभ दीपावली, sender's name)
+       - "Share on WhatsApp" (wa.me link with greeting prefilled)
+       - "Copy message" button
+       ============================================================== -->
+  <section class="blessing-generator-section" aria-label="Share Diwali Blessings">
+    <p class="section-eyebrow">Warm Greetings</p>
+    <h3 class="section-heading">Send a Blessing</h3>
+
+    <div class="blessing-form">
+      <!-- Festival Selection Chips (Synchronized with Festival Garland) -->
+      <div class="festival-chips-container" id="greeting-festival-chips" role="tablist" aria-label="Select Festival for Blessing">
+        <!-- Rendered dynamically from FESTIVALS array -->
+      </div>
+
+      <div class="input-row">
+        <input
+          type="text"
+          id="sender-name-input"
+          class="sender-input"
+          placeholder="Enter your name (e.g. Ramesh, Sunita)"
+          maxlength="50"
+          aria-label="Your name for the greeting card"
+        />
+        <button type="button" class="btn-create-card" id="btn-generate-card">
+          <span>Create Blessing</span>
+        </button>
+      </div>
+
+      <!-- Live Greeting Card Preview -->
+      <div class="greeting-card-preview" id="greeting-card-preview">
+        <div class="card-diya-motif" aria-hidden="true">
+          <svg viewBox="0 0 48 48">
+            <path d="M12 28 C12 36 18 40 24 40 C30 40 36 36 36 28 C36 26 33 25 24 25 C15 25 12 26 12 28 Z" />
+            <path d="M24 10 C24 10 19 16 19 20 C19 22.8 21.2 25 24 25 C26.8 25 29 22.8 29 20 C29 16 24 10 24 10 Z" />
+          </svg>
+        </div>
+
+        <h4 class="card-title-en" id="card-festival-title-en">Happy Diwali</h4>
+        <h5 class="card-title-hi" id="card-festival-title-hi">शुभ दीपावली</h5>
+
+        <p class="card-blessing-message" id="card-festival-message-en">
+          May the sacred glow of diyas illuminate your life with infinite bliss, health, harmony, and fortune.
+        </p>
+        <p class="card-blessing-message-hi" id="card-festival-message-hi">
+          दीपावली का पावन प्रकाश आपके घर-आंगन को सुख, शांति, समृद्धि और आरोग्य से आलोकित करे।
+        </p>
+
+        <div class="card-sender-badge">
+          <span>With heartfelt wishes from </span>
+          <span class="card-sender-name" id="card-sender-display">Tarun Goyal & Family</span>
+        </div>
+        <p class="card-agency-footer">Prem Agarbatti Agency • Khari Baoli, Delhi</p>
+      </div>
+
+      <!-- Actions: WhatsApp & Copy -->
+      <div class="card-actions">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn-share-wa" id="btn-share-whatsapp">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.979-.276-.101-.476-.15-.677.15-.2.301-.777.979-.953 1.18-.176.2-.351.226-.652.075-.301-.15-1.272-.469-2.423-1.496-.897-.799-1.503-1.786-1.68-2.087-.176-.301-.019-.464.132-.614.135-.135.301-.351.452-.527.15-.176.2-.301.3-.501.101-.2.05-.376-.025-.527-.075-.15-.677-1.632-.927-2.233-.244-.585-.492-.505-.677-.515l-.577-.01c-.2 0-.527.075-.802.376-.276.301-1.053 1.028-1.053 2.508s1.078 2.909 1.229 3.11c.15.2 2.12 3.238 5.137 4.542.717.311 1.278.497 1.716.637.72.23 1.376.197 1.895.12.578-.087 1.78-.727 2.03-1.43.251-.702.251-1.304.176-1.43-.076-.125-.276-.2-.577-.35z"/>
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.178L2.05 21.95l4.908-1.353C8.423 21.49 10.156 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.2c-1.62 0-3.13-.48-4.4-1.31l-.31-.2-2.91.8.8-2.84-.21-.33C4.1 14.97 3.6 13.52 3.6 12c0-4.63 3.77-8.4 8.4-8.4 4.63 0 8.4 3.77 8.4 8.4 0 4.63-3.77 8.4-8.4 8.4z"/>
+          </svg>
+          <span>Share on WhatsApp</span>
+        </a>
+
+        <button type="button" class="btn-copy-card" id="btn-copy-text">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+          </svg>
+          <span>Copy Message</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================================
+       7. VISIT US (Deep Teal #0F3B3A Atmosphere)
+       Two clean cards:
+       1) Khari Baoli (with thumbnail of /assets/shop-front.webp)
+       2) Seelampur (Prem Agency)
+       Calls: 9818296081 & 9810153813
+       Directions: Google Maps
+       Note: "Please confirm timings before visiting."
+       ============================================================== -->
+  <section class="visit-section" id="visit" aria-label="Visit Our Wholesaler Locations">
+    <div class="visit-container">
+      <h3 class="visit-heading">Visit Us</h3>
+      <p class="visit-sub">Wholesale Agarbatti, Dhoop & Sacred Fragrances</p>
+
+      <div class="branches-grid">
+        <!-- Branch 1: Khari Baoli (Main Branch) -->
+        <div class="branch-card">
+          <div>
+            <div class="branch-header">
+              <div class="branch-title-group">
+                <span class="branch-badge">Main Wholesaler</span>
+                <h4 class="branch-name">Khari Baoli</h4>
+              </div>
+              <!-- REPLACE IMAGE HERE: Khari Baoli shop exterior thumbnail when available -->
+            </div>
+
+            <p class="branch-address">
+              Shop No. 6081, Gali Batashan Main Market,<br />
+              Near Thakurli Namkin, Khari Baoli,<br />
+              Delhi — 110006
+            </p>
+
+            <div class="branch-timing">
+              <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <span>10:00 AM – 7:00 PM • Tuesday Closed</span>
+            </div>
+          </div>
+
+          <div class="branch-actions">
+            <!-- REPLACE PHONE NUMBER: 9818296081 & 9810153813 -->
+            <div class="branch-call-row">
+              <a href="tel:+919818296081" class="btn-branch-call">
+                <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <span>9818296081</span>
+              </a>
+
+              <a href="tel:+919810153813" class="btn-branch-call">
+                <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <span>9810153813</span>
+              </a>
+            </div>
+
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Shop+No.+6081+Gali+Batashan+Main+Market+Khari+Baoli+Delhi+110006"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-branch-directions"
+            >
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+              </svg>
+              <span>Get Directions (Maps)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Branch 2: Seelampur (Prem Agency) -->
+        <div class="branch-card">
+          <div>
+            <div class="branch-header">
+              <div class="branch-title-group">
+                <span class="branch-badge">Branch</span>
+                <h4 class="branch-name">Seelampur <span style="font-size: 1.15rem; font-weight: 400; opacity: 0.8;">(Prem Agency)</span></h4>
+              </div>
+
+              <!-- REPLACE IMAGE HERE: Thumbnail for recognition on arrival at Seelampur (Prem Agency) -->
+              <div class="branch-thumb photo-frame">
+                <img
+                  src="/assets/shop-front.webp"
+                  alt="Shop front of Prem Agency in Seelampur"
+                  width="148"
+                  height="148"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="this.onerror=null; this.classList.add('img-fallback');"
+                />
+              </div>
+            </div>
+
+            <p class="branch-address">
+              Shop No. 1, Gurudwara Market,<br />
+              New Seelampur,<br />
+              Delhi — 110053
+            </p>
+
+            <div class="branch-timing">
+              <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <span>10:00 AM – 7:00 PM</span>
+            </div>
+          </div>
+
+          <div class="branch-actions">
+            <!-- REPLACE PHONE NUMBER: 9818296081 & 9810153813 -->
+            <div class="branch-call-row">
+              <a href="tel:+919818296081" class="btn-branch-call">
+                <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <span>9818296081</span>
+              </a>
+
+              <a href="tel:+919810153813" class="btn-branch-call">
+                <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <span>9810153813</span>
+              </a>
+            </div>
+
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Prem+Agency+Shop+No+1+Gurudwara+Market+New+Seelampur+Delhi+110053"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-branch-directions"
+            >
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+              </svg>
+              <span>Get Directions (Maps)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p class="visit-note">Please confirm timings before visiting.</p>
+    </div>
+  </section>
+
+  <!-- ==============================================================
+       8. FOOTER
+       "Happy Diwali from the Prem Agarbatti Agency family"
+       "© 1992 Prem Agarbatti Agency"
+       ============================================================== -->
+  <footer class="site-footer">
+    <p class="footer-blessing-line">Happy Diwali and best wishes for all the festivals of the season, from the Prem Agarbatti Agency family.</p>
+    <p class="footer-copyright">© 1992 Prem Agarbatti Agency</p>
+  </footer>
+
+  <!-- Sticky Mobile Quick Action Bar (Calls 9818296081) -->
+  <div class="mobile-sticky-bar" aria-label="Quick contact">
+    <!-- REPLACE PHONE NUMBER: 9818296081 -->
+    <a href="tel:+919818296081" class="sticky-call-btn">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+      </svg>
+      <span>Call Khari Baoli (9818296081)</span>
+    </a>
+
+    <!-- REPLACE WHATSAPP NUMBER: 919818296081 -->
+    <a href="https://wa.me/919818296081?text=Namaste%2C%20Happy%20Diwali!%20Inquiring%20about%20Prem%20Agarbatti%20Agency%20wholesale%20products." target="_blank" rel="noopener noreferrer" class="sticky-wa-btn" aria-label="Message on WhatsApp">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.16-1.32A10 10 0 1 0 12 2zm0 18.2a8.16 8.16 0 0 1-4.17-1.14l-.3-.18-3.07.8.82-2.99-.2-.32A8.17 8.17 0 1 1 12 20.2z"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Toast Pill -->
+  <div class="toast-pill" id="toast-pill" role="status" aria-live="polite"></div>
+
+  <!-- Hidden Mount for Vite Compatibility -->
+  <div id="root" style="display:none;"></div>
+  <script type="module" src="/src/main.tsx"></script>
+
+  <!-- ==============================================================
+       VANILLA JAVASCRIPT LOGIC
+       - Fireworks Particle Engine with Pre-allocated Pool (Max 400, 0 GC)
+       - Then & Now Before/After Comparison Slider (touch-action: pan-y)
+       - Blessing Card Generator & WhatsApp Link encoder
+       - Hero EN/HI Language Emphasis Switcher
+       - Scroll Reveal Observers
+       - Tab Visibility & Reduced Motion pauses
+       ============================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ==============================================================
+         1. SINGLE SOURCE OF TRUTH: FESTIVALS CONFIGURATION
+         All festival names, dates, wishes, and blessings derive from here.
+         No duplicate festival data is defined elsewhere.
+         ============================================================== */
+      const FESTIVALS = [
+        {
+          id: 'dhanteras',
+          nameEn: 'Dhanteras',
+          nameHi: 'धनतेरस',
+          taglineEn: 'Festival of Wealth & Auspicious Beginnings',
+          taglineHi: 'समृद्धि एवं आरोग्य का पावन पर्व',
+          date: '2026-11-06',
+          wishHi: 'शुभ धनतेरस',
+          wishEn: 'Happy Dhanteras',
+          shortBlessingEn: 'May Lord Dhanvantari bless your home with divine health, peace, and boundless prosperity.',
+          shortBlessingHi: 'भगवान धन्वंतरि और मां लक्ष्मी आपके घर-आंगन में सुख, स्वास्थ्य एवं अपार समृद्धि का वास करें।',
+          illustration: `<svg class="garland-card-svg" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+            <defs>
+              <radialGradient id="kalashGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#F2A01F" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="#F2A01F" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="goldCoin" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFE699"/>
+                <stop offset="50%" stop-color="#D4AF37"/>
+                <stop offset="100%" stop-color="#8C6D1F"/>
+              </linearGradient>
+              <linearGradient id="kalashBody" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#F2A01F"/>
+                <stop offset="50%" stop-color="#B5502B"/>
+                <stop offset="100%" stop-color="#732811"/>
+              </linearGradient>
+            </defs>
+            <circle cx="60" cy="62" r="48" fill="url(#kalashGlow)"/>
+            <!-- Mango Leaves -->
+            <path d="M42 46 C34 32 46 22 54 36" stroke="#4D7C0F" stroke-width="2.5" fill="#365314" fill-opacity="0.6"/>
+            <path d="M78 46 C86 32 74 22 66 36" stroke="#4D7C0F" stroke-width="2.5" fill="#365314" fill-opacity="0.6"/>
+            <path d="M60 42 C54 26 66 26 60 42" stroke="#4D7C0F" stroke-width="2.5" fill="#4D7C0F" fill-opacity="0.7"/>
+            <!-- Coconut on Top -->
+            <ellipse cx="60" cy="38" rx="14" ry="12" fill="#78350F" stroke="#B5502B" stroke-width="1.8"/>
+            <circle cx="60" cy="36" r="3" fill="#B5502B"/>
+            <!-- Kalash Pot Body -->
+            <path d="M46 50 Q60 48 74 50 L78 60 Q88 74 80 88 Q74 96 60 96 Q46 96 40 88 Q32 74 42 60 Z" fill="url(#kalashBody)" stroke="#F2A01F" stroke-width="1.8"/>
+            <path d="M46 54 Q60 52 74 54" stroke="#FFE699" stroke-width="1.5"/>
+            <!-- Swastik / Sacred Motif on Kalash -->
+            <path d="M60 68 L60 82 M53 75 L67 75 M53 68 L53 75 M67 82 L67 75 M60 68 L67 68 M60 82 L53 82" stroke="#FFE699" stroke-width="1.4" stroke-linecap="round"/>
+            <!-- Spilling Gold Coins at Base -->
+            <ellipse cx="44" cy="95" rx="9" ry="5" fill="url(#goldCoin)" stroke="#FFE699" stroke-width="1"/>
+            <ellipse cx="60" cy="98" rx="11" ry="5.5" fill="url(#goldCoin)" stroke="#FFE699" stroke-width="1"/>
+            <ellipse cx="76" cy="95" rx="9" ry="5" fill="url(#goldCoin)" stroke="#FFE699" stroke-width="1"/>
+            <ellipse cx="52" cy="101" rx="8" ry="4.5" fill="url(#goldCoin)" stroke="#FFE699" stroke-width="0.8"/>
+            <ellipse cx="68" cy="101" rx="8" ry="4.5" fill="url(#goldCoin)" stroke="#FFE699" stroke-width="0.8"/>
+          </svg>`
+        },
+        {
+          id: 'choti-diwali', // Some calendars show November 8. Confirm the correct date.
+          nameEn: 'Choti Diwali',
+          nameHi: 'छोटी दिवाली',
+          taglineEn: 'Naraka Chaturdashi • Triumph of Light',
+          taglineHi: 'नरक चतुर्दशी • प्रकाश की विजय',
+          date: '2026-11-07',
+          wishHi: 'शुभ छोटी दिवाली',
+          wishEn: 'Happy Choti Diwali',
+          shortBlessingEn: 'May this eve of holy lamps cleanse every shadow and illuminate your path ahead.',
+          shortBlessingHi: 'दीपक की यह पावन पूर्व संध्या आपके जीवन के समस्त तमस को हर कर ज्ञान व शांति का आलोक फैलाए।',
+          illustration: `<svg class="garland-card-svg" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+            <defs>
+              <radialGradient id="chotiDiyaGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#F2A01F" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#F2A01F" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="flameGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" stop-color="#E8801A"/>
+                <stop offset="50%" stop-color="#F2A01F"/>
+                <stop offset="85%" stop-color="#FFE699"/>
+                <stop offset="100%" stop-color="#FFFFFF"/>
+              </linearGradient>
+            </defs>
+            <circle cx="60" cy="54" r="46" fill="url(#chotiDiyaGlow)"/>
+            <!-- Aura Ray Stars -->
+            <line x1="60" y1="14" x2="60" y2="24" stroke="#FFE699" stroke-width="1.6" stroke-linecap="round" opacity="0.85"/>
+            <line x1="38" y1="26" x2="45" y2="33" stroke="#FFE699" stroke-width="1.6" stroke-linecap="round" opacity="0.75"/>
+            <line x1="82" y1="26" x2="75" y2="33" stroke="#FFE699" stroke-width="1.6" stroke-linecap="round" opacity="0.75"/>
+            <line x1="28" y1="48" x2="38" y2="48" stroke="#FFE699" stroke-width="1.4" stroke-linecap="round" opacity="0.6"/>
+            <line x1="92" y1="48" x2="82" y2="48" stroke="#FFE699" stroke-width="1.4" stroke-linecap="round" opacity="0.6"/>
+            <!-- Diya Base (Handcrafted Earthen Clay) -->
+            <path d="M26 72 Q36 94 60 94 Q84 94 94 72 Q78 77 60 77 Q42 77 26 72 Z" fill="#993B1E" stroke="#E8801A" stroke-width="1.8"/>
+            <ellipse cx="60" cy="72" rx="34" ry="7" fill="#6A220F" stroke="#F2A01F" stroke-width="1.4"/>
+            <ellipse cx="60" cy="72" rx="26" ry="4" fill="#C2410C"/>
+            <!-- Luminous Diya Flame -->
+            <path d="M60 22 C64 36 74 46 72 58 C70 66 65 70 60 70 C55 70 50 66 48 58 C46 46 56 36 60 22 Z" fill="url(#flameGrad)"/>
+            <path d="M60 36 C62 44 66 52 64 58 C63 62 61 64 60 64 C59 64 57 62 56 58 C54 52 58 44 60 36 Z" fill="#FFFFFF" opacity="0.9"/>
+          </svg>`
+        },
+        {
+          id: 'diwali',
+          nameEn: 'Diwali',
+          nameHi: 'दीपावली',
+          taglineEn: 'Maha Lakshmi Pujan • The Festival of Lights',
+          taglineHi: 'महालक्ष्मी पूजन • दीपों का महापर्व',
+          date: '2026-11-08',
+          wishHi: 'शुभ दीपावली',
+          wishEn: 'Happy Diwali',
+          shortBlessingEn: 'May the sacred light of Maha Lakshmi illuminate your home with peace, joy, and endless prosperity.',
+          shortBlessingHi: 'महालक्ष्मी का पावन आशीर्वाद आपके जीवन में सुख, शांति, आनंद और अटूट ऐश्वर्य का प्रकाश भरे।',
+          illustration: `<svg class="garland-card-svg" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+            <defs>
+              <radialGradient id="diwaliGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#F2A01F" stop-opacity="0.45"/>
+                <stop offset="100%" stop-color="#F2A01F" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="lotusPetal" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" stop-color="#831843"/>
+                <stop offset="60%" stop-color="#BE185D"/>
+                <stop offset="100%" stop-color="#F472B6"/>
+              </linearGradient>
+            </defs>
+            <circle cx="60" cy="58" r="50" fill="url(#diwaliGlow)"/>
+            <!-- Outer Lotus Bloom Petals -->
+            <path d="M60 96 C40 96 22 84 20 66 C32 68 46 80 60 96 Z" fill="url(#lotusPetal)" opacity="0.9" stroke="#FDA4AF" stroke-width="0.8"/>
+            <path d="M60 96 C80 96 98 84 100 66 C88 68 74 80 60 96 Z" fill="url(#lotusPetal)" opacity="0.9" stroke="#FDA4AF" stroke-width="0.8"/>
+            <path d="M60 98 C46 98 34 90 32 76 C44 78 54 88 60 98 Z" fill="#9D174D" stroke="#FDA4AF" stroke-width="0.8"/>
+            <path d="M60 98 C74 98 86 90 88 76 C76 78 66 88 60 98 Z" fill="#9D174D" stroke="#FDA4AF" stroke-width="0.8"/>
+            <!-- Center Lotus Petals -->
+            <path d="M60 100 C50 86 42 72 40 56 C50 64 56 78 60 100 Z" fill="#BE185D" stroke="#FDA4AF" stroke-width="0.8"/>
+            <path d="M60 100 C70 86 78 72 80 56 C70 64 64 78 60 100 Z" fill="#BE185D" stroke="#FDA4AF" stroke-width="0.8"/>
+            <!-- Golden Central Diya on Lotus -->
+            <path d="M34 68 Q44 86 60 86 Q76 86 86 68 Q72 73 60 73 Q48 73 34 68 Z" fill="#B45309" stroke="#F59E0B" stroke-width="1.6"/>
+            <ellipse cx="60" cy="68" rx="26" ry="6" fill="#78350F" stroke="#FDE68A" stroke-width="1.2"/>
+            <!-- Maha Flame with Radiant Gold Aura -->
+            <circle cx="60" cy="46" r="16" fill="#F59E0B" opacity="0.25"/>
+            <path d="M60 20 C64 34 72 42 70 54 C68 62 64 65 60 65 C56 65 52 62 50 54 C48 42 56 34 60 20 Z" fill="#F59E0B"/>
+            <path d="M60 28 C63 36 68 44 66 52 C65 56 62 59 60 59 C58 59 55 56 54 52 C52 44 57 36 60 28 Z" fill="#FEF08A"/>
+            <path d="M60 38 C61 44 63 48 62 52 C61 54 60 55 60 55 C60 55 59 54 58 52 C57 48 59 44 60 38 Z" fill="#FFFFFF"/>
+          </svg>`
+        },
+        {
+          id: 'govardhan-puja', // Some calendars show November 9. Confirm the correct date.
+          nameEn: 'Govardhan Puja',
+          nameHi: 'गोवर्धन पूजा',
+          taglineEn: 'Annakut • Reverence for Nature & Provider',
+          taglineHi: 'अन्नकूट • प्रकृति एवं गिरिराज वंदना',
+          date: '2026-11-10',
+          wishHi: 'गोवर्धन पूजा की शुभकामनाएं',
+          wishEn: 'Happy Govardhan Puja',
+          shortBlessingEn: 'May Lord Krishna and Giriraj Govardhan protect and nourish your family with divine abundance.',
+          shortBlessingHi: 'भगवान श्री कृष्ण और गिरिराज महाराज की कृपा से आपके परिवार में सदा संपन्नता, सुरक्षा एवं शांति बनी रहे।',
+          illustration: `<svg class="garland-card-svg" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+            <defs>
+              <radialGradient id="govardhanGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.3"/>
+                <stop offset="100%" stop-color="#D4AF37" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="hillGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#78350F"/>
+                <stop offset="50%" stop-color="#451A03"/>
+                <stop offset="100%" stop-color="#1E1007"/>
+              </linearGradient>
+            </defs>
+            <circle cx="60" cy="58" r="48" fill="url(#govardhanGlow)"/>
+            <!-- Peacock Feather at Summit (Krishna's Crest) -->
+            <path d="M60 20 Q66 12 72 20 Q66 28 60 20 Z" fill="#047857" stroke="#10B981" stroke-width="1"/>
+            <ellipse cx="66" cy="20" rx="3.5" ry="2.5" fill="#1D4ED8"/>
+            <circle cx="66" cy="20" r="1.2" fill="#F59E0B"/>
+            <path d="M60 20 Q56 26 54 34" stroke="#D4AF37" stroke-width="1.2"/>
+            <!-- Sacred Giriraj Govardhan Hill silhouette -->
+            <path d="M22 94 C26 78 34 66 44 60 C50 56 56 46 60 36 C64 46 70 56 76 60 C86 66 94 78 98 94 Z" fill="url(#hillGrad)" stroke="#D4AF37" stroke-width="1.8"/>
+            <!-- Sacred Flora & Terraced Steppes -->
+            <path d="M36 78 Q48 74 60 76 Q72 74 84 78" stroke="#10B981" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M30 86 Q46 82 60 84 Q74 82 90 86" stroke="#059669" stroke-width="1.6" stroke-linecap="round"/>
+            <!-- Holy Annakut Offering Pot at Base -->
+            <ellipse cx="60" cy="95" rx="16" ry="6" fill="#B45309" stroke="#FDE68A" stroke-width="1.2"/>
+            <path d="M50 94 Q60 88 70 94" fill="#FEF08A"/>
+            <!-- Protective Aura Rings -->
+            <circle cx="60" cy="36" r="6" stroke="#FFE699" stroke-width="1" stroke-dasharray="2 2" opacity="0.8"/>
+          </svg>`
+        },
+        {
+          id: 'bhai-dooj', // Some calendars show November 10. Confirm the correct date.
+          nameEn: 'Bhai Dooj',
+          nameHi: 'भाई दूज',
+          taglineEn: 'Yama Dwitiya • Eternal Bond of Siblings',
+          taglineHi: 'यम द्वितीया • भाई-बहन के प्रेम का पावन पर्व',
+          date: '2026-11-11',
+          wishHi: 'भाई दूज की शुभकामनाएं',
+          wishEn: 'Happy Bhai Dooj',
+          shortBlessingEn: 'Celebrating the timeless sacred bond of love, care, and protection between brothers and sisters.',
+          shortBlessingHi: 'भाई-बहन के अटूट स्नेह, विश्वास और मंगलकामनाओं का यह पावन पर्व सदैव खुशियां और समृद्धि लाए।',
+          illustration: `<svg class="garland-card-svg" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+            <defs>
+              <radialGradient id="thaliGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#F2A01F" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="#F2A01F" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="brassThali" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFE699"/>
+                <stop offset="45%" stop-color="#D4AF37"/>
+                <stop offset="100%" stop-color="#8C6D1F"/>
+              </linearGradient>
+            </defs>
+            <circle cx="60" cy="60" r="48" fill="url(#thaliGlow)"/>
+            <!-- Brass Aarti Thali Rim -->
+            <ellipse cx="60" cy="64" rx="44" ry="32" fill="url(#brassThali)" stroke="#F2A01F" stroke-width="2"/>
+            <ellipse cx="60" cy="64" rx="38" ry="27" fill="#241912" stroke="#FFE699" stroke-width="1.2"/>
+            <!-- Auspicious Roli (Vermilion) Tilak Mark -->
+            <ellipse cx="60" cy="56" rx="4" ry="12" fill="#B91C1C" stroke="#F87171" stroke-width="1"/>
+            <circle cx="60" cy="50" r="2.2" fill="#FEF08A"/>
+            <!-- Akshat (Holy Rice Grains) -->
+            <ellipse cx="54" cy="62" rx="1.6" ry="3.5" fill="#FFFBEB" transform="rotate(-25 54 62)"/>
+            <ellipse cx="66" cy="62" rx="1.6" ry="3.5" fill="#FFFBEB" transform="rotate(25 66 62)"/>
+            <ellipse cx="58" cy="66" rx="1.6" ry="3" fill="#FFFBEB" transform="rotate(10 58 66)"/>
+            <ellipse cx="62" cy="66" rx="1.6" ry="3" fill="#FFFBEB" transform="rotate(-15 62 66)"/>
+            <!-- Miniature Auspicious Diya on Thali Rim -->
+            <path d="M50 78 Q55 86 60 86 Q65 86 70 78 Z" fill="#993B1E" stroke="#F59E0B" stroke-width="1"/>
+            <path d="M60 70 C61.5 74 63.5 76 63 79 C62.5 81 61.5 82 60 82 C58.5 82 57.5 81 57 79 C56.5 76 58.5 74 60 70 Z" fill="#F59E0B"/>
+            <circle cx="60" cy="76" r="1.5" fill="#FFFBEB"/>
+            <!-- Sacred Sweets (Mithai) on side -->
+            <rect x="36" y="58" width="8" height="8" rx="1.5" fill="#D97706" stroke="#FEF3C7" stroke-width="0.8" transform="rotate(20 40 62)"/>
+            <rect x="76" y="58" width="8" height="8" rx="1.5" fill="#D97706" stroke="#FEF3C7" stroke-width="0.8" transform="rotate(-20 80 62)"/>
+          </svg>`
+        },
+        {
+          id: 'chhath-puja', // Confirm the date.
+          nameEn: 'Chhath Puja',
+          nameHi: 'छठ पूजा',
+          taglineEn: 'Surya Shashthi • Homage to the Sun & Nature',
+          taglineHi: 'सूर्य षष्ठी • छठी मइया व भगवान भास्कर की उपासना',
+          date: '2026-11-15',
+          wishHi: 'छठ पूजा की शुभकामनाएं',
+          wishEn: 'Happy Chhath Puja',
+          shortBlessingEn: 'May Lord Surya and Chhathi Maiya bestow radiant health, purity, vitality, and boundless joy.',
+          shortBlessingHi: 'भगवान भास्कर एवं षष्ठी मइया आपके जीवन को तेज, निरोगी काया, आत्मिक शांति और अटूट श्रद्धा से आलोकित करें।',
+          illustration: `<svg class="garland-card-svg" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+            <defs>
+              <radialGradient id="suryaGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#E8801A" stop-opacity="0.45"/>
+                <stop offset="100%" stop-color="#E8801A" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="sunGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" stop-color="#EA580C"/>
+                <stop offset="50%" stop-color="#F59E0B"/>
+                <stop offset="100%" stop-color="#FEF08A"/>
+              </linearGradient>
+            </defs>
+            <circle cx="60" cy="52" r="48" fill="url(#suryaGlow)"/>
+            <!-- Sun Rays -->
+            <line x1="60" y1="12" x2="60" y2="22" stroke="#FEF08A" stroke-width="2" stroke-linecap="round"/>
+            <line x1="36" y1="20" x2="43" y2="28" stroke="#FEF08A" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="84" y1="20" x2="77" y2="28" stroke="#FEF08A" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="22" y1="42" x2="32" y2="44" stroke="#FEF08A" stroke-width="1.6" stroke-linecap="round"/>
+            <line x1="98" y1="42" x2="88" y2="44" stroke="#FEF08A" stroke-width="1.6" stroke-linecap="round"/>
+            <!-- Rising Sun Disc at Dawn -->
+            <circle cx="60" cy="52" r="22" fill="url(#sunGrad)" stroke="#FFE699" stroke-width="1.5"/>
+            <!-- Sacred Ganga Water Ripples -->
+            <path d="M18 72 Q36 68 60 72 Q84 76 102 72" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round" opacity="0.8"/>
+            <path d="M24 82 Q44 78 60 82 Q76 86 96 82" stroke="#0284C7" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
+            <path d="M20 92 Q40 88 60 92 Q80 96 100 92" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" opacity="0.9"/>
+            <!-- Brass Arghya Kalash pouring holy water -->
+            <path d="M60 84 Q54 74 60 68 Q66 74 60 84 Z" fill="#D4AF37" stroke="#FEF08A" stroke-width="1"/>
+            <line x1="60" y1="84" x2="60" y2="92" stroke="#E0F2FE" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Sugar Cane Stalks (Ikshu) -->
+            <line x1="32" y1="96" x2="38" y2="56" stroke="#4D7C0F" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="88" y1="96" x2="82" y2="56" stroke="#4D7C0F" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>`
+        }
+      ];
+
+      /* ==============================================================
+         2. FESTIVAL DATE UTILITIES
+         Uses local calendar comparison to find Today, Next, and Past
+         ============================================================== */
+      function getLocalTodayDateString() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+      }
+
+      function formatFestivalDate(dateStr) {
+        if (!dateStr) return '';
+        const parts = dateStr.split('-');
+        if (parts.length !== 3) return dateStr;
+        const year = parseInt(parts[0], 10);
+        const month = parseInt(parts[1], 10) - 1;
+        const day = parseInt(parts[2], 10);
+        const d = new Date(year, month, day);
+        return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+      }
+
+      function computeFestivalStatuses(festivals, todayStr) {
+        let todayFestId = null;
+        let nextFestId = null;
+        let minFutureDiff = Infinity;
+
+        // Check if there is an exact match for today
+        festivals.forEach(function (f) {
+          if (f.date === todayStr) {
+            todayFestId = f.id;
+          }
+        });
+
+        // Find the closest future date if today is not the last festival
+        festivals.forEach(function (f) {
+          if (f.date > todayStr) {
+            const diff = new Date(f.date).getTime() - new Date(todayStr).getTime();
+            if (diff > 0 && diff < minFutureDiff) {
+              minFutureDiff = diff;
+              nextFestId = f.id;
+            }
+          }
+        });
+
+        const statuses = {};
+        festivals.forEach(function (f) {
+          if (f.date === todayStr) {
+            statuses[f.id] = 'today';
+          } else if (f.id === nextFestId) {
+            statuses[f.id] = 'next';
+          } else if (f.date < todayStr) {
+            statuses[f.id] = 'past';
+          } else {
+            statuses[f.id] = 'future';
+          }
+        });
+
+        return { statuses, todayFestId, nextFestId };
+      }
+
+      const todayString = getLocalTodayDateString();
+      const festivalAnalysis = computeFestivalStatuses(FESTIVALS, todayString);
+      const festivalStatuses = festivalAnalysis.statuses;
+
+      /* ==============================================================
+         3. SHARED FESTIVAL SELECTION STATE
+         Initial selection: today's festival if available, else next, else diwali
+         ============================================================== */
+      let currentSelectedFestivalId = festivalAnalysis.todayFestId || festivalAnalysis.nextFestId || 'diwali';
+
+      function getSelectedFestival() {
+        return FESTIVALS.find(function (f) { return f.id === currentSelectedFestivalId; }) || FESTIVALS[2];
+      }
+
+      /* ==============================================================
+         4. FESTIVAL GARLAND RENDERING
+         Renders 6 cards into #garland-cards-container with inline SVGs,
+         status badges, and synchronizes selection.
+         ============================================================== */
+      const garlandContainer = document.getElementById('garland-cards-container');
+
+      function renderFestivalGarland() {
+        if (!garlandContainer) return;
+        garlandContainer.innerHTML = '';
+
+        FESTIVALS.forEach(function (fest) {
+          const status = festivalStatuses[fest.id] || 'future';
+          const isSelected = fest.id === currentSelectedFestivalId;
+
+          const card = document.createElement('div');
+          card.className = `garland-card ${status === 'today' ? 'is-today' : ''} ${status === 'past' ? 'is-past' : ''} ${isSelected ? 'active' : ''}`;
+          card.id = `garland-card-${fest.id}`;
+          card.setAttribute('role', 'tab');
+          card.setAttribute('tabindex', '0');
+          card.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+          card.setAttribute('aria-label', `${fest.nameEn} (${fest.nameHi}) - ${fest.taglineEn}`);
+
+          let badgeHtml = '';
+          if (status === 'today') {
+            badgeHtml = `<span class="garland-badge badge-today"><span class="badge-dot"></span>Today</span>`;
+          } else if (status === 'next') {
+            badgeHtml = `<span class="garland-badge badge-next">Next</span>`;
+          } else if (status === 'past') {
+            badgeHtml = `<span class="garland-badge badge-past">Past</span>`;
+          } else {
+            badgeHtml = `<span class="garland-badge badge-upcoming">Upcoming</span>`;
+          }
+
+          card.innerHTML = `
+            <div class="garland-badge-row">${badgeHtml}</div>
+            <div class="garland-card-illustration">${fest.illustration}</div>
+            <div class="garland-card-header">
+              <h4 class="garland-card-title-hi">${fest.nameHi}</h4>
+              <h5 class="garland-card-title-en">${fest.nameEn}</h5>
+            </div>
+            <p class="garland-card-date">${formatFestivalDate(fest.date)}</p>
+            <p class="garland-card-tagline">${fest.taglineHi}</p>
+            <p class="garland-card-blessing">${fest.shortBlessingEn}</p>
+          `;
+
+          function onCardSelect() {
+            selectFestival(fest.id, true);
+          }
+
+          card.addEventListener('click', onCardSelect);
+          card.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              onCardSelect();
+            }
+          });
+
+          garlandContainer.appendChild(card);
+        });
+      }
+
+      /* ==============================================================
+         5. HERO SEASONAL WISH ROTATION
+         Rotates through the 6 Hindi wishes with a smooth cross-fade (~4s)
+         Pauses when tab is hidden, static on prefers-reduced-motion.
+         ============================================================== */
+      const heroWishText = document.getElementById('hero-seasonal-wish');
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let wishRotationTimer = null;
+      let wishIndex = 0;
+
+      // Start with the wish corresponding to today or next festival if possible
+      const initialFestIndex = FESTIVALS.findIndex(function (f) { return f.id === currentSelectedFestivalId; });
+      if (initialFestIndex >= 0) {
+        wishIndex = initialFestIndex;
+      }
+
+      function updateHeroWishDisplay() {
+        if (!heroWishText) return;
+        const currentFest = FESTIVALS[wishIndex];
+        heroWishText.textContent = currentFest ? currentFest.wishHi : 'शुभ दीपावली';
+      }
+
+      function advanceHeroWish() {
+        if (!heroWishText || prefersReducedMotion || document.hidden) return;
+        heroWishText.classList.add('fade-out');
+
+        setTimeout(function () {
+          wishIndex = (wishIndex + 1) % FESTIVALS.length;
+          updateHeroWishDisplay();
+          heroWishText.classList.remove('fade-out');
+        }, 500);
+      }
+
+      function startWishRotation() {
+        if (prefersReducedMotion) {
+          updateHeroWishDisplay();
+          return;
+        }
+        if (wishRotationTimer) clearInterval(wishRotationTimer);
+        wishRotationTimer = setInterval(advanceHeroWish, 4000);
+      }
+
+      function stopWishRotation() {
+        if (wishRotationTimer) {
+          clearInterval(wishRotationTimer);
+          wishRotationTimer = null;
+        }
+      }
+
+      updateHeroWishDisplay();
+      startWishRotation();
+
+      /* ==============================================================
+         6. SEND A BLESSING UPGRADE & SYNCHRONIZATION
+         - Festival Chips (tablist)
+         - Bilingual preview card
+         - WhatsApp link with exact signature: "Prem Agarbatti Agency family"
+         ============================================================== */
+      const chipsContainer = document.getElementById('greeting-festival-chips');
+      const nameInput = document.getElementById('sender-name-input');
+      const createCardBtn = document.getElementById('btn-generate-card');
+      const senderDisplay = document.getElementById('card-sender-display');
+      const shareWaBtn = document.getElementById('btn-share-whatsapp');
+      const copyBtn = document.getElementById('btn-copy-text');
+      const toastEl = document.getElementById('toast-pill');
+
+      const cardTitleEn = document.getElementById('card-festival-title-en');
+      const cardTitleHi = document.getElementById('card-festival-title-hi');
+      const cardMsgEn = document.getElementById('card-festival-message-en');
+      const cardMsgHi = document.getElementById('card-festival-message-hi');
+
+      function showToast(msg) {
+        if (!toastEl) return;
+        toastEl.textContent = msg;
+        toastEl.classList.add('show');
+        setTimeout(function () {
+          toastEl.classList.remove('show');
+        }, 2600);
+      }
+
+      function renderFestivalChips() {
+        if (!chipsContainer) return;
+        chipsContainer.innerHTML = '';
+
+        FESTIVALS.forEach(function (fest) {
+          const isSelected = fest.id === currentSelectedFestivalId;
+          const chip = document.createElement('button');
+          chip.type = 'button';
+          chip.className = `festival-chip ${isSelected ? 'active' : ''}`;
+          chip.id = `fest-chip-${fest.id}`;
+          chip.setAttribute('role', 'tab');
+          chip.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+          chip.innerHTML = `<span class="chip-hi">${fest.nameHi}</span> <span class="chip-en">${fest.nameEn}</span>`;
+
+          chip.addEventListener('click', function () {
+            selectFestival(fest.id, false);
+          });
+
+          chipsContainer.appendChild(chip);
+        });
+      }
+
+      function updateBlessingCardPreview() {
+        const fest = getSelectedFestival();
+        const nameVal = (nameInput && nameInput.value.trim()) || 'Tarun Goyal & Family';
+
+        if (cardTitleEn) cardTitleEn.textContent = fest.wishEn;
+        if (cardTitleHi) cardTitleHi.textContent = fest.wishHi;
+        if (cardMsgEn) cardMsgEn.textContent = fest.shortBlessingEn;
+        if (cardMsgHi) cardMsgHi.textContent = fest.shortBlessingHi;
+        if (senderDisplay) senderDisplay.textContent = nameVal;
+
+        // WhatsApp sharing text with EXACT signature "Prem Agarbatti Agency family"
+        const blessingMsg =
+          `🪔 *${fest.wishEn} | ${fest.wishHi}*\n\n` +
+          `${fest.shortBlessingEn}\n\n` +
+          `${fest.shortBlessingHi}\n\n` +
+          `With heartfelt wishes from *${nameVal}*\n` +
+          `Prem Agarbatti Agency family\n` +
+          `Khari Baoli, Delhi (Wholesale Agarbatti & Dhoop since 1992)`;
+
+        if (shareWaBtn) {
+          shareWaBtn.href = 'https://wa.me/919818296081?text=' + encodeURIComponent(blessingMsg);
+        }
+      }
+
+      function selectFestival(festId, scrollGarland) {
+        currentSelectedFestivalId = festId;
+
+        // Update garland cards active state
+        document.querySelectorAll('.garland-card').forEach(function (card) {
+          const isActive = card.id === `garland-card-${festId}`;
+          card.classList.toggle('active', isActive);
+          card.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        // Smoothly bring selected card into view on horizontal mobile scroll
+        if (scrollGarland) {
+          const activeCard = document.getElementById(`garland-card-${festId}`);
+          if (activeCard && garlandContainer) {
+            activeCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          }
+        }
+
+        // Update festival chips active state
+        document.querySelectorAll('.festival-chip').forEach(function (chip) {
+          const isActive = chip.id === `fest-chip-${festId}`;
+          chip.classList.toggle('active', isActive);
+          chip.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        updateBlessingCardPreview();
+      }
+
+      renderFestivalGarland();
+      renderFestivalChips();
+      updateBlessingCardPreview();
+
+      if (createCardBtn) {
+        createCardBtn.addEventListener('click', function () {
+          updateBlessingCardPreview();
+          showToast('Blessing card updated with your name');
+        });
+      }
+
+      if (nameInput) {
+        nameInput.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter') {
+            updateBlessingCardPreview();
+            showToast('Blessing card updated with your name');
+          }
+        });
+      }
+
+      if (copyBtn) {
+        copyBtn.addEventListener('click', function () {
+          const fest = getSelectedFestival();
+          const nameVal = (nameInput && nameInput.value.trim()) || 'Tarun Goyal & Family';
+          const blessingMsg =
+            `🪔 ${fest.wishEn} | ${fest.wishHi}\n\n` +
+            `${fest.shortBlessingEn}\n\n` +
+            `${fest.shortBlessingHi}\n\n` +
+            `With heartfelt wishes from ${nameVal}\n` +
+            `Prem Agarbatti Agency family\n` +
+            `Khari Baoli, Delhi (Wholesale Agarbatti & Dhoop since 1992)`;
+
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(blessingMsg).then(function () {
+              showToast('Blessing copied to clipboard');
+            }).catch(function () {
+              showToast('Blessing copied');
+            });
+          } else {
+            showToast('Blessing copied');
+          }
+        });
+      }
+
+      /* ==============================================================
+         7. FIREWORKS ENGINE (Pre-allocated pool, max 400, 0 GC)
+         Bursts trigger on pointerdown on Hero section or Sparkle button
+         ============================================================== */
+      const FIREWORKS_CONFIG = {
+        maxParticles: 400,
+        particlesPerBurst: 110,
+        gravity: 0.045,
+        friction: 0.982,
+        minFade: 0.012,
+        maxFade: 0.024,
+        speedMax: 4.6,
+        colors: ['#F2A01F', '#E8801A', '#F6EBD6', '#B5502B', '#FFE699', '#D4AF37']
+      };
+
+      const canvas = document.getElementById('fireworks-canvas');
+      const ctx = canvas ? canvas.getContext('2d') : null;
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      let dpr = Math.min(window.devicePixelRatio || 1, 2);
+      let animationFrameId = null;
+      let isTabVisible = !document.hidden;
+
+      const pool = [];
+      let activeCount = 0;
+
+      for (let i = 0; i < FIREWORKS_CONFIG.maxParticles; i++) {
+        pool.push({
+          active: false,
+          x: 0,
+          y: 0,
+          vx: 0,
+          vy: 0,
+          alpha: 1,
+          fade: 0.02,
+          radius: 2,
+          color: '#F2A01F'
+        });
+      }
+
+      function resizeCanvas() {
+        if (!canvas || !ctx) return;
+        width = window.innerWidth;
+        height = window.innerHeight;
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
+        ctx.scale(dpr, dpr);
+      }
+
+      window.addEventListener('resize', resizeCanvas, { passive: true });
+      resizeCanvas();
+
+      function triggerBurst(x, y) {
+        if (prefersReducedMotion || !ctx) return;
+
+        let spawned = 0;
+        const count = FIREWORKS_CONFIG.particlesPerBurst;
+
+        for (let i = 0; i < pool.length; i++) {
+          const p = pool[i];
+          if (!p.active) {
+            const angle = Math.random() * Math.PI * 2;
+            const speed = (0.6 + Math.random() * 0.4) * FIREWORKS_CONFIG.speedMax;
+            p.active = true;
+            p.x = x;
+            p.y = y;
+            p.vx = Math.cos(angle) * speed;
+            p.vy = Math.sin(angle) * speed;
+            p.alpha = 1;
+            p.fade = FIREWORKS_CONFIG.minFade + Math.random() * (FIREWORKS_CONFIG.maxFade - FIREWORKS_CONFIG.minFade);
+            p.radius = 1.2 + Math.random() * 2.2;
+            p.color = FIREWORKS_CONFIG.colors[Math.floor(Math.random() * FIREWORKS_CONFIG.colors.length)];
+
+            activeCount++;
+            spawned++;
+            if (spawned >= count) break;
+          }
+        }
+
+        if (!animationFrameId && isTabVisible) {
+          animationFrameId = requestAnimationFrame(renderFireworks);
+        }
+      }
+
+      function renderFireworks() {
+        if (!ctx || !isTabVisible) {
+          animationFrameId = null;
+          return;
+        }
+
+        ctx.clearRect(0, 0, width, height);
+        let stillActive = 0;
+
+        for (let i = 0; i < pool.length; i++) {
+          const p = pool[i];
+          if (p.active) {
+            p.x += p.vx;
+            p.y += p.vy;
+            p.vx *= FIREWORKS_CONFIG.friction;
+            p.vy *= FIREWORKS_CONFIG.friction;
+            p.vy += FIREWORKS_CONFIG.gravity;
+            p.alpha -= p.fade;
+
+            if (p.alpha <= 0) {
+              p.active = false;
+            } else {
+              stillActive++;
+              ctx.save();
+              ctx.globalAlpha = Math.max(0, p.alpha);
+              ctx.fillStyle = p.color;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+              ctx.fill();
+              ctx.restore();
+            }
+          }
+        }
+
+        activeCount = stillActive;
+
+        if (activeCount > 0) {
+          animationFrameId = requestAnimationFrame(renderFireworks);
+        } else {
+          ctx.clearRect(0, 0, width, height);
+          animationFrameId = null;
+        }
+      }
+
+      const heroSection = document.getElementById('hero');
+      if (heroSection) {
+        heroSection.addEventListener('pointerdown', function (e) {
+          if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.lang-switcher') || e.target.closest('.hero-seasonal-wish-wrap')) {
+            return;
+          }
+          triggerBurst(e.clientX, e.clientY);
+        }, { passive: true });
+      }
+
+      const sparkBtn = document.getElementById('btn-sparkle');
+      if (sparkBtn) {
+        sparkBtn.addEventListener('pointerdown', function (e) {
+          e.stopPropagation();
+          const rect = sparkBtn.getBoundingClientRect();
+          triggerBurst(rect.left + rect.width / 2, rect.bottom + 60);
+          triggerBurst(window.innerWidth / 2, window.innerHeight * 0.38);
+        });
+      }
+
+      // Rising Embers in Hero
+      const embersWrap = document.getElementById('embers-container');
+      if (embersWrap && !prefersReducedMotion) {
+        const emberCount = 12;
+        for (let i = 0; i < emberCount; i++) {
+          const ember = document.createElement('div');
+          ember.className = 'ember';
+          const size = 2 + Math.random() * 3.5;
+          const left = Math.random() * 100;
+          const duration = 9 + Math.random() * 8;
+          const delay = Math.random() * 10;
+          const drift = (Math.random() - 0.5) * 80;
+
+          ember.style.width = size + 'px';
+          ember.style.height = size + 'px';
+          ember.style.left = left + '%';
+          ember.style.animationDuration = duration + 's';
+          ember.style.animationDelay = delay + 's';
+          ember.style.setProperty('--drift', drift + 'px');
+
+          embersWrap.appendChild(ember);
+        }
+      }
+
+      // Comparison Slider (Then and Now)
+      const slider = document.getElementById('comparison-slider');
+      const overlay = document.getElementById('slider-overlay');
+      const handleLine = document.getElementById('slider-handle-line');
+      const handleButton = document.getElementById('slider-handle-button');
+
+      if (slider && overlay && handleLine && handleButton) {
+        let isDragging = false;
+
+        function updateSlider(clientX) {
+          const rect = slider.getBoundingClientRect();
+          let posX = clientX - rect.left;
+          let percent = (posX / rect.width) * 100;
+          percent = Math.max(0, Math.min(100, percent));
+
+          overlay.style.clipPath = 'inset(0 ' + (100 - percent) + '% 0 0)';
+          handleLine.style.left = percent + '%';
+          handleButton.style.left = percent + '%';
+          handleButton.setAttribute('aria-valuenow', Math.round(percent));
+        }
+
+        function onPointerDown(e) {
+          isDragging = true;
+          slider.setPointerCapture(e.pointerId);
+          updateSlider(e.clientX);
+        }
+
+        function onPointerMove(e) {
+          if (!isDragging) return;
+          updateSlider(e.clientX);
+        }
+
+        function onPointerUp(e) {
+          if (isDragging) {
+            isDragging = false;
+            try {
+              slider.releasePointerCapture(e.pointerId);
+            } catch (err) {}
+          }
+        }
+
+        slider.addEventListener('pointerdown', onPointerDown);
+        slider.addEventListener('pointermove', onPointerMove);
+        slider.addEventListener('pointerup', onPointerUp);
+        slider.addEventListener('pointercancel', onPointerUp);
+
+        handleButton.addEventListener('keydown', function (e) {
+          let current = parseFloat(handleButton.getAttribute('aria-valuenow') || '50');
+          if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {
+            current = Math.max(0, current - 5);
+            overlay.style.clipPath = 'inset(0 ' + (100 - current) + '% 0 0)';
+            handleLine.style.left = current + '%';
+            handleButton.style.left = current + '%';
+            handleButton.setAttribute('aria-valuenow', Math.round(current));
+            e.preventDefault();
+          } else if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
+            current = Math.min(100, current + 5);
+            overlay.style.clipPath = 'inset(0 ' + (100 - current) + '% 0 0)';
+            handleLine.style.left = current + '%';
+            handleButton.style.left = current + '%';
+            handleButton.setAttribute('aria-valuenow', Math.round(current));
+            e.preventDefault();
+          }
+        });
+      }
+
+      // Hero Language Emphasis (EN | ALL | HI)
+      const btnAll = document.getElementById('btn-lang-all');
+      const btnEn = document.getElementById('btn-lang-en');
+      const btnHi = document.getElementById('btn-lang-hi');
+      const colEn = document.getElementById('hero-col-en');
+      const colHi = document.getElementById('hero-col-hi');
+
+      function setLanguageMode(mode) {
+        [btnAll, btnEn, btnHi].forEach(function (b) {
+          if (b) b.classList.remove('active');
+        });
+
+        if (mode === 'en') {
+          if (btnEn) btnEn.classList.add('active');
+          if (colEn) colEn.style.display = 'flex';
+          if (colHi) colHi.style.display = 'none';
+        } else if (mode === 'hi') {
+          if (btnHi) btnHi.classList.add('active');
+          if (colEn) colEn.style.display = 'none';
+          if (colHi) colHi.style.display = 'flex';
+        } else {
+          if (btnAll) btnAll.classList.add('active');
+          if (colEn) colEn.style.display = 'flex';
+          if (colHi) colHi.style.display = 'flex';
+        }
+      }
+
+      if (btnAll) btnAll.addEventListener('click', function () { setLanguageMode('all'); });
+      if (btnEn) btnEn.addEventListener('click', function () { setLanguageMode('en'); });
+      if (btnHi) btnHi.addEventListener('click', function () { setLanguageMode('hi'); });
+
+      // Fragrance Products Tabs
+      const productButtons = document.querySelectorAll('.product-tag-btn');
+      productButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          productButtons.forEach(function (b) {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+        });
+      });
+
+      // Scroll Reveal Observer
+      if ('IntersectionObserver' in window) {
+        const observerOptions = { threshold: 0.15 };
+        const revealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll('.blessing-item, #inside-card, .garland-card').forEach(function (el) {
+          revealObserver.observe(el);
+        });
+      } else {
+        document.querySelectorAll('.blessing-item, #inside-card, .garland-card').forEach(function (el) {
+          el.classList.add('revealed');
+        });
+      }
+
+      // Tab Visibility handling for Fireworks & Hero Wish
+      document.addEventListener('visibilitychange', function () {
+        isTabVisible = !document.hidden;
+        if (!isTabVisible) {
+          stopWishRotation();
+          if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+          }
+        } else {
+          startWishRotation();
+          if (activeCount > 0 && !animationFrameId) {
+            animationFrameId = requestAnimationFrame(renderFireworks);
+          }
+        }
+      });
+
+      /* ==============================================================
+         8. SHOP VIDEO PLAYER
+         Tap to play with sound, custom minimal controls,
+         IntersectionObserver pause, battery saver
+         ============================================================== */
+      const videoSection = document.getElementById('shop-video-section');
+      const videoContainer = document.getElementById('shop-video-container');
+      const video = document.getElementById('shop-video');
+      const centerPlayBtn = document.getElementById('video-play-btn');
+      const pauseBtn = document.getElementById('video-pause-btn');
+      const muteBtn = document.getElementById('video-mute-btn');
+      const progressBar = document.getElementById('video-progress-bar');
+      const iconPause = document.getElementById('icon-pause');
+      const iconPlayMini = document.getElementById('icon-play-mini');
+      const iconVolumeOn = document.getElementById('icon-volume-on');
+      const iconVolumeMuted = document.getElementById('icon-volume-muted');
+
+      if (video && videoContainer) {
+        const posterTest = new Image();
+        posterTest.src = '/assets/shop-video-poster.webp';
+        posterTest.onerror = function () {
+          const fallbackTest = new Image();
+          fallbackTest.src = '/assets/shop-inside.webp';
+          fallbackTest.onload = function () {
+            video.poster = '/assets/shop-inside.webp';
+          };
+          fallbackTest.onerror = function () {
+            videoContainer.classList.add('img-fallback');
+          };
+        };
+
+        video.addEventListener('loadedmetadata', function () {
+          if (video.videoHeight > video.videoWidth) {
+            videoContainer.classList.add('portrait-9-16');
+          }
+        });
+
+        function startVideoPlay() {
+          video.muted = false;
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise.then(function () {
+              videoContainer.classList.add('is-playing');
+              document.body.classList.add('video-active-playing');
+              if (iconPause) iconPause.style.display = 'block';
+              if (iconPlayMini) iconPlayMini.style.display = 'none';
+            }).catch(function () {
+              video.muted = true;
+              video.play().then(function () {
+                videoContainer.classList.add('is-playing');
+                document.body.classList.add('video-active-playing');
+                updateVolumeUI();
+              });
+            });
+          }
+        }
+
+        function toggleVideoPause() {
+          if (video.paused) {
+            video.play();
+            videoContainer.classList.add('is-playing');
+            document.body.classList.add('video-active-playing');
+            if (iconPause) iconPause.style.display = 'block';
+            if (iconPlayMini) iconPlayMini.style.display = 'none';
+          } else {
+            video.pause();
+            document.body.classList.remove('video-active-playing');
+            if (iconPause) iconPause.style.display = 'none';
+            if (iconPlayMini) iconPlayMini.style.display = 'block';
+          }
+        }
+
+        function updateVolumeUI() {
+          if (video.muted) {
+            if (iconVolumeOn) iconVolumeOn.style.display = 'none';
+            if (iconVolumeMuted) iconVolumeMuted.style.display = 'block';
+          } else {
+            if (iconVolumeOn) iconVolumeOn.style.display = 'block';
+            if (iconVolumeMuted) iconVolumeMuted.style.display = 'none';
+          }
+        }
+
+        function toggleVideoMute() {
+          video.muted = !video.muted;
+          updateVolumeUI();
+        }
+
+        if (centerPlayBtn) {
+          centerPlayBtn.addEventListener('pointerdown', function (e) {
+            e.stopPropagation();
+            startVideoPlay();
+          });
+        }
+
+        if (pauseBtn) {
+          pauseBtn.addEventListener('pointerdown', function (e) {
+            e.stopPropagation();
+            toggleVideoPause();
+          });
+        }
+
+        if (muteBtn) {
+          muteBtn.addEventListener('pointerdown', function (e) {
+            e.stopPropagation();
+            toggleVideoMute();
+          });
+        }
+
+        video.addEventListener('timeupdate', function () {
+          if (video.duration && progressBar) {
+            const progress = video.currentTime / video.duration;
+            progressBar.style.transform = 'scaleX(' + progress + ')';
+          }
+        });
+
+        video.addEventListener('ended', function () {
+          video.currentTime = 0;
+          videoContainer.classList.remove('is-playing');
+          document.body.classList.remove('video-active-playing');
+          if (progressBar) progressBar.style.transform = 'scaleX(0)';
+          if (iconPause) iconPause.style.display = 'block';
+          if (iconPlayMini) iconPlayMini.style.display = 'none';
+        });
+
+        if ('IntersectionObserver' in window) {
+          const videoObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting && !video.paused) {
+                video.pause();
+                document.body.classList.remove('video-active-playing');
+                if (iconPause) iconPause.style.display = 'none';
+                if (iconPlayMini) iconPlayMini.style.display = 'block';
+              }
+            });
+          }, { threshold: 0.25 });
+          videoObserver.observe(videoContainer);
+        }
+
+        document.addEventListener('visibilitychange', function () {
+          if (document.hidden && !video.paused) {
+            video.pause();
+            document.body.classList.remove('video-active-playing');
+            if (iconPause) iconPause.style.display = 'none';
+            if (iconPlayMini) iconPlayMini.style.display = 'block';
+          }
+        });
+      }
+
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "Prem Agarbatti Agency - Diwali Greetings",
+  "description": "Handcrafted, calm Diwali greeting website for Prem Agarbatti Agency (Khari Baoli, Delhi, since 1992).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
